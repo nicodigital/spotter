@@ -3,28 +3,28 @@ import Logo from "../Logo.astro";
 import Button from "../Button.astro";
 ---
 
-<section class="relative bg-[#132963] px-4 py-12 sm:px-4 sm:py-12 lg:px-8 lg:py-35 mask-round overflow-hidden" id="contacto">
+<section class="relative bg-[#132963] px-4 py-12 sm:px-4 sm:py-12 lg:px-8 lg:py-25 mask-round overflow-hidden" id="contacto">
 
   <!-- Video background -->
   <div class="absolute inset-0 z-0 bg-white">
     <video class="w-full h-full object-cover grayscale opacity-20 contrast-300 brightness-200" src="/video/video.mp4" autoplay muted loop></video>
   </div>
 
-  <div class="relative mx-auto max-w-[1280px] z-20">
+  <div class="relative mx-auto max-w-[75%] z-20">
     <div class="flex justify-between items-center gap-12 text-center lg:grid-cols-2 lg:gap-15 lg:text-left">
-      <div class="flex flex-col items-center gap-6 lg:items-start lg:-translate-y-[.8rem]">
+      <div class="flex flex-col items-center gap-6 lg:items-start lg:-translate-y-[.8rem] lg:w-[50%] lg:translate-y-[.5rem]">
         <h2 class="title text-primary-dark">
           Protege lo <br>
           que importa
         </h2>
+        <p class="m-0 font-[var(--font-public-sans)] text-[18px] leading-[1.5] lg:w-[80%]">
+          Contacta con nuestro equipo y descubre cómo <br>Spotter protege lo que más importa.
+        </p>
       </div>
       
-      <div class="flex flex-col items-center gap-8 lg:items-start lg:w-[40%]">
-        <p class="m-0 font-[var(--font-public-sans)] text-[18px] leading-[1.5] lg:w-[80%]">
-          Contacta con nuestro equipo y descubre cómo Spotter protege lo que más importa.
-        </p>
+      <div class="flex items-center gap-8 lg:items-start lg:w-[40%] justify-end">
         <div class="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-          <Button variant="yellow" size="lg" href="#presupuesto">
+          <Button variant="primary" size="lg" href="#presupuesto">
             Solicitar presupuesto
           </Button>
           <Button variant="outline_dark" size="lg" href="tel:+123456789">
