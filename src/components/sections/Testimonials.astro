@@ -1,0 +1,59 @@
+---
+import TestimonialCard from "../TestimonialCard.astro";
+
+const testimonials = [
+  {
+    quote: "Spotter cambió la forma en que protejo mi propiedad. Duermo tranquilo.",
+    author: "Carlos Mendoza",
+    role: "Propietario",
+    company: "Residencias del Sol",
+    avatar: "https://www.figma.com/api/mcp/asset/7668a783-f1fb-4c37-96c9-a1990bd09108",
+    rating: 5
+  },
+  {
+    quote: "El servicio es impecable. Responden al instante ante cualquier situación.",
+    author: "María García",
+    role: "Gerente",
+    company: "Empresas García Ltd",
+    avatar: "https://www.figma.com/api/mcp/asset/193a6e5b-8e6c-45ae-b613-20df8238581a",
+    rating: 5
+  },
+  {
+    quote: "Profesionales de verdad. Spotter es la seguridad que mi negocio necesita.",
+    author: "Roberto Sánchez",
+    role: "Director",
+    company: "Comercial RS",
+    avatar: "https://www.figma.com/api/mcp/asset/0e3719ad-74be-4523-ae34-2e7c6ca3a553",
+    rating: 5
+  }
+];
+---
+
+<section class="bg-[#3068F9] px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-40">
+  <div class="mx-auto flex max-w-[1280px] flex-col gap-16">
+    <div class="flex flex-col gap-4">
+
+      <h2 class="m-0 font-[var(--font-sora)] text-[28px] leading-[1.2] font-semibold tracking-[-1px] text-white lg:text-4xl xl:text-5xl">
+        Voces de  confianza
+      </h2>
+
+      <p class="m-0 font-[var(--font-public-sans)] text-[18px] leading-[1.5] text-white">
+        Lo que dicen nuestros clientes.
+      </p>
+      
+    </div>
+    
+    <div class="grid grid-cols-1 gap-6 lg:gap-8 xl:grid-cols-3">
+      {testimonials.map((testimonial) => (
+        <TestimonialCard
+          quote={testimonial.quote}
+          author={testimonial.author}
+          role={testimonial.role}
+          company={testimonial.company}
+          avatar={testimonial.avatar}
+          rating={testimonial.rating}
+        />
+      ))}
+    </div>
+  </div>
+</section>

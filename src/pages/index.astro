@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import HowItWorks from "../components/sections/HowItWorks.astro";
+import Benefits from "../components/sections/Benefits.astro";
+import Protection from "../components/sections/Protection.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import CTA from "../components/sections/CTA.astro";
+---
+
+<Layout title="Spotter - Vigilancia en tiempo real">
+  <Header />
+  <main class="bg-primary">
+    <Hero 
+      tagline="Seguridad"
+      title="Vigilancia<br />en tiempo real"
+      description="Spotter es la solución de portería virtual y monitoreo de seguridad para tu propiedad. Nuestro equipo de profesionales te protege las 24 horas."
+    />
+    <HowItWorks />
+    <Benefits />
+    <Protection />
+    <Testimonials />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>

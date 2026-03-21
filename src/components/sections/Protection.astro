@@ -1,0 +1,54 @@
+---
+import Button from "../Button.astro";
+
+const images = [
+  "https://www.figma.com/api/mcp/asset/051516f5-4ed2-4b5e-a24b-6053964d79b5",
+  "https://www.figma.com/api/mcp/asset/391059ae-0feb-4749-b95b-72fefa3025c8",
+  "https://www.figma.com/api/mcp/asset/ba81ca1f-b193-4979-8e5c-8fdce6581b67",
+  "https://www.figma.com/api/mcp/asset/d98a218a-6c24-4ded-92d8-79fd943fcb26",
+  "https://www.figma.com/api/mcp/asset/4106e25c-f756-44cf-bdef-19b6a2272dc7",
+  "https://www.figma.com/api/mcp/asset/40ea3f74-e55b-43a2-9aee-eedc78b006c4",
+  "https://www.figma.com/api/mcp/asset/5f358aa1-e8ec-4bcb-8819-ccf77acd7be4",
+  "https://www.figma.com/api/mcp/asset/c86ddc7d-7e52-4685-a54f-3369ef426ae8"
+];
+---
+
+<section class="bg-white px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-28 mask-round" id="monitoreo">
+  <div class="mx-auto flex max-w-[1280px] flex-col gap-16 lg:gap-20">
+    <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-20">
+      <div class="flex flex-col gap-4">
+
+        <span class="font-[var(--font-public-sans)] text-neutral-500 leading-[1.5] font-semibold ">
+          Servicio
+        </span>
+
+        <h2 class="title text-primary-dark">
+          Protección <br>que no duerme
+        </h2>
+
+      </div>
+      
+        <p class="text-neutral-600 mt-11">
+          La vigilancia constante de Spotter garantiza que tu propiedad esté segura todo el tiempo. Desde tu casa hasta tu negocio, nuestro equipo está siempre alerta.
+        </p>
+
+    </div>
+    
+    <div class="flex flex-col gap-4">
+      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {images.slice(0, 4).map((img, i) => (
+          <div class="aspect-square overflow-hidden rounded-lg">
+            <img src={img} alt={`Imagen ${i + 1}`} loading="lazy" class="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div>
+        ))}
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {images.slice(4, 8).map((img, i) => (
+          <div class="aspect-square overflow-hidden rounded-lg">
+            <img src={img} alt={`Imagen ${i + 5}`} loading="lazy" class="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

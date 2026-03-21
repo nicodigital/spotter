@@ -1,0 +1,77 @@
+---
+import Button from "../Button.astro";
+import Shield from "../icons/Shield.astro";
+import Monitor from "../icons/Monitor.astro";
+import Users from "../icons/Users.astro";
+
+interface Benefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const benefits: Benefit[] = [
+  {
+    icon: "shield",
+    title: "Bienestar <br> garantizado",
+    description:
+      "Vive con la tranquilidad de saber que tu propiedad está protegida y monitoreada a diario, hogar y negocio.",
+  },
+  {
+    icon: "monitor",
+    title: "Monitoreo <br> constante",
+    description:
+      "Vigilamos tu propiedad las 24 hs, desde nuestra central de monitoreo altamente equipada.",
+  },
+  {
+    icon: "users",
+    title: "Atención <br>personalizada",
+    description:
+      "Nuestro equipo de atención está siempre disponible para responder a cualquier consulta o incidente.",
+  },
+];
+---
+
+<section
+  class="bg-primary px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-35"
+>
+  <div class="mx-auto flex max-w-[1280px] flex-col items-center gap-16">
+    <div class="max-w-[768px] text-center mb-10 lg:mb-16 text-white">
+      <h2 class="title mb-6 mt-0">Spotter te ofrece</h2>
+
+      <p
+        class="m-0 font-[var(--font-public-sans)] text-[18px] leading-[1.5] w-[66%] mx-auto"
+      >
+        Tu aliado silencioso del cuidado de tu hogar o negocio. Desde un
+        monitoreo constante hasta atención personalizada.
+      </p>
+    </div>
+
+    <div class="grid w-full grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-12 text-white">
+      {
+        benefits.map((benefit) => (
+          <div class="flex flex-col items-center gap-6 p-8 text-center">
+            <div class="h-12 w-12">
+              {benefit.icon === "shield" && <Shield />}
+              {benefit.icon === "monitor" && <Monitor />}
+              {benefit.icon === "users" && <Users />}
+            </div>
+            <h3 class="mb-2 font-[var(--font-sora)] text-xl leading-[1.2] font-semibold">
+              <span set:html={benefit.title} />
+            </h3>
+            <p class="m-0 font-[var(--font-public-sans)] text-base leading-[1.5]">
+              {benefit.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex flex-col items-center gap-4 sm:flex-row mt-3">
+      <Button variant="white" href="#presupuesto"
+        >Solicitar presupuesto</Button
+      >
+      <Button variant="outline" href="#contacto">Contacto →</Button>
+    </div>
+  </div>
+</section>

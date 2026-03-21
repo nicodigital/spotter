@@ -1,0 +1,96 @@
+---
+import Button from "../Button.astro";
+import Eye from "../icons/Eye.astro";
+import Monitor from "../icons/Monitor.astro";
+import Bell from "../icons/Bell.astro";
+import Chart from "../icons/Chart.astro";
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const features: Feature[] = [
+  {
+    icon: "eye",
+    title: "Vigilancia activa",
+    description:
+      "Nuestros operadores monitorean las cámaras de seguridad en tiempo real, como si la propiedad fuera de ellos mismos.",
+  },
+  {
+    icon: "monitor",
+    title: "Portería virtual",
+    description:
+      "Controlamos el acceso de visitantes y vehículos desde nuestra central de monitoreo, en cualquier horario del día o la noche.",
+  },
+  {
+    icon: "bell",
+    title: "Alertas inmediatas",
+    description:
+      "Contamos con tecnología de punta para detectar el menor movimiento en tu propiedad.",
+  },
+  {
+    icon: "chart",
+    title: "Reportes detallados",
+    description:
+      "Recibe informes de todas las novedades importantes sobre tu propiedad vía WhatsApp.",
+  },
+];
+---
+
+<section
+  class="bg-white px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-28 mask-round"
+  id="servicios"
+>
+  <div class="mx-auto max-w-[1280px]">
+    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="flex flex-col gap-4 lg:sticky lg:top-28">
+        <span
+          class="font-[var(--font-public-sans)] text-base leading-[1.5] font-semibold text-neutral-500"
+          >Proceso</span
+        >
+        <h2 class="title text-primary-dark">
+          Cómo funciona <br />nuestro servicio
+        </h2>
+      </div>
+
+      <div class="flex flex-col">
+        <div class="flex flex-col gap-20">
+          {
+            features.map((feature) => (
+              <div class="icon-wrap flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-18">
+                <div class="relative icon size-10 shrink-0 text-[#3068F9]">
+                  {feature.icon === "eye" && <Eye class="size-full" />}
+                  {feature.icon === "monitor" && <Monitor class="size-full" />}
+                  {feature.icon === "bell" && <Bell class="size-full" />}
+                  {feature.icon === "chart" && <Chart class="size-full" />}
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="m-0 font-[var(--font-sora)] text-[20px] leading-[1.4] font-semibold text-neutral-800">
+                    {feature.title}
+                  </h3>
+                  <p class="m-0 font-[var(--font-public-sans)] text-base leading-[1.5] text-[#6B7280]">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .icon-wrap:not(:last-child) .icon::before {
+    content: "";
+    position: absolute;
+    top: 3.6rem;
+    left: 1.2rem;
+    width: 2px;
+    height: 5.5rem;
+    background-color: #3068F9;
+  }
+</style>

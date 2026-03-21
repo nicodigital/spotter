@@ -1,0 +1,42 @@
+---
+interface Props {
+  variant?: "primary" | "secondary" | "white" | "yellow" | "outline" | "outline_dark" | "link";
+  size?: "sm" | "md" | "lg";
+  href?: string;
+  class?: string;
+}
+
+const { variant = "primary", size = "md", href, class: className = "" } = Astro.props;
+
+const baseClasses = "inline-flex items-center justify-center gap-[0.5rem] font-semibold transition-all duration-200 cursor-pointer rounded-[3rem] [corner-shape:squircle] [&_svg]:size-7";
+
+const variantClasses = {
+  primary: "bg-primary text-white hover:bg-white hover:text-primary",
+  white: "bg-white text-primary-darker hover:bg-primary-dark hover:!text-white",
+  secondary: "bg-primary text-white hover:bg-[#2555d4]",
+  yellow: "bg-yellow-400 text-primary-darker hover:bg-[#1d52da] hover:!text-white",
+  outline: "border border-white !text-white hover:bg-white/10 hover:backdrop-blur-lg",
+  outline_dark: "border border-primary-darker !text-primary-darker hover:bg-primary-darker/10 hover:backdrop-blur-lg",
+  link: "text-primary hover:underline",
+};
+
+const sizeClasses = {
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-6 py-[.8rem] text-base",
+  lg: "px-8 py-3 text-lg font-extrabold",
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+const Tag = href ? "a" : "button";
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button class={classes}>
+    <slot />
+  </button>
+)}
+

@@ -1,0 +1,34 @@
+/* spotlight.css */
+
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+    /* Asegurar que el contenido esté por encima del brillo si es necesario */
+    z-index: 0;
+}
+
+.spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    /* El gradiente se posiciona dinámicamente mediante variables CSS */
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(223, 184, 142, 0.1), /* Color del resplandor (puedes ajustarlo) */
+        transparent 40%
+    );
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+/* Asegurar que el contenido de la tarjeta esté sobre el brillo */
+.spotlight-card > * {
+    position: relative;
+    z-index: 10;
+}

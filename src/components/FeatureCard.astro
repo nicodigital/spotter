@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  class?: string;
+}
+
+const { title, description, icon, class: className = "" } = Astro.props;
+---
+
+<div class:list={["flex flex-col items-center gap-4 text-center", className]}>
+  {icon && (
+    <div class="h-12 w-12 text-[#3068F9]">
+      <slot name="icon" />
+    </div>
+  )}
+  <div>
+    <h3 class="mb-2 font-[var(--font-sora)] text-[20px] leading-[1.4] font-semibold text-[#111827]">{title}</h3>
+    <p class="font-[var(--font-public-sans)] text-base leading-[1.5] text-[#6B7280]">{description}</p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+---
+import Logo from "../Logo.astro";
+import Button from "../Button.astro";
+---
+
+<section class="relative bg-[#132963] px-4 py-12 sm:px-4 sm:py-12 lg:px-8 lg:py-35 mask-round overflow-hidden" id="contacto">
+
+  <!-- Video background -->
+  <div class="absolute inset-0 z-0 bg-white">
+    <video class="w-full h-full object-cover grayscale opacity-20 contrast-300 brightness-200" src="/video/video.mp4" autoplay muted loop></video>
+  </div>
+
+  <div class="relative mx-auto max-w-[1280px] z-20">
+    <div class="flex justify-between items-center gap-12 text-center lg:grid-cols-2 lg:gap-15 lg:text-left">
+      <div class="flex flex-col items-center gap-6 lg:items-start lg:-translate-y-[.8rem]">
+        <h2 class="title text-primary-dark">
+          Protege lo <br>
+          que importa
+        </h2>
+      </div>
+      
+      <div class="flex flex-col items-center gap-8 lg:items-start lg:w-[40%]">
+        <p class="m-0 font-[var(--font-public-sans)] text-[18px] leading-[1.5] lg:w-[80%]">
+          Contacta con nuestro equipo y descubre cómo Spotter protege lo que más importa.
+        </p>
+        <div class="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+          <Button variant="yellow" size="lg" href="#presupuesto">
+            Solicitar presupuesto
+          </Button>
+          <Button variant="outline_dark" size="lg" href="tel:+123456789">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+            <span>Hablamos</span>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
