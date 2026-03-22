@@ -1,0 +1,51 @@
+@theme {
+  --color-primary: #3068f9;
+  --color-primary-dark: #1d52da;
+  --color-primary-darker: #132963;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-500: #6b7280;
+  --color-gray-900: #111827;
+
+  --color-yellow-50: #fef8ec;
+  --color-yellow-100: #fdebc8;
+  --color-yellow-200: #fad68d;
+  --color-yellow-300: #f7ba52;
+  --color-yellow-400: #f59d20; /* yellow */
+  --color-yellow-500: #ef7f11;
+  --color-yellow-600: #d45c0b;
+
+  --font-sora: "Sora", sans-serif;
+  --font-public-sans: "Public Sans", sans-serif;
+
+  --text-html: 10px;
+  --text-xs: 1.2rem;
+  --text-sm: 1.4rem;
+  --text-base: 1.6rem;
+  --text-md: 1.8rem;
+  --text-lg: 2rem;
+  --text-xl: 2.5rem;
+  --text-2xl: 3rem;
+  --text-3xl: 3.5rem;
+  --text-4xl: 4rem;
+  --text-5xl: 5rem;
+  --text-6xl: 8rem;
+
+  /* Breakpoints */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-xg: 992px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1680px;
+  --breakpoint-4xl: 1920px;
+  --breakpoint-5xl: 2560px;
+}
+
+:root {
+  --container-gap: 1rem;
+}

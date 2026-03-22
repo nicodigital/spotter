@@ -1,0 +1,9 @@
+.menu {
+  @apply items-center gap-8 xg:gap-25;
+  a {
+    @apply flex items-center gap-1 
+  whitespace-nowrap leading-[1.5] 
+  text-white text-md
+  transition-opacity duration-200 hover:opacity-80;
+  }
+}

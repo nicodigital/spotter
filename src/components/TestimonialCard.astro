@@ -12,7 +12,7 @@ interface Props {
 const { quote, author, role, company, avatar, rating = 5, class: className = "" } = Astro.props;
 ---
 
-<div class:list={["flex flex-col gap-6 bg-transparent p-8", className]}>
+<div class:list={["grid grid-rows-[auto_1fr_auto] gap-10 bg-transparent p-8", className]}>
   <div class="flex gap-1">
     {Array.from({ length: rating }).map(() => (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,14 +20,18 @@ const { quote, author, role, company, avatar, rating = 5, class: className = "" 
       </svg>
     ))}
   </div>
-  <blockquote class="font-[var(--font-public-sans)] text-[18px] leading-[1.5] text-white not-italic">"{quote}"</blockquote>
+  <blockquote class="text-xl text-white not-italic mb-10">"{quote}"</blockquote>
   <div class="flex items-center gap-4">
     {avatar && (
-      <img src={avatar} alt={author} class="h-14 w-14 rounded-full object-cover" width="56" height="56" />
+      <img src={avatar} alt={author} class="size-25 rounded-full object-cover" width="56" height="56" />
     )}
     <div class="flex flex-col">
-      <p class="font-[var(--font-public-sans)] text-base leading-[1.5] font-semibold text-white">{author}</p>
-      <p class="font-[var(--font-public-sans)] text-base leading-[1.5] text-white">{role}{company && `, ${company}`}</p>
+      <p class="text-md font-semibold text-white">
+        {author}
+      </p>
+      <p class="text-base text-white">
+        {role}{company && `, ${company}`}
+      </p>
     </div>
   </div>
 

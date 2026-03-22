@@ -17,28 +17,28 @@ const navLinks: NavLink[] = [
 ];
 ---
 
-<header class="fixed w-full inset-x-0 top-0 flex h-[100px] items-center justify-center px-4 md:px-8 lg:px-16 z-[100]">
+<header class="fixed w-full inset-x-0 top-0 flex h-[100px] items-center justify-center px-4 md:px-8 xg:px-20 z-[100]">
   <div class="flex w-full items-center justify-between gap-8">
     <div class="min-w-0 flex-1">
       <Logo />
     </div>
     
-    <nav class="menu hidden items-center gap-8 lg:flex">
+    <nav class="menu hidden xg:flex">
       {navLinks.map((link) => (
-        <a href={link.href} class="flex items-center gap-1 whitespace-nowrap font-[var(--font-public-sans)] leading-[1.5] text-white transition-opacity duration-200 hover:opacity-80">
+        <a href={link.href}>
           {link.label}
           {link.hasDropdown && <ChevronDown class="size-6" />}
         </a>
       ))}
     </nav>
     
-    <div class="hidden min-w-0 flex-1 justify-end lg:flex">
+    <div class="hidden min-w-0 flex-1 justify-end xg:flex">
       <Button variant="yellow" size="lg" href="#contacto">
         Contacto
       </Button>
     </div>
 
-    <button class="flex flex-col gap-1 bg-transparent p-2 lg:hidden" aria-label="Abrir menú">
+    <button class="flex flex-col gap-1 bg-transparent p-2 xg:hidden" aria-label="Abrir menú">
       <span class="block h-[2px] w-6 rounded-[2px] bg-white"></span>
       <span class="block h-[2px] w-6 rounded-[2px] bg-white"></span>
       <span class="block h-[2px] w-6 rounded-[2px] bg-white"></span>
@@ -46,8 +46,4 @@ const navLinks: NavLink[] = [
   </div>
 </header>
 
-<style>
-  .menu a{
-    color: white;
-  }
-</style>
+

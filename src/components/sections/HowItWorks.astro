@@ -40,12 +40,12 @@ const features: Feature[] = [
 ---
 
 <section
-  class="bg-white px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-28 mask-round"
+  class="bg-white px-4 py-30 sm:px-4 sm:py-40 xg:py-55 mask-round"
   id="servicios"
 >
-  <div class="mx-auto max-w-[1280px]">
-    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
-      <div class="flex flex-col gap-4 lg:sticky lg:top-28">
+  <div class="mx-auto max-w-[75%]">
+    <div class="grid grid-cols-1 items-start gap-12 xg:grid-cols-2 xg:gap-20">
+      <div class="flex flex-col gap-4 xg:sticky xg:top-28">
         <span
           class="font-[var(--font-public-sans)] text-base leading-[1.5] font-semibold text-neutral-500"
           >Proceso</span
@@ -56,11 +56,11 @@ const features: Feature[] = [
       </div>
 
       <div class="flex flex-col">
-        <div class="flex flex-col gap-20">
+        <div class="flex flex-col gap-20 xg:gap-35">
           {
             features.map((feature) => (
               <div class="icon-wrap flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-18">
-                <div class="relative icon size-10 shrink-0 text-[#3068F9]">
+                <div class="relative icon size-15 shrink-0 text-[#3068F9]">
                   {feature.icon === "eye" && <Eye class="size-full" />}
                   {feature.icon === "monitor" && <Monitor class="size-full" />}
                   {feature.icon === "bell" && <Bell class="size-full" />}
@@ -87,10 +87,10 @@ const features: Feature[] = [
   .icon-wrap:not(:last-child) .icon::before {
     content: "";
     position: absolute;
-    top: 3.6rem;
-    left: 1.2rem;
+    top: 6rem;
+    left: 1.5rem;
     width: 2px;
-    height: 5.5rem;
+    height: 8rem;
     background-color: #3068F9;
   }
 </style>

@@ -18,26 +18,23 @@ const legalLinks = [
 const socialLinks = [
   { platform: "facebook" as const, href: "#" },
   { platform: "instagram" as const, href: "#" },
-  { platform: "twitter" as const, href: "#" },
-  { platform: "linkedin" as const, href: "#" },
-  { platform: "youtube" as const, href: "#" },
 ];
 ---
 
-<footer class="bg-[#3068F9] px-4 py-12 sm:px-4 sm:py-12 lg:px-8 lg:py-16">
+<footer class="bg-[#3068F9] px-4 py-12 xg:px-8 xg:py-16">
   <div class="mx-auto flex justify-center max-w-[75%] flex-col gap-10">
-    <div class="flex flex-col items-center gap-10 text-center lg:flex-row lg:text-left justify-center">
-      <div class="flex-1 lg:flex-none">
+    <div class="flex flex-col items-center gap-30 text-center xg:flex-row xg:text-left justify-center">
+      <div class="flex-1 xg:flex-none">
         <Logo />
       </div>
       
-      <nav class="flex flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-10">
+      <nav class="flex flex-col flex-wrap justify-center gap-4 xg:flex-row xg:gap-20">
         {footerLinks.map((link) => (
-          <a href={link.href} class="whitespace-nowrap font-[var(--font-public-sans)] text-sm leading-[1.5] font-semibold text-white transition-opacity duration-200 hover:opacity-80">{link.label}</a>
+          <a href={link.href} class="whitespace-nowrap font-[var(--font-public-sans)] text-base leading-[1.5] font-semibold text-white transition-opacity duration-200 hover:opacity-80">{link.label}</a>
         ))}
       </nav>
       
-      <div class="flex flex-1 justify-center gap-3 lg:flex-none lg:justify-end">
+      <div class="flex flex-1 justify-center gap-3 xg:flex-none xg:justify-end">
         {socialLinks.map((social) => (
           <SocialIcon platform={social.platform} href={social.href} />
         ))}
@@ -45,10 +42,12 @@ const socialLinks = [
     </div>
     
     <div class="flex flex-col items-center gap-8">
-      <div class="h-px w-full bg-white/20"></div>
-      <div class="flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-6">
+
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+      <div class="flex flex-col flex-wrap justify-center gap-3 xg:flex-row xg:gap-20">
         {legalLinks.map((link) => (
-          <a href={link.href} class="font-[var(--font-public-sans)] text-sm leading-[1.5] text-white transition-opacity duration-200 hover:opacity-80 hover:underline">{link.label}</a>
+          <a href={link.href} class="text-sm text-white opacity-50 transition-opacity duration-200 hover:opacity-100 hover:underline">{link.label}</a>
         ))}
       </div>
     </div>

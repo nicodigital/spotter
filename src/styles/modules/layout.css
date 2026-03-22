@@ -1,0 +1,32 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+html {
+  font-size: var(--text-html);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-public-sans);
+  color: var(--color-primary-darker);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  @apply px-[--container-gap] w-full mx-auto;
+  @media (min-width: 992px) {
+    --container-gap: 5rem;
+  }
+}
+

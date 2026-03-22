@@ -13,12 +13,12 @@ const images = [
 ];
 ---
 
-<section class="bg-white px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-28 mask-round" id="monitoreo">
-  <div class="mx-auto flex max-w-[1280px] flex-col gap-16 lg:gap-20">
-    <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-20">
+<section class="bg-white px-4 py-30 sm:px-4 sm:py-40 xg:py-55 mask-round" id="monitoreo">
+  <div class="mx-auto flex max-w-[75%] flex-col gap-16 xg:gap-20">
+    <div class="grid grid-cols-1 items-start gap-8 xg:grid-cols-2 xg:gap-20">
       <div class="flex flex-col gap-4">
 
-        <span class="font-[var(--font-public-sans)] text-neutral-500 leading-[1.5] font-semibold ">
+        <span class="text-neutral-400 font-semibold text-md">
           Servicio
         </span>
 
@@ -28,23 +28,23 @@ const images = [
 
       </div>
       
-        <p class="text-neutral-600 mt-11">
+        <p class="text-neutral-600 mt-11 text-md">
           La vigilancia constante de Spotter garantiza que tu propiedad esté segura todo el tiempo. Desde tu casa hasta tu negocio, nuestro equipo está siempre alerta.
         </p>
 
     </div>
     
-    <div class="flex flex-col gap-4">
-      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div class="flex flex-col gap-4 mt-40">
+      <div class="grid grid-cols-2 gap-4 xg:grid-cols-4">
         {images.slice(0, 4).map((img, i) => (
-          <div class="aspect-square overflow-hidden rounded-lg">
+          <div class="overflow-hidden rounded-lg">
             <img src={img} alt={`Imagen ${i + 1}`} loading="lazy" class="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
         ))}
       </div>
-      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div class="grid grid-cols-2 gap-4 xg:grid-cols-4">
         {images.slice(4, 8).map((img, i) => (
-          <div class="aspect-square overflow-hidden rounded-lg">
+          <div class="overflow-hidden rounded-lg">
             <img src={img} alt={`Imagen ${i + 5}`} loading="lazy" class="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
         ))}

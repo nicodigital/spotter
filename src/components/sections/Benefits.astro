@@ -33,10 +33,10 @@ const benefits: Benefit[] = [
 ---
 
 <section
-  class="bg-primary px-4 py-16 sm:px-4 sm:py-16 lg:px-8 lg:py-20 xl:px-16 xl:py-35"
+  class="bg-primary px-4 py-30 sm:px-4 sm:py-50 xg:py-70"
 >
-  <div class="mx-auto flex max-w-[1280px] flex-col items-center gap-16">
-    <div class="max-w-[768px] text-center mb-10 lg:mb-16 text-white">
+  <div class="mx-auto flex max-w-[75%] flex-col items-center gap-16">
+    <div class="max-w-[75%] text-center mb-10 xg:mb-20 text-white">
       <h2 class="title mb-6 mt-0">Spotter te ofrece</h2>
 
       <p
@@ -47,11 +47,11 @@ const benefits: Benefit[] = [
       </p>
     </div>
 
-    <div class="grid w-full grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-12 text-white">
+    <div class="grid w-full grid-cols-1 gap-8 xg:grid-cols-3 xg:gap-30 text-white">
       {
         benefits.map((benefit) => (
-          <div class="flex flex-col items-center gap-6 p-8 text-center">
-            <div class="h-12 w-12">
+          <div class="flex flex-col items-center gap-12 p-8 text-center">
+            <div class="size-20">
               {benefit.icon === "shield" && <Shield />}
               {benefit.icon === "monitor" && <Monitor />}
               {benefit.icon === "users" && <Users />}
@@ -67,11 +67,14 @@ const benefits: Benefit[] = [
       }
     </div>
 
-    <div class="flex flex-col items-center gap-4 sm:flex-row mt-3">
-      <Button variant="white" href="#presupuesto"
-        >Solicitar presupuesto</Button
+    <div class="flex flex-col items-center gap-4 xg:gap-10 sm:flex-row mt-12">
+      <Button variant="white" size="lg"  href="#presupuesto"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
+        <span>Solicitar presupuesto</span>
+        </Button
       >
-      <Button variant="outline" href="#contacto">Contacto →</Button>
+      <Button variant="outline" size="lg"  href="#contacto">Contacto →</Button>
     </div>
   </div>
 </section>
