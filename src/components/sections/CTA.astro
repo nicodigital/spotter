@@ -3,38 +3,86 @@ import Logo from "../Logo.astro";
 import Button from "../Button.astro";
 ---
 
-<section class="relative bg-[#132963] px-4 py-12 sm:px-4 sm:py-12 xg:px-8 xg:py-35 mask-round overflow-hidden" id="contacto">
+<section
+  class="relative bg-primary flex justify-center"
+  id="contacto"
+>
 
-  <!-- Video background -->
-  <div class="absolute inset-0 z-0 bg-white">
-    <video class="w-full h-full object-cover grayscale opacity-20 contrast-300 brightness-200" src="/video/video.mp4" autoplay muted loop></video>
-  </div>
+  <div class="relative container py-30 z-20 rounded-[4rem] [corner-shape:squircle] overflow-hidden">
+    <!-- Video background -->
+    <div class="absolute inset-0 z-0 bg-white">
+      <video
+        class="w-full h-full object-cover grayscale opacity-20 contrast-300 brightness-200"
+        src="/video/video.mp4"
+        autoplay
+        muted
+        loop></video>
+    </div>
 
-  <div class="relative mx-auto max-w-[75%] z-20">
-    <div class="flex justify-between items-center gap-12 text-center xg:grid-cols-2 xg:gap-15 xg:text-left">
-
-      <div class="flex flex-col items-center gap-6 xg:items-start xg:-translate-y-[.8rem] xg:w-[50%] xg:translate-y-[.5rem]">
+    <div
+      class="relative flex justify-between items-center text-center xg:grid-cols-2 xg:text-left z-50"
+    >
+      <div
+        class="flex flex-col items-center gap-6 xg:items-start xg:-translate-y-[.8rem] xg:w-[50%] xg:translate-y-[.5rem]"
+      >
         <h2 class="title text-primary-dark">
-          Protege lo <br>
+          Protege lo <br />
           que importa
         </h2>
         <p class="text-lg xg:w-[80%] text-primary-dark">
-          Contacta con nuestro equipo y descubre cómo <br>Spotter protege lo que más importa.
+          Contacta con nuestro equipo y descubre cómo <br />Spotter protege lo
+          que más importa.
         </p>
       </div>
-      
-      <div class="flex items-center gap-8 xg:items-start xg:w-[40%] justify-end">
-        <div class="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+
+      <div
+        class="flex items-center gap-8 xg:items-start xg:w-[40%] justify-end"
+      >
+        <div class="flex w-full flex-col gap-8 sm:w-auto sm:flex-row">
           <Button variant="primary" size="lg" href="#presupuesto">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report-money"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-report-money"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+              ></path><path
+                d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2"
+              ></path><path
+                d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"
+              ></path><path d="M12 17v1m0 -8v1"></path></svg
+            >
             <span>Solicitar presupuesto</span>
           </Button>
           <Button variant="outline_dark" size="lg" href="tel:+123456789">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path><path
+                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+              ></path></svg
+            >
             <span>Hablamos</span>
           </Button>
         </div>
       </div>
     </div>
   </div>
+
 </section>

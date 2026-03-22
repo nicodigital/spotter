@@ -1,5 +1,4 @@
 ---
-import Button from "../Button.astro";
 import Eye from "../icons/Eye.astro";
 import Monitor from "../icons/Monitor.astro";
 import Bell from "../icons/Bell.astro";
@@ -40,10 +39,10 @@ const features: Feature[] = [
 ---
 
 <section
-  class="bg-white px-4 py-30 sm:px-4 sm:py-40 xg:py-55 mask-round"
+  class="relative bg-white py-30 sm:py-40 xg:py-55 mask-round z-0"
   id="servicios"
 >
-  <div class="mx-auto max-w-[75%]">
+  <div class="mx-auto max-w-[90%] xg:px-60">
     <div class="grid grid-cols-1 items-start gap-12 xg:grid-cols-2 xg:gap-20">
       <div class="flex flex-col gap-4 xg:sticky xg:top-28">
         <span
@@ -81,6 +80,7 @@ const features: Feature[] = [
       </div>
     </div>
   </div>
+  
 </section>
 
 <style>

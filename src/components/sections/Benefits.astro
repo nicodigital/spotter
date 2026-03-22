@@ -1,9 +1,4 @@
 ---
-import Button from "../Button.astro";
-import Shield from "../icons/Shield.astro";
-import Monitor from "../icons/Monitor.astro";
-import Users from "../icons/Users.astro";
-
 interface Benefit {
   icon: string;
   title: string;
@@ -12,32 +7,32 @@ interface Benefit {
 
 const benefits: Benefit[] = [
   {
-    icon: "shield",
     title: "Ahorro",
     description:
       "Reducción de los costos fijos mensuales destinados a seguridad y portería.",
+    iconSvg: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-pig-money'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M15 11v.01' /><path d='M5.173 8.378a3 3 0 1 1 4.656 -1.377' /><path d='M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v2.027a1.5 1.5 0 0 1 -3 0v-.583a6.04 6.04 0 0 1 -1 .083h-4a6.04 6.04 0 0 1 -1 -.083v.583a1.5 1.5 0 0 1 -3 0v-2l0 -.027a6 6 0 0 1 4 -10.473h2.5l4.5 -3' /></svg>"
   },
   {
-    icon: "monitor",
     title: "Control y monitoreo",
     description:
       "Control de acceso a las instalaciones y monitoreo de los subsistemas existentes.",
+    iconSvg: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-device-cctv'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M3 4a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1l0 -2' /><path d='M8 14a4 4 0 1 0 8 0a4 4 0 1 0 -8 0' /><path d='M19 7v7a7 7 0 0 1 -14 0v-7' /><path d='M12 14l.01 0' /></svg>"
   },
   {
-    icon: "users",
     title: "Seguridad 24/7",
     description:
       "Monitoreo en tiempo real de su propiedad, altoparlantes para disuasión, envío inmediato de móvil de respuesta y 911.",
+    iconSvg: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-home-shield'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M5 12h-2l9 -9l7.636 7.636' /><path d='M5 12v7a2 2 0 0 0 2 2h5' /><path d='M9 21v-6a2 2 0 0 1 2 -2h1.5' /><path d='M22 16c0 4 -2.5 6 -3.5 6s-3.5 -2 -3.5 -6c1 0 2.5 -.5 3.5 -1.5c1 1 2.5 1.5 3.5 1.5' /></svg>"
   },
 ];
 ---
 
 <section
-  class="bg-primary px-4 py-30 sm:px-4 sm:py-50 xg:py-70"
+  class="relative bg-primary py-30 sm:py-50 xg:py-70"
 >
-  <div class="mx-auto flex max-w-[75%] flex-col items-center gap-16">
-    <div class="max-w-[75%] text-center mb-10 xg:mb-25 text-white">
-      <h2 class="title mb-10">
+  <div class="container flex flex-col items-center gap-16">
+    <div class="max-w-[80%] text-center mb-10 xg:mb-35 text-white">
+      <h2 class="title mb-10 xg:mb-20">
         Conócenos
       </h2>
       <p
@@ -51,15 +46,13 @@ const benefits: Benefit[] = [
       {
         benefits.map((benefit) => (
           <div class="flex flex-col items-center gap-12 p-8 text-center">
-            <div class="size-20">
-              {benefit.icon === "shield" && <Shield />}
-              {benefit.icon === "monitor" && <Monitor />}
-              {benefit.icon === "users" && <Users />}
+            <div class="[&_svg]:size-25">
+              {benefit.iconSvg && <div set:html={benefit.iconSvg} />}
             </div>
             <h3 class="mb-2 font-[var(--font-sora)] text-xl leading-[1.2] font-semibold">
               <span set:html={benefit.title} />
             </h3>
-            <p class="text-md">
+            <p class="text-md xg:w-[90%]">
               {benefit.description}
             </p>
           </div>
@@ -67,14 +60,7 @@ const benefits: Benefit[] = [
       }
     </div>
 
-    <div class="flex flex-col items-center gap-4 xg:gap-10 sm:flex-row mt-20">
-      <Button variant="white" size="lg"  href="#presupuesto"
-        >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
-        <span>Solicitar presupuesto</span>
-        </Button
-      >
-      <Button variant="outline" size="lg"  href="#contacto">Contacto →</Button>
-    </div>
   </div>
+
+  <div class="bg-tech-grid tech-grid-bg opacity-[0.1] z-10"></div>
 </section>

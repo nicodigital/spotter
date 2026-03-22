@@ -19,16 +19,21 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative flex h-screen items-center overflow-hidden px-4 py-16 sm:min-h-[500px] sm:px-4 sm:py-16 xg:px-8 xg:py-20">
+<section class="relative flex items-center h-screen overflow-hidden py-16 sm:py-16 xg:py-20">
+
+  <!-- Video background -->
   <div class="absolute inset-0 z-0">
     <video class="w-full h-full object-cover grayscale" src={backgroundImage} autoplay muted loop></video>
     <div class="absolute inset-0 bg-[color-mix(in_srgb,var(--color-primary),transparent_30%)]"></div>
   </div>
   
-  <div class="relative mx-auto flex w-full max-w-[75%] flex-col items-center xg:mt-[-4rem] z-20">
-    <div class="flex max-w-[768px] flex-col items-center gap-4 text-center">
+  <div class="relative container flex flex-col xg:mt-[-4rem] z-20">
+    <div class="flex flex-col gap-4">
       <h1 class="big-title text-white mb-6" set:html={title.replace(/\n/g, '<br />')} />
-      <p class="mt-2 xg:mt-6 text-lg text-white w-[80%] mx-auto">{description}</p>
+
+      <p class="mt-2 xg:mt-6 text-lg text-white w-[33%]">
+        {description}
+      </p>
       
       <div class="mt-3 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row">
         <Button variant="white" size="lg" href={primaryCta.href}>
@@ -44,4 +49,5 @@ const {
   </div>
 
   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary z-10 pointer-events-none z-10"></div>
+
 </section>

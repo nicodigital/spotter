@@ -20,9 +20,6 @@ body {
 }
 
 .container {
-  @apply px-[--container-gap] w-full mx-auto;
-  @media (min-width: 992px) {
-    --container-gap: 5rem;
-  }
+  @apply w-full xg:w-[90%] xg:px-60 mx-auto;
 }
 

@@ -12,7 +12,7 @@ interface Props {
 const { quote, author, role, company, avatar, rating = 5, class: className = "" } = Astro.props;
 ---
 
-<div class:list={["grid grid-rows-[auto_1fr_auto] gap-10 bg-transparent p-8", className]}>
+<div class:list={["grid grid-rows-[auto_1fr_auto] gap-10 bg-transparent", className]}>
   <div class="flex gap-1">
     {Array.from({ length: rating }).map(() => (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

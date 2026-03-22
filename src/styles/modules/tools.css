@@ -5,5 +5,5 @@ img {
 }
 
 .mask-round{
-  @apply mx-[1rem] rounded-4xl;
+  @apply w-[90%] mx-auto rounded-[5rem] [corner-shape:squircle];
 }
