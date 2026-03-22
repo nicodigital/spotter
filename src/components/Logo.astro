@@ -5,11 +5,13 @@ interface Props {
 }
 
 const { variant = "light", class: className = "" } = Astro.props;
-const logoSrc = "https://www.figma.com/api/mcp/asset/f37d3734-6712-427c-b5b1-9a73e36166dd";
+const logoSrc = variant === "dark" 
+  ? "/images/logo-dark.svg" 
+  : "https://www.figma.com/api/mcp/asset/f37d3734-6712-427c-b5b1-9a73e36166dd";
 ---
 
 <a href="/" class:list={["logo inline-flex items-center", className]}>
-  <img src={logoSrc} class="w-30 xg:w-60" alt="Spotter Logo" width="84" height="32" />
+  <img src={logoSrc} class="w-30 xg:w-60 2xl:w-70" alt="Spotter Logo" width="84" height="32" />
 </a>
 
 

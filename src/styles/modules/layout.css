@@ -16,11 +16,7 @@ html {
 }
 
 body {
-  font-family: var(--font-public-sans);
-  color: var(--color-primary-darker);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply text-base font-public-sans text-primary-darker leading-[1.5] antialiased;
 }
 
 .container {

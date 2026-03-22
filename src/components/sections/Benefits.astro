@@ -13,21 +13,21 @@ interface Benefit {
 const benefits: Benefit[] = [
   {
     icon: "shield",
-    title: "Bienestar <br> garantizado",
+    title: "Ahorro",
     description:
-      "Vive con la tranquilidad de saber que tu propiedad está protegida y monitoreada a diario, hogar y negocio.",
+      "Reducción de los costos fijos mensuales destinados a seguridad y portería.",
   },
   {
     icon: "monitor",
-    title: "Monitoreo <br> constante",
+    title: "Control y monitoreo",
     description:
-      "Vigilamos tu propiedad las 24 hs, desde nuestra central de monitoreo altamente equipada.",
+      "Control de acceso a las instalaciones y monitoreo de los subsistemas existentes.",
   },
   {
     icon: "users",
-    title: "Atención <br>personalizada",
+    title: "Seguridad 24/7",
     description:
-      "Nuestro equipo de atención está siempre disponible para responder a cualquier consulta o incidente.",
+      "Monitoreo en tiempo real de su propiedad, altoparlantes para disuasión, envío inmediato de móvil de respuesta y 911.",
   },
 ];
 ---
@@ -36,14 +36,14 @@ const benefits: Benefit[] = [
   class="bg-primary px-4 py-30 sm:px-4 sm:py-50 xg:py-70"
 >
   <div class="mx-auto flex max-w-[75%] flex-col items-center gap-16">
-    <div class="max-w-[75%] text-center mb-10 xg:mb-20 text-white">
-      <h2 class="title mb-6 mt-0">Spotter te ofrece</h2>
-
+    <div class="max-w-[75%] text-center mb-10 xg:mb-25 text-white">
+      <h2 class="title mb-10">
+        Conócenos
+      </h2>
       <p
-        class="m-0 font-[var(--font-public-sans)] text-[18px] leading-[1.5] w-[66%] mx-auto"
+        class="w-[66%] mx-auto"
       >
-        Tu aliado silencioso del cuidado de tu hogar o negocio. Desde un
-        monitoreo constante hasta atención personalizada.
+        Spotter nace como una unidad de negocios de GRUPO ASSETS con el objetivo de brindar el mejor servicio de portería virtual y monitoreo de seguridad en tiempo real, garantizando el bienestar y confort así como un servicio de video vigilancia activa velando por la seguridad de nuestros clientes.
       </p>
     </div>
 
@@ -59,7 +59,7 @@ const benefits: Benefit[] = [
             <h3 class="mb-2 font-[var(--font-sora)] text-xl leading-[1.2] font-semibold">
               <span set:html={benefit.title} />
             </h3>
-            <p class="m-0 font-[var(--font-public-sans)] text-base leading-[1.5]">
+            <p class="text-md">
               {benefit.description}
             </p>
           </div>
@@ -67,7 +67,7 @@ const benefits: Benefit[] = [
       }
     </div>
 
-    <div class="flex flex-col items-center gap-4 xg:gap-10 sm:flex-row mt-12">
+    <div class="flex flex-col items-center gap-4 xg:gap-10 sm:flex-row mt-20">
       <Button variant="white" size="lg"  href="#presupuesto"
         >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
