@@ -1,15 +1,13 @@
 <section class="relative py-30 xg:py-20 text-white z-0" id="servicios">
-  
-  <div class="flex justify-center">
+  <div class="container flex justify-center">
     <div
       class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-white/20 to-transparent"
     >
     </div>
   </div>
 
-  <div
-    class="container pt-50 text-center flex flex-col justify-center items-center"
-  >
+  <!-- title -->
+  <div class="pt-50 text-center flex flex-col justify-center items-center">
     <h2 class="title mb-10 xg:mb-20">Servicios</h2>
     <p class="text-lg w-[40%]">
       Descubre nuestros servicios especializados diseñados para brindar
@@ -17,47 +15,61 @@
     </p>
   </div>
 
-  <div class="relative mx-auto max-w-[90%] grid xg:grid-cols-2 gap-20 pt-50 z-20">
-
+  <!-- cards -->
+  <div class="relative max-w-[90%] mx-auto flex flex-col gap-30 pt-50 z-20">
     <!-- Portería Virtual -->
-    <div class="relative h-fit overflow-hidden">
-      <div
-        class="absolute top-0 left-0 p-30 flex flex-col justify-between h-full"
-      >
-        <h2 class="text-4xl font-sora">Portería <br /> Virtual</h2>
-        <p class="text-lg xg:w-[50%]">
-          Control y gestión de los accesos a su propiedad. Reduzca sus gastos
-          comunes.
-        </p>
-      </div>
+    <div class="card-service grid xg:grid-cols-2 gap-50 items-center border border-white/50 rounded-4xl">
       <figure class="overflow-hidden">
         <img
-          class="rounded-4xl aspect-4/3 object-cover"
-          src="/img/porteria-virtual.jpg"
+          class="rounded-4xl aspect-square object-cover"
+          src="/img/porteria.png"
           alt="Portería Virtual"
         />
       </figure>
+
+      <div>
+        <h2 class="text-5xl font-sora mb-20">Portería <br /> Virtual</h2>
+        <p class="text-lg xg:w-[75%]">
+          Desarrollamos este concepto de portería virtual para ofrecerle un
+          control total sobre los accesos, optimizando la seguridad y reduciendo
+          significativamente sus gastos operativos.
+        </p>
+      </div>
     </div>
 
     <!-- Video Vigilancia -->
-    <div class="relative h-fit overflow-hidden">
-      <div
-        class="absolute top-0 left-0 p-30 flex flex-col justify-between h-full"
-      >
-        <h2 class="text-4xl font-sora">Video <br /> Vigilancia</h2>
-        <p class="text-lg xg:w-[50%]">
-          Monitoreo en tiempo real de sus instalaciones y personal. comunes.
+    <div class="card-service grid xg:grid-cols-2 gap-50 items-center border border-white/50 rounded-4xl">
+
+      <div class="pl-50">
+        <h2 class="text-5xl font-sora mb-20">Video <br /> Vigilancia</h2>
+        <p class="text-lg xg:w-[75%]">
+          Desarrolla este concepto de video vigilancia para ofrecerle un
+          monitoreo en tiempo real de sus instalaciones y personal comunes.
         </p>
       </div>
+
       <figure class="overflow-hidden">
         <img
-          class="rounded-4xl aspect-4/3 object-cover"
-          src="/img/video-vigilancia.jpg"
+          class="rounded-4xl w-full aspect-square object-cover"
+          src="/img/central.jpg"
           alt="Video Vigilancia"
         />
       </figure>
     </div>
-  </div>
 
+  </div>
   <div class="bg-tech-grid tech-grid-bg opacity-[0.1] z-10"></div>
 </section>
+
+<style>
+  .card-service {
+    position: relative;
+    height: fit-content;
+    overflow: hidden;
+    background-color: var(--color-primary);
+    
+    img{
+      mix-blend-mode: lighten;
+    }
+  }
+</style>
