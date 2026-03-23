@@ -1,4 +1,8 @@
-<section class="relative py-30 xg:py-20 text-white z-0" id="servicios">
+---
+import Button from "../Button.astro";
+---
+
+<section class="relative pt-30 xg:pt-20 xg:pb-70 text-white z-0" id="servicios">
   <div class="container flex justify-center">
     <div
       class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-white/20 to-transparent"
@@ -9,53 +13,97 @@
   <!-- title -->
   <div class="pt-50 text-center flex flex-col justify-center items-center">
     <h2 class="title mb-10 xg:mb-20">Servicios</h2>
-    <p class="text-lg w-[40%]">
+    <p class="text-lg w-[33%]">
       Descubre nuestros servicios especializados diseñados para brindar
       seguridad, comodidad y eficiencia a nuestros clientes.
     </p>
   </div>
 
   <!-- cards -->
-  <div class="relative max-w-[90%] mx-auto flex flex-col gap-30 pt-50 z-20">
+  <div
+    class="relative max-w-[90%] mx-auto grid xg:grid-cols-2 gap-20 pt-50 z-20"
+  >
     <!-- Portería Virtual -->
-    <div class="card-service grid xg:grid-cols-2 gap-50 items-center border border-white/50 rounded-4xl">
+    <a href="#"
+      class="card-service grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-20 border border-white/50 rounded-4xl"
+    >
+      <div class="flex flex-col justify-between items-start">
+        <div>
+          <h2 class="text-4xl font-sora mb-20">Portería <br /> Virtual</h2>
+          <p class="text-md mb-20">
+            Desarrollamos este concepto de portería virtual para ofrecerle un
+            control total sobre los accesos, optimizando la seguridad y
+            reduciendo significativamente sus gastos operativos.
+          </p>
+        </div>
+        <Button variant="white" size="lg" >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
+              d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
+          >
+          <span>Info</span>
+        </Button>
+      </div>
+
       <figure class="overflow-hidden">
         <img
-          class="rounded-4xl aspect-square object-cover"
+          class="aspect-square"
           src="/img/porteria.png"
           alt="Portería Virtual"
         />
       </figure>
-
-      <div>
-        <h2 class="text-5xl font-sora mb-20">Portería <br /> Virtual</h2>
-        <p class="text-lg xg:w-[75%]">
-          Desarrollamos este concepto de portería virtual para ofrecerle un
-          control total sobre los accesos, optimizando la seguridad y reduciendo
-          significativamente sus gastos operativos.
-        </p>
-      </div>
-    </div>
+    </a>
 
     <!-- Video Vigilancia -->
-    <div class="card-service grid xg:grid-cols-2 gap-50 items-center border border-white/50 rounded-4xl">
-
-      <div class="pl-50">
-        <h2 class="text-5xl font-sora mb-20">Video <br /> Vigilancia</h2>
-        <p class="text-lg xg:w-[75%]">
-          Desarrolla este concepto de video vigilancia para ofrecerle un
-          monitoreo en tiempo real de sus instalaciones y personal comunes.
-        </p>
+    <a href="#"
+      class="card-service grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-20 border border-white/50 rounded-4xl"
+    >
+      <div class="flex flex-col justify-between items-start">
+        <div>
+          <h2 class="text-4xl font-sora mb-20">Video <br /> Vigilancia</h2>
+          <p class="text-md mb-20">
+            Desarrolla este concepto de video vigilancia para ofrecerle un
+            monitoreo en tiempo real de sus instalaciones y personal comunes.
+          </p>
+        </div>
+        <Button variant="white" size="lg" >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
+              d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
+          >
+          <span>Info</span>
+        </Button>
       </div>
 
       <figure class="overflow-hidden">
         <img
-          class="rounded-4xl w-full aspect-square object-cover"
+          class="aspect-square"
           src="/img/central.jpg"
           alt="Video Vigilancia"
         />
       </figure>
-    </div>
+    </a>
 
   </div>
   <div class="bg-tech-grid tech-grid-bg opacity-[0.1] z-10"></div>
@@ -64,12 +112,22 @@
 <style>
   .card-service {
     position: relative;
-    height: fit-content;
     overflow: hidden;
     background-color: var(--color-primary);
+    transition: all 0.2s ease-in-out;
+
+    figure {
+      aspect-ratio: 1/1;
+      height: fit-content;
+    }
     
-    img{
+    img {
       mix-blend-mode: lighten;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-1rem);
     }
   }
 </style>

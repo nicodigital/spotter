@@ -1,0 +1,223 @@
+---
+const tutorials = [
+  {
+    title: "Reconocimiento Facial desde la App",
+    description:
+      "Ingresar a tu propiedad ahora es más simple. El reconocimiento facial permite que ingreses de forma automática al acercarte. La configuración se realiza directamente desde la App Spotter, en simples pasos.",
+    video: "/video/tutorial-facial.mp4",
+    poster: "/img/tuto4.jpg",
+  },
+  {
+    title: "Control de Accesos<br> con PIN",
+    description:
+      "¡Olvídate de bajar a abrir! Ahora el ingreso de tus visitas es más simple, gracias a nuestro acceso por PIN. Genera un PIN temporal válido por 24hs para compartirlo con tus visitas.",
+    video: "/video/tutorial-pin.mp4",
+    poster: "/img/tuto2.jpg",
+  },
+  {
+    title: "Gestión de Alertas<br> en Tiempo Real",
+    description:
+      "Recibe notificaciones instantáneas ante cualquier evento. Nuestro sistema de detección avanzada te mantiene informado y te permite actuar de inmediato desde cualquier lugar.",
+    video: "/video/tutorial-alertas.mp4",
+    poster: "/img/tuto1.jpg",
+  },
+];
+
+const tutorialSlides = [...tutorials, ...tutorials];
+---
+
+<section
+  class="bg-white py-30 xg:pt-55 xg:pb-60 overflow-x-hidden"
+  id="tutoriales"
+>
+  <!-- title -->
+  <div class="container mb-50">
+    <div
+      class="grid grid-cols-1 items-start gap-8 xg:grid-cols-2 xg:gap-20 mb-50"
+    >
+      <div class="flex flex-col gap-4">
+        <span class="text-neutral-400 font-semibold text-md"> Tutoriales </span>
+
+        <h2 class="title text-primary-dark">
+          Nuestras últimas <br />innovaciones
+        </h2>
+      </div>
+
+      <p class="text-neutral-600 mt-20 text-lg xg:w-[66%]">
+        Descubre cómo Spotter simplifica tu vida con tecnología de última
+        generación, mejorando la seguridad y comodidad en tu hogar o negocio.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- videos -->
+    <div
+      class="swiper tutorials-swiper w-full min-w-0 overflow-hidden rounded-4xl"
+    >
+      <div class="swiper-wrapper">
+        {
+          tutorialSlides.map((tutorial, index) => (
+            <div
+              class="swiper-slide h-auto!"
+              aria-label={`Tutorial ${index + 1}`}
+            >
+              <div class="tutorial-card group relative aspect-9/12 overflow-hidden rounded-4xl">
+                <video
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  poster={tutorial.poster}
+                  muted
+                  loop
+                  playsinline
+                >
+                  <source src={tutorial.video} type="video/mp4" />
+                </video>
+
+                <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+
+                <div class="absolute w-[80%] left-20 bottom-20 flex flex-col gap-3 p-6">
+                  <h3 class="text-xl font-semibold text-white xg:text-2xl mb-10">
+                    <span set:html={tutorial.title} />
+                  </h3>
+                  <p class="text-white line-clamp-3">{tutorial.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <!-- swiper wrapper -->
+    </div>
+    <!-- swiper container -->
+
+    <div class="mt-18 flex items-center justify-between gap-16">
+      <div class="flex items-center gap-8">
+        <button
+          class="tutorials-nav-prev flex size-20 items-center justify-center rounded-full border-[2px] border-primary text-primary-dark transition-colors hover:bg-primary hover:text-white cursor-pointer"
+          aria-label="Slide anterior"
+        >
+          <svg
+            class="size-8"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <button
+          class="tutorials-nav-next flex size-20 items-center justify-center rounded-full border-[2px] border-primary text-primary-dark transition-colors hover:bg-primary hover:text-white cursor-pointer"
+          aria-label="Slide siguiente"
+        >
+          <svg
+            class="size-8"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 18l6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="swiper-pagination static! w-auto! text-lg font-sora font-semibold !text-primary"
+      >
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  import { Autoplay, Navigation, Pagination } from "swiper/modules";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+
+  const desktopBreakpoint = 1280;
+  const desktopSlidesWithPeek = 3.28;
+
+  function setTutorialsSliderWidth(slider: HTMLElement) {
+    slider.style.width = "100%";
+
+    if (window.innerWidth < desktopBreakpoint) return;
+
+    const rightGap = Math.max(
+      0,
+      window.innerWidth - slider.getBoundingClientRect().right,
+    );
+    slider.style.width = `calc(100% + ${rightGap}px)`;
+  }
+
+  function initTutorialsSwiper() {
+    const remInPx = parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
+    const spaceBetweenRem = 3 * remInPx;
+    const slider = document.querySelector(".tutorials-swiper");
+
+    if (
+      !(slider instanceof HTMLElement) ||
+      slider.dataset.swiperReady === "true"
+    )
+      return;
+
+    setTutorialsSliderWidth(slider);
+
+    const tutorialsSwiper = new Swiper(".tutorials-swiper", {
+      modules: [Autoplay, Navigation, Pagination],
+      slidesPerView: 1.2,
+      spaceBetween: spaceBetweenRem,
+      loop: true,
+      speed: 900,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".tutorials-nav-next",
+        prevEl: ".tutorials-nav-prev",
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1280: {
+          slidesPerView: desktopSlidesWithPeek,
+        },
+      },
+    });
+
+    slider.dataset.swiperReady = "true";
+
+    window.addEventListener("resize", () => {
+      setTutorialsSliderWidth(slider);
+      tutorialsSwiper.update();
+    });
+  }
+
+  document.addEventListener("astro:page-load", initTutorialsSwiper);
+  initTutorialsSwiper();
+</script>
+
+<style>
+  .tutorial-card {
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .tutorial-card {
+      cursor: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 99 99' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M49.1 0C22 0 0 22 0 49.1C0 76.2 22 98.2 49.1 98.2C76.2 98.2 98.2 76.2 98.2 49.1C98.2 22 76.2 0 49.1 0ZM49.1 89.9C26.6 89.9 8.3 71.6 8.3 49.1C8.3 26.6 26.6 8.3 49.1 8.3C71.6 8.3 89.9 26.6 89.9 49.1C89.9 71.6 71.6 89.9 49.1 89.9Z' fill='white'/%3E%3Cpath d='M40.6 66C41.2 66.3 41.8 66.4 42.4 66.4C43.1 66.4 43.9 66.2 44.5 65.7L64.7 51.9C65.7 51.2 66.3 50 66.3 48.8C66.3 47.6 65.7 46.4 64.6 45.7L44.4 32.3C43.2 31.5 41.8 31.5 40.5 32.1C39.3 32.8 38.5 34 38.5 35.4V62.6C38.6 64.1 39.3 65.4 40.6 66Z' fill='white'/%3E%3C/svg%3E%0A") 20 20, pointer;
+    }
+  }
+</style>
+

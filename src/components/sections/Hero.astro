@@ -48,6 +48,35 @@ const {
     </div>
   </div>
 
+  <!-- app -->
+   <div class="absolute top-1/2 right-[22%] -translate-y-1/2 z-50 w-[15%]">
+      <img class="w-full animate-app-float" src="img/app.png" alt="App" />
+   </div>
+
   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary z-10 pointer-events-none z-10"></div>
 
 </section>
+
+<style>
+  .animate-app-float {
+    animation: app-float 4.2s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes app-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-app-float {
+      animation: none;
+    }
+  }
+</style>

@@ -15,6 +15,7 @@
     "@justinribeiro/lite-youtube": "^1.9.0",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
+    "swiper": "^12.1.2",
     "tailwindcss": "^4.2.2"
   }
 }
