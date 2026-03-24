@@ -17,33 +17,49 @@ const navLinks: NavLink[] = [
 ];
 ---
 
-<header class="fixed container inset-x-0 top-0 flex h-[100px] items-center justify-center z-100">
+<header
+  class="fixed inset-x-0 top-0 flex h-[100px] items-center justify-center z-100 transition-all duration-400 ease-in-out"
+>
+<div class="container">
   <div class="flex w-full items-center justify-between gap-8">
     <div class="min-w-0 flex-1">
       <Logo />
     </div>
-    
+
     <nav class="menu hidden xg:flex">
-      {navLinks.map((link) => (
-        <a href={link.href}>
-          {link.label}
-          {link.hasDropdown && <ChevronDown class="size-6" />}
-        </a>
-      ))}
+      {
+        navLinks.map((link) => (
+          <a href={link.href}>
+            {link.label}
+            {link.hasDropdown && <ChevronDown class="size-6" />}
+          </a>
+        ))
+      }
     </nav>
-    
+
     <div class="hidden min-w-0 flex-1 justify-end xg:flex">
-      <Button variant="yellow" size="lg" href="#contacto">
-        Contacto
-      </Button>
+      <Button variant="yellow" size="lg" href="#contacto"> Contacto </Button>
     </div>
 
-    <button class="flex flex-col gap-1 bg-transparent p-2 xg:hidden" aria-label="Abrir menú">
+    <button
+      class="flex flex-col gap-1 bg-transparent p-2 xg:hidden"
+      aria-label="Abrir menú"
+    >
       <span class="block h-[2px] w-6 rounded-[2px] bg-white"></span>
       <span class="block h-[2px] w-6 rounded-[2px] bg-white"></span>
       <span class="block h-[2px] w-6 rounded-[2px] bg-white"></span>
     </button>
   </div>
+  </div>
 </header>
 
-
+<style>
+  body:not([data-scroll="top"])[data-stack="off"] header {
+    @apply translate-y-[-100%];
+  }
+  body[data-stack="on"] header {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8) !important;
+  }
+</style>
