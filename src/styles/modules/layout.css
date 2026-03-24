@@ -20,7 +20,7 @@ body {
 }
 
 .container, .container-short {
-  @apply w-full xg:w-[90%] mx-auto;
+  @apply w-[calc(100%-4rem)] xg:w-[90%] mx-auto;
 }
 
 .container-short {
