@@ -29,21 +29,22 @@ const testimonials = [
 ];
 ---
 
-<section class="relative bg-[#3068F9] px-4 py-30 cg:px-60 sm:py-40 xg:pt-60 xg:pb-80">
-  <div class="container flex flex-col gap-16">
+<section class="relative bg-[#3068F9] px-4 py-30 sm:py-40 xg:pt-60 xg:pb-80">
+  <div class="container-short flex flex-col gap-16">
+
     <div class="flex flex-col gap-4">
 
-      <h2 class="font-sora text-4xl leading-[1.2] font-semibold tracking-[-1px] text-white xg:text-4xl xl:text-5xl">
+      <h2 class="font-sora text-4xl leading-[1.2] font-semibold tracking-[-1px] text-white xg:text-4xl xl:text-5xl anim" data-anim="right" data-translate="1">
         Voces de confianza
       </h2>
 
-      <p class="text-lg text-white">
+      <p class="text-lg text-white anim" data-anim="right" data-translate="1" data-delay="1">
         Lo que dicen nuestros clientes.
       </p>
       
     </div>
     
-    <div class="grid grid-cols-1 gap-12 xg:gap-40 xg:grid-cols-3 mt-40">
+    <div class="grid grid-cols-1 gap-12 xg:gap-40 xg:grid-cols-3 mt-40 anim" data-anim="right" data-translate="1" data-stagger="0.15" data-children="true">
       {testimonials.map((testimonial) => (
         <TestimonialCard
           quote={testimonial.quote}

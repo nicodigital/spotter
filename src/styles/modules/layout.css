@@ -19,7 +19,11 @@ body {
   @apply text-base font-public-sans text-primary-darker leading-[1.5] antialiased;
 }
 
-.container {
-  @apply w-full xg:w-[90%] xg:px-60 mx-auto;
+.container, .container-short {
+  @apply w-full xg:w-[90%] mx-auto;
+}
+
+.container-short {
+  @apply xg:px-60;
 }
 
