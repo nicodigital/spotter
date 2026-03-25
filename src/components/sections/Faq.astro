@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import centralImage from "../../assets/images/central.jpg";
+import porteriaImage from "../../assets/images/porteria.png";
 
 interface FaqItem {
   question: string;
@@ -8,20 +11,25 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     question: "¿Qué beneficios tiene mi edificio al contratar Spotter?",
-    answer: "Su edificio será más seguro, con una protección en tiempo real para prevenir eventos de seguridad antes de que sucedan. Además, proporcionamos soluciones de acceso ágiles y seguras, junto con servicios adicionales como la recepción de paquetes y la coordinación de reparaciones. Nuestro sistema puede reducir los gastos comunes hasta en un 70%."
+    answer:
+      "Su edificio será más seguro, con una protección en tiempo real para prevenir eventos de seguridad antes de que sucedan. Además, proporcionamos soluciones de acceso ágiles y seguras, junto con servicios adicionales como la recepción de paquetes y la coordinación de reparaciones. Nuestro sistema puede reducir los gastos comunes hasta en un 70%.",
   },
   {
-    question: "¿Qué debo evaluar antes de contratar un servicio de portería o vigilancia?",
-    answer: "Solidez tecnológica: Spotter utiliza software de videovigilancia de última generación y un sistema de información y gestión propio para brindar servicios de portería en edificios. Seguridad real: Contamos con conexión directa a centros de respuesta para despachar móviles de seguridad en segundos. Trayectoria y servicio: Con miles de usuarios mensuales, Spotter cuenta con un equipo especializado y un alto índice de recomendación por parte de nuestros clientes."
+    question:
+      "¿Qué debo evaluar antes de contratar un servicio de portería o vigilancia?",
+    answer:
+      "Solidez tecnológica: Spotter utiliza software de videovigilancia de última generación y un sistema de información y gestión propio para brindar servicios de portería en edificios. Seguridad real: Contamos con conexión directa a centros de respuesta para despachar móviles de seguridad en segundos. Trayectoria y servicio: Con miles de usuarios mensuales, Spotter cuenta con un equipo especializado y un alto índice de recomendación por parte de nuestros clientes.",
   },
   {
     question: "¿Cómo funciona la seguridad?",
-    answer: "Spotter previene eventos de seguridad mediante una protección perimetral con cámaras que cuentan con analíticas de inteligencia artificial. Ante una actividad sospechosa, un operador del centro de monitoreo disuade utilizando el altoparlante. Si persiste la amenaza, se envía un móvil de respuesta de inmediato. Además, contamos con personal y vehículos propios para abordar cualquier eventualidad."
+    answer:
+      "Spotter previene eventos de seguridad mediante una protección perimetral con cámaras que cuentan con analíticas de inteligencia artificial. Ante una actividad sospechosa, un operador del centro de monitoreo disuade utilizando el altoparlante. Si persiste la amenaza, se envía un móvil de respuesta de inmediato. Además, contamos con personal y vehículos propios para abordar cualquier eventualidad.",
   },
   {
     question: "¿Cuáles son los pasos a seguir para contratar?",
-    answer: "Puede solicitar más información sobre nuestros planes a través del formulario de contacto y nuestro equipo comercial se pondrá en contacto a la brevedad con una propuesta preliminar. En una segunda instancia, visitamos su edificio para elaborar una propuesta más personalizada, evacuamos cualquier duda con la comisión o administración y podemos asistir a la asamblea de copropietarios para explicar de primera mano los beneficios de contar con Spotter en su edificio."
-  }
+    answer:
+      "Puede solicitar más información sobre nuestros planes a través del formulario de contacto y nuestro equipo comercial se pondrá en contacto a la brevedad con una propuesta preliminar. En una segunda instancia, visitamos su edificio para elaborar una propuesta más personalizada, evacuamos cualquier duda con la comisión o administración y podemos asistir a la asamblea de copropietarios para explicar de primera mano los beneficios de contar con Spotter en su edificio.",
+  },
 ];
 
 interface Props {
@@ -31,8 +39,11 @@ interface Props {
 const { allowMultiple = false } = Astro.props;
 ---
 
-<section id="faq" class="relative pt-30 xg:pt-20 xg:pb-70 mb-60 xg:mb-0 text-white z-0">
-  <div class="container flex justify-center">
+<section
+  id="faq"
+  class="relative pt-30 xg:pt-20 xg:pb-70 mb-60 xg:mb-0 text-white z-0 overflow-hidden"
+>
+  <div class="relative container flex justify-center z-20">
     <div
       class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-white/20 to-transparent"
     >
@@ -40,56 +51,91 @@ const { allowMultiple = false } = Astro.props;
   </div>
 
   <!-- title -->
-  <div class="pt-50 text-center flex flex-col justify-center items-center">
+  <div
+    class="relative pt-50 text-center flex flex-col justify-center items-center z-20"
+  >
     <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">
-      Preguntas <br class="xg:hidden" > frecuentes
+      Preguntas <br class="xg:hidden" /> frecuentes
     </h2>
-    <p class="text-lg w-[90%] xg:w-[33%] anim" data-anim="bottom" data-delay="0.2">
-      Aquí encontrarás las respuestas a las preguntas más comunes sobre
-      nuestros servicios y cómo podemos ayudarte.
+    <p
+      class="text-lg w-[90%] xg:w-[33%] anim"
+      data-anim="bottom"
+      data-delay="0.2"
+    >
+      Aquí encontrarás las respuestas a las preguntas más comunes sobre nuestros
+      servicios y cómo podemos ayudarte.
     </p>
   </div>
 
   <!-- faqs -->
-  <div 
-    class="faq-container container xg:max-w-[50%] pt-40 xg:pt-60"
+  <div
+    class="relative faq-container container xg:max-w-[50%] pt-40 xg:pt-60 z-20"
     data-allow-multiple={allowMultiple.toString()}
   >
-    {faqs.map((faq, index) => (
-      <div 
-        class="faq-item group border-b border-white/20 anim" 
-        data-anim="bottom" data-children="true"
-        data-delay={`${0.1 * (index + 1)}`}
-      >
-        <button 
-          class="faq-trigger w-full flex items-center justify-between gap-20 py-25 xg:py-20 text-left cursor-pointer transition-colors duration-300 hover:text-white/80"
-          aria-expanded="false"
+    {
+      faqs.map((faq, index) => (
+        <div
+          class="faq-item group border-b border-white/20 anim"
+          data-anim="bottom"
+          data-children="true"
+          data-delay={`${0.1 * (index + 1)}`}
         >
-          <span class="text-lg xg:text-xl font-sora font-medium w-[75%] xg:w-[66%]">
-            {faq.question}
-          </span>
-          <span class="faq-icon relative size-12 xg:size-14 shrink-0 rounded-full border border-white/30 transition-all duration-300 ease-out group-hover:border-white/60">
-            <span class="faq-icon-line faq-icon-horizontal absolute top-1/2 left-1/2 w-[45%] h-[2px] bg-white"></span>
-            <span class="faq-icon-line faq-icon-vertical absolute top-1/2 left-1/2 w-[2px] h-[45%] bg-white"></span>
-          </span>
-        </button>
-        <div class="faq-content overflow-hidden transition-all duration-500 ease-out" style="height: 0;">
-          <div class="faq-answer pb-25 xg:pb-35 pr-20 xg:pr-80">
-            <p class="text-base xg:text-md text-white leading-relaxed">
-              {faq.answer}
-            </p>
+          <button
+            class="faq-trigger w-full flex items-center justify-between gap-20 py-25 xg:py-20 text-left cursor-pointer transition-colors duration-300 hover:text-white/80"
+            aria-expanded="false"
+          >
+            <span class="text-lg xg:text-xl font-sora font-medium w-[75%] xg:w-[66%]">
+              {faq.question}
+            </span>
+            <span class="faq-icon relative size-12 xg:size-14 shrink-0 rounded-full border border-white/30 transition-all duration-300 ease-out group-hover:border-white/60">
+              <span class="faq-icon-line faq-icon-horizontal absolute top-1/2 left-1/2 w-[45%] h-[2px] bg-white" />
+              <span class="faq-icon-line faq-icon-vertical absolute top-1/2 left-1/2 w-[2px] h-[45%] bg-white" />
+            </span>
+          </button>
+          <div
+            class="faq-content overflow-hidden transition-all duration-500 ease-out"
+            style="height: 0;"
+          >
+            <div class="faq-answer pb-25 xg:pb-35 pr-20 xg:pr-80">
+              <p class="text-base xg:text-md text-white leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
-  
+
+  <figure class="absolute hidden xg:block top-[15%] right-0 z-0 bg-primary translate-x-[27%]">
+    <Image
+      class="aspect-square w-[40vw] opacity-10 mix-blend-lighten"
+      src={porteriaImage}
+      alt="Portería Virtual"
+      widths={[480, 720, 960]}
+      sizes="(min-width: 1280px) 35vw, 90vw"
+      format="webp"
+    />
+  </figure>
+
+  <figure class="absolute hidden xg:block top-[15%] left-0 z-0 bg-primary translate-x-[-27%]">
+    <Image
+      class="aspect-square w-[40vw] opacity-10 mix-blend-lighten"
+      src={centralImage}
+      alt="Video Vigilancia"
+      widths={[480, 720, 960]}
+      sizes="(min-width: 1280px) 35vw, 90vw"
+      format="webp"
+    />
+  </figure>
 </section>
 
 <style>
   .faq-icon-line {
     transform-origin: center;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.2s ease;
   }
 
   .faq-icon-horizontal {
@@ -108,45 +154,49 @@ const { allowMultiple = false } = Astro.props;
   .faq-item.is-open .faq-icon-horizontal {
     transform: translate(-50%, -50%) scaleX(0.92);
   }
-  
+
   .faq-item.is-open .faq-icon {
     transform: rotate(180deg);
     background-color: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
   }
-  
+
   .faq-item.is-open .faq-trigger {
     color: white;
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const containers = document.querySelectorAll('.faq-container');
-    
-    containers.forEach(container => {
-      const allowMultiple = (container as HTMLElement).dataset.allowMultiple === 'true';
-      const items = container.querySelectorAll('.faq-item');
-      
-      items.forEach(item => {
-        const trigger = item.querySelector('.faq-trigger');
-        const content = item.querySelector('.faq-content') as HTMLElement;
-        const answer = item.querySelector('.faq-answer') as HTMLElement;
-        
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".faq-container");
+
+    containers.forEach((container) => {
+      const allowMultiple =
+        (container as HTMLElement).dataset.allowMultiple === "true";
+      const items = container.querySelectorAll(".faq-item");
+
+      items.forEach((item) => {
+        const trigger = item.querySelector(".faq-trigger");
+        const content = item.querySelector(".faq-content") as HTMLElement;
+        const answer = item.querySelector(".faq-answer") as HTMLElement;
+
         if (!trigger || !content || !answer) return;
-        
-        trigger.addEventListener('click', () => {
-          const isOpen = item.classList.contains('is-open');
-          
+
+        trigger.addEventListener("click", () => {
+          const isOpen = item.classList.contains("is-open");
+
           // Si no permite múltiples abiertos, cerrar los demás
           if (!allowMultiple && !isOpen) {
-            items.forEach(otherItem => {
-              if (otherItem !== item && otherItem.classList.contains('is-open')) {
+            items.forEach((otherItem) => {
+              if (
+                otherItem !== item &&
+                otherItem.classList.contains("is-open")
+              ) {
                 closeItem(otherItem);
               }
             });
           }
-          
+
           // Toggle del item actual
           if (isOpen) {
             closeItem(item);
@@ -156,28 +206,28 @@ const { allowMultiple = false } = Astro.props;
         });
       });
     });
-    
+
     function openItem(item: Element) {
-      const content = item.querySelector('.faq-content') as HTMLElement;
-      const answer = item.querySelector('.faq-answer') as HTMLElement;
-      const trigger = item.querySelector('.faq-trigger');
-      
+      const content = item.querySelector(".faq-content") as HTMLElement;
+      const answer = item.querySelector(".faq-answer") as HTMLElement;
+      const trigger = item.querySelector(".faq-trigger");
+
       if (!content || !answer || !trigger) return;
-      
-      item.classList.add('is-open');
-      trigger.setAttribute('aria-expanded', 'true');
-      content.style.height = answer.offsetHeight + 'px';
+
+      item.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
+      content.style.height = answer.offsetHeight + "px";
     }
-    
+
     function closeItem(item: Element) {
-      const content = item.querySelector('.faq-content') as HTMLElement;
-      const trigger = item.querySelector('.faq-trigger');
-      
+      const content = item.querySelector(".faq-content") as HTMLElement;
+      const trigger = item.querySelector(".faq-trigger");
+
       if (!content || !trigger) return;
-      
-      item.classList.remove('is-open');
-      trigger.setAttribute('aria-expanded', 'false');
-      content.style.height = '0';
+
+      item.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      content.style.height = "0";
     }
   });
 </script>

@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../Button.astro";
 import Grid from "../Grid.astro";
+import porteriaImage from "../../assets/images/porteria.png";
+import centralImage from "../../assets/images/central.jpg";
 ---
 
 <section id="servicios" class="relative py-30 xg:pt-20 xg:pb-70 text-white z-0">
@@ -56,10 +59,13 @@ import Grid from "../Grid.astro";
       </div>
 
       <figure class="overflow-hidden">
-        <img
+        <Image
           class="aspect-square"
-          src="/img/porteria.png"
+          src={porteriaImage}
           alt="Portería Virtual"
+          widths={[480, 720, 960]}
+          sizes="(min-width: 1280px) 35vw, 90vw"
+          format="webp"
         />
       </figure>
     </a>
@@ -96,10 +102,13 @@ import Grid from "../Grid.astro";
       </div>
 
       <figure class="overflow-hidden">
-        <img
+        <Image
           class="aspect-square"
-          src="/img/central.jpg"
+          src={centralImage}
           alt="Video Vigilancia"
+          widths={[480, 720, 960]}
+          sizes="(min-width: 1280px) 35vw, 90vw"
+          format="webp"
         />
       </figure>
     </a>

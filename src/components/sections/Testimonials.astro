@@ -1,65 +1,84 @@
 ---
-import Grid from '../Grid.astro';
+import Grid from "../Grid.astro";
 import TestimonialCard from "../TestimonialCard.astro";
 
 const testimonials = [
   {
-    quote: "Spotter cambió la forma en que protejo mi propiedad. Duermo tranquilo.",
+    quote:
+      "Spotter cambió la forma en que protejo mi propiedad. Duermo tranquilo.",
     author: "Carlos Mendoza",
     role: "Propietario",
     company: "Residencias del Sol",
-    avatar: "https://www.figma.com/api/mcp/asset/7668a783-f1fb-4c37-96c9-a1990bd09108",
-    rating: 5
+    avatar:
+      "https://www.figma.com/api/mcp/asset/7668a783-f1fb-4c37-96c9-a1990bd09108",
+    rating: 5,
   },
   {
-    quote: "El servicio es impecable. Responden al instante ante cualquier situación.",
+    quote:
+      "El servicio es impecable. Responden al instante ante cualquier situación.",
     author: "María García",
     role: "Gerente",
     company: "Empresas García Ltd",
-    avatar: "https://www.figma.com/api/mcp/asset/193a6e5b-8e6c-45ae-b613-20df8238581a",
-    rating: 5
+    avatar:
+      "https://www.figma.com/api/mcp/asset/193a6e5b-8e6c-45ae-b613-20df8238581a",
+    rating: 5,
   },
   {
-    quote: "Profesionales de verdad. Spotter es la seguridad que mi negocio necesita.",
+    quote:
+      "Profesionales de verdad. Spotter es la seguridad que mi negocio necesita.",
     author: "Roberto Sánchez",
     role: "Director",
     company: "Comercial RS",
-    avatar: "https://www.figma.com/api/mcp/asset/0e3719ad-74be-4523-ae34-2e7c6ca3a553",
-    rating: 5
-  }
+    avatar:
+      "https://www.figma.com/api/mcp/asset/0e3719ad-74be-4523-ae34-2e7c6ca3a553",
+    rating: 5,
+  },
 ];
 ---
 
 <section class="relative bg-[#3068F9] px-4 py-30 sm:py-40 xg:pt-60 xg:pb-80">
-  <div class="container-short flex flex-col gap-16">
-
+  
+  <div class="relative container-short flex flex-col gap-16 z-20">
     <div class="flex flex-col gap-4">
-
-      <h2 class="font-sora text-4xl leading-[1.2] font-semibold tracking-[-1px] text-white xg:text-4xl xl:text-5xl anim" data-anim="right" data-translate="1">
+      <h2
+        class="font-sora text-4xl leading-[1.2] font-semibold tracking-[-1px] text-white xg:text-4xl xl:text-5xl anim"
+        data-anim="right"
+        data-translate="1"
+      >
         Voces de confianza
       </h2>
 
-      <p class="text-lg text-white anim" data-anim="right" data-translate="1" data-delay="1">
+      <p
+        class="text-lg text-white anim"
+        data-anim="right"
+        data-translate="1"
+        data-delay="1"
+      >
         Lo que dicen nuestros clientes.
       </p>
-      
     </div>
-    
-    <div class="grid grid-cols-1 gap-50 xg:gap-40 xg:grid-cols-3 mt-40 anim" data-anim="right" data-translate="1" data-stagger="0.15" data-children="true">
-      {testimonials.map((testimonial) => (
-        <TestimonialCard
-          quote={testimonial.quote}
-          author={testimonial.author}
-          role={testimonial.role}
-          company={testimonial.company}
-          avatar={testimonial.avatar}
-          rating={testimonial.rating}
-        />
-      ))}
+
+    <div
+      class="grid grid-cols-1 gap-50 xg:gap-40 xg:grid-cols-3 mt-40 anim"
+      data-anim="right"
+      data-translate="1"
+      data-stagger="0.15"
+      data-children="true"
+    >
+      {
+        testimonials.map((testimonial) => (
+          <TestimonialCard
+            quote={testimonial.quote}
+            author={testimonial.author}
+            role={testimonial.role}
+            company={testimonial.company}
+            avatar={testimonial.avatar}
+            rating={testimonial.rating}
+          />
+        ))
+      }
     </div>
   </div>
 
-
-    <Grid />
-
+  <Grid />
 </section>
