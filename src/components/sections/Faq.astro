@@ -68,9 +68,9 @@ const { allowMultiple = false } = Astro.props;
           <span class="text-lg xg:text-xl font-sora font-medium w-[75%] xg:w-[66%]">
             {faq.question}
           </span>
-          <span class="faq-icon relative size-12 xg:size-14 shrink-0 rounded-full border border-white/30 transition-all duration-300 group-hover:border-white/60">
-            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] h-[2px] bg-white transition-transform duration-300"></span>
-            <span class="faq-icon-vertical absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[45%] bg-white transition-transform duration-300"></span>
+          <span class="faq-icon relative size-12 xg:size-14 shrink-0 rounded-full border border-white/30 transition-all duration-300 ease-out group-hover:border-white/60">
+            <span class="faq-icon-line faq-icon-horizontal absolute top-1/2 left-1/2 w-[45%] h-[2px] bg-white"></span>
+            <span class="faq-icon-line faq-icon-vertical absolute top-1/2 left-1/2 w-[2px] h-[45%] bg-white"></span>
           </span>
         </button>
         <div class="faq-content overflow-hidden transition-all duration-500 ease-out" style="height: 0;">
@@ -87,12 +87,30 @@ const { allowMultiple = false } = Astro.props;
 </section>
 
 <style>
+  .faq-icon-line {
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+  }
+
+  .faq-icon-horizontal {
+    transform: translate(-50%, -50%) scaleX(1);
+  }
+
+  .faq-icon-vertical {
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+
   .faq-item.is-open .faq-icon-vertical {
-    transform: translate(-50%, -50%) rotate(90deg);
+    transform: translate(-50%, -50%) scaleY(0);
     opacity: 0;
+  }
+
+  .faq-item.is-open .faq-icon-horizontal {
+    transform: translate(-50%, -50%) scaleX(0.92);
   }
   
   .faq-item.is-open .faq-icon {
+    transform: rotate(180deg);
     background-color: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
   }
