@@ -28,17 +28,17 @@ const socialLinks = [
 ---
 
 <footer
-  class="bg-primary text-white px-4 py-20 xg:px-60 xg:pt-60 xg:pb-10 overflow-hidden"
+  class="bg-primary text-white px-4 pt-60 pb-20 xg:px-60 xg:pb-10 overflow-hidden"
 >
   <div class="mx-auto max-w-[90%] flex flex-col gap-20 xg:gap-60">
     <div
       class="grid grid-cols-1 xg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-16 xg:gap-30"
     >
-      <div class="flex flex-col gap-10 xg:gap-15">
+      <figure class="flex justify-center xg:justify-start mb-20 xg:mb-0">
         <Logo />
-      </div>
+      </figure>
 
-      <div class="flex flex-col gap-10 xg:gap-15">
+      <div class="hidden xg:flex flex-col gap-10 xg:gap-15">
         <span class="text-lg font-semibold"> Links </span>
         <nav class="flex flex-col gap-4">
           {
@@ -51,22 +51,22 @@ const socialLinks = [
         </nav>
       </div>
 
-      <div class="flex flex-col gap-10 xg:gap-15">
-        <span class="text-lg font-bold">Dirección</span>
+      <div class="flex flex-col items-center xg:items-start text-center xg:text-left gap-10 xg:gap-15">
+        <span class="hidden xg:block text-lg font-bold">Dirección</span>
         <span>
           Dr. Alfredo Arocena 1920, <br />
           Montevideo, Uruguay
         </span>
       </div>
 
-      <div class="flex flex-col gap-10 xg:gap-15">
+      <div class="flex flex-col items-center xg:items-start text-center xg:text-left gap-10 xg:gap-15 mt-10 xg:mt-0">
         <span class="text-lg font-semibold">Teléfono</span>
         <a href="tel:+59826028696" class="hover:opacity-60 transition-opacity">
           <span class="text-4xl font-semibold whitespace-nowrap">2602 8696</span>
         </a>
       </div>
 
-      <div class="flex justify-end gap-4">
+      <div class="flex justify-center xg:justify-end gap-4 mt-10 xg:mt-0">
         {
           socialLinks.map((social) => (
             <SocialIcon
@@ -85,7 +85,7 @@ const socialLinks = [
       >
       </div>
 
-      <div class="flex flex-col xg:flex-row xg:justify-between gap-4">
+      <div class="flex flex-row justify-between gap-4 text-sm ">
         <a
           href="#privacidad"
           class="opacity-60 hover:opacity-100 transition-opacity"

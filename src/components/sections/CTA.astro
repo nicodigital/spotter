@@ -1,12 +1,11 @@
 ---
-import Logo from "../Logo.astro";
 import Button from "../Button.astro";
 ---
 
 <section class="relative bg-primary flex justify-center" id="contacto">
   <div class="relative container">
     <div
-      class="relative py-30 px-60 z-20 rounded-[4rem] [corner-shape:squircle] overflow-hidden"
+      class="relative p-20 xg:px-60 z-20 rounded-[4rem] [corner-shape:squircle] overflow-hidden"
     >
       <!-- Video background -->
       <div class="absolute inset-0 z-0 bg-white">
@@ -19,17 +18,17 @@ import Button from "../Button.astro";
       </div>
 
       <div
-        class="relative flex justify-between items-center text-center xg:grid-cols-2 xg:text-left z-50"
+        class="relative flex flex-col xg:flex-row justify-between items-center  xg:grid-cols-2 xg:text-left z-50"
       >
         <div
-          class="flex flex-col items-center gap-6 xg:items-start xg:-translate-y-[.8rem] xg:w-[50%] xg:translate-y-[.5rem]"
+          class="flex flex-col gap-6 xg:w-[50%] xg:translate-y-[.5rem]"
         >
-          <h2 class="title text-primary-dark">
+          <h2 class="title text-primary-dark mb-10 xg:mb-0">
             Protege lo <br />
             que importa
           </h2>
-          <p class="text-lg xg:w-[80%] text-primary-dark">
-            Contacta con nuestro equipo y descubre cómo <br />Spotter protege lo
+          <p class="text-lg xg:w-[80%] text-primary-dark mb-40 xg:mb-0 leading-[1.2]">
+            Contacta con nuestro equipo y descubre cómo <br class="hidden xg:block" />Spotter protege lo
             que más importa.
           </p>
         </div>
