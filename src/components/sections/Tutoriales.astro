@@ -1,25 +1,30 @@
 ---
+import { Image } from "astro:assets";
+import tuto1Poster from "../../assets/images/tuto1.jpg";
+import tuto2Poster from "../../assets/images/tuto2.jpg";
+import tuto4Poster from "../../assets/images/tuto4.jpg";
+
 const tutorials = [
   {
     title: "Reconocimiento Facial desde la App",
     description:
       "Ingresar a tu propiedad ahora es más simple. El reconocimiento facial permite que ingreses de forma automática al acercarte. La configuración se realiza directamente desde la App Spotter, en simples pasos.",
     video: "/video/tutorial-facial.mp4",
-    poster: "/img/tuto4.jpg",
+    poster: tuto4Poster,
   },
   {
     title: "Control de Accesos<br> con PIN",
     description:
       "¡Olvídate de bajar a abrir! Ahora el ingreso de tus visitas es más simple, gracias a nuestro acceso por PIN. Genera un PIN temporal válido por 24hs para compartirlo con tus visitas.",
     video: "/video/tutorial-pin.mp4",
-    poster: "/img/tuto2.jpg",
+    poster: tuto2Poster,
   },
   {
     title: "Gestión de Alertas<br> en Tiempo Real",
     description:
       "Recibe notificaciones instantáneas ante cualquier evento. Nuestro sistema de detección avanzada te mantiene informado y te permite actuar de inmediato desde cualquier lugar.",
     video: "/video/tutorial-alertas.mp4",
-    poster: "/img/tuto1.jpg",
+    poster: tuto1Poster,
   },
 ];
 
@@ -62,16 +67,15 @@ const tutorialSlides = [...tutorials, ...tutorials];
               class="swiper-slide h-auto!"
               aria-label={`Tutorial ${index + 1}`}
             >
-              <div class="tutorial-card group relative aspect-9/12 overflow-hidden rounded-4xl">
-                <video
+              <div class="tutorial-card group relative aspect-9/14 xg:aspect-9/12 overflow-hidden rounded-4xl">
+                <Image
                   class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  poster={tutorial.poster}
-                  muted
-                  loop
-                  playsinline
-                >
-                  <source src={tutorial.video} type="video/mp4" />
-                </video>
+                  src={tutorial.poster}
+                  alt={tutorial.title.replace(/<br\s*\/?\s*>/gi, " ")}
+                  widths={[480, 640, 960]}
+                  sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 80vw"
+                  format="webp"
+                />
 
                 <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 

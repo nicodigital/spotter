@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../Button.astro";
+import appImage from "../../assets/images/app.png";
 
 interface Props {
   tagline?: string;
@@ -51,7 +53,14 @@ const {
   <!-- app -->
    <div class="absolute hidden xg:block top-0 right-4 xg:right-[22%] z-20 w-[40%] xg:w-[15%] anim" data-anim="bottom" data-mode="trigger" data-delay="0.5">
     <figure class="parallax" data-speed-mobile="0" data-speed="-0.3" >
-      <img class="w-full anim-float" src="img/app.png" alt="App" />
+      <Image
+        class="w-full anim-float"
+        src={appImage}
+        alt="App"
+        widths={[240, 320, 480]}
+        sizes="(min-width: 1280px) 15vw, 40vw"
+        format="webp"
+      />
     </figure>
    </div>
 
