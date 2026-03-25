@@ -107,27 +107,35 @@ const { allowMultiple = false } = Astro.props;
     }
   </div>
 
-  <figure class="absolute hidden xg:block top-[15%] right-0 z-0 bg-primary translate-x-[27%]">
-    <Image
-      class="aspect-square w-[40vw] opacity-10 mix-blend-lighten"
-      src={porteriaImage}
-      alt="Portería Virtual"
-      widths={[480, 720, 960]}
-      sizes="(min-width: 1280px) 35vw, 90vw"
-      format="webp"
-    />
-  </figure>
+  <div
+    class="absolute hidden xg:block top-[20rem] right-0 z-0 translate-x-[27%]"
+  >
+    <figure class="parallax bg-primary" data-speed="-0.2">
+      <Image
+        class="aspect-square w-[40vw] opacity-10 mix-blend-lighten"
+        src={porteriaImage}
+        alt="Portería Virtual"
+        widths={[480, 720, 960]}
+        sizes="(min-width: 1280px) 35vw, 90vw"
+        format="webp"
+      />
+    </figure>
+  </div>
 
-  <figure class="absolute hidden xg:block top-[15%] left-0 z-0 bg-primary translate-x-[-27%]">
-    <Image
-      class="aspect-square w-[40vw] opacity-10 mix-blend-lighten"
-      src={centralImage}
-      alt="Video Vigilancia"
-      widths={[480, 720, 960]}
-      sizes="(min-width: 1280px) 35vw, 90vw"
-      format="webp"
-    />
-  </figure>
+  <div
+    class="absolute hidden xg:block top-[20rem] left-0 z-0 bg-primary translate-x-[-27%]"
+  >
+    <figure class="parallax bg-primary" data-speed="-0.2">
+      <Image
+        class="aspect-square w-[40vw] opacity-10 mix-blend-lighten"
+        src={centralImage}
+        alt="Video Vigilancia"
+        widths={[480, 720, 960]}
+        sizes="(min-width: 1280px) 35vw, 90vw"
+        format="webp"
+      />
+    </figure>
+  </div>
 </section>
 
 <style>
