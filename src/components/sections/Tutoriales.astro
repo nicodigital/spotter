@@ -75,11 +75,11 @@ const tutorialSlides = [...tutorials, ...tutorials];
 
                 <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
-                <div class="absolute w-[80%] left-20 bottom-20 flex flex-col gap-3 p-6">
-                  <h3 class="text-xl font-semibold text-white xg:text-2xl mb-10">
+                <div class="absolute xg:w-[80%] left-[1rem] xg:left-20 bottom-20 flex flex-col gap-3 p-6">
+                  <h3 class="text-xl font-semibold text-white xg:text-2xl mb-10 leading-tight">
                     <span set:html={tutorial.title} />
                   </h3>
-                  <p class="text-white line-clamp-3">{tutorial.description}</p>
+                  <p class="text-sm xg:text-md text-white line-clamp-3">{tutorial.description}</p>
                 </div>
               </div>
             </div>
@@ -157,7 +157,18 @@ const tutorialSlides = [...tutorials, ...tutorials];
     const remInPx = parseFloat(
       getComputedStyle(document.documentElement).fontSize,
     );
-    const spaceBetweenRem = 3 * remInPx;
+    const getSpaceBetween = () => {
+      const deviceData = (
+        window as Window & { spotterDeviceData?: { isDesktop?: boolean } }
+      ).spotterDeviceData;
+      const isDesktop =
+        deviceData?.isDesktop ??
+        window.matchMedia("(min-width: 1064px)").matches;
+
+      return (isDesktop ? 3 : 1) * remInPx;
+    };
+
+    const spaceBetweenRem = getSpaceBetween();
     const slider = document.querySelector(".tutorials-swiper");
 
     if (
@@ -201,6 +212,7 @@ const tutorialSlides = [...tutorials, ...tutorials];
 
     window.addEventListener("resize", () => {
       setTutorialsSliderWidth(slider);
+      tutorialsSwiper.params.spaceBetween = getSpaceBetween();
       tutorialsSwiper.update();
     });
   }

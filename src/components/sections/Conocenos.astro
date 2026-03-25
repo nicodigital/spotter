@@ -31,21 +31,21 @@ const benefits: Benefit[] = [
 ---
 
 <section
-  class="relative bg-primary py-30 sm:py-50 xg:py-70"
+  class="relative bg-primary py-30 sm:py-50 xg:pt-70 xg:pb-40"
 >
   <div class="container-short flex flex-col items-center gap-16">
-    <div class="max-w-[80%] text-center mb-10 xg:mb-35 text-white">
+    <div class="xg:max-w-[80%] text-center mb-10 xg:mb-35 text-white">
       <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom" >
         Conócenos
       </h2>
       <p
-        class="w-[66%] mx-auto anim" data-anim="bottom" data-delay="0.2"
+        class="w-[90%] xg:w-[66%] mx-auto anim" data-anim="bottom" data-delay="0.2"
       >
         Spotter nace como una unidad de negocios de GRUPO ASSETS con el objetivo de brindar el mejor servicio de portería virtual y monitoreo de seguridad en tiempo real, garantizando el bienestar y confort así como un servicio de video vigilancia activa velando por la seguridad de nuestros clientes.
       </p>
     </div>
 
-    <div class="grid w-full grid-cols-1 gap-8 xg:grid-cols-3 xg:gap-30 text-white">
+    <div class="grid w-full grid-cols-1 gap-30 xg:grid-cols-3 text-white">
       {
         benefits.map((benefit) => (
           <div class="flex flex-col items-center gap-12 p-8 text-center anim" data-anim="bottom" data-delay="0.2" data-children="false">

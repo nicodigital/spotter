@@ -24,6 +24,6 @@ body {
 }
 
 .container-short {
-  @apply xg:px-60;
+  @apply px-[2rem] xg:px-60;
 }
 

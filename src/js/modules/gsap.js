@@ -32,6 +32,7 @@ export function initHeroAnimation() {
   if (!heroTitle) return;
 
   const chars = splitTextIntoChars(heroTitle);
+  heroTitle.classList.add('gsap-ready');
 
   gsap.set(chars, {
     yPercent: 100,

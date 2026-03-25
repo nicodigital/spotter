@@ -44,7 +44,7 @@ const features: Feature[] = [
 >
   <div class="container-short">
     <div class="grid grid-cols-1 items-start gap-12 xg:grid-cols-2 xg:gap-20">
-      <div class="flex flex-col gap-4 xg:sticky xg:top-28">
+      <div class="flex flex-col gap-4 xg:sticky xg:top-28 mb-20 xg:mb-0">
         <span
           class="font-[var(--font-public-sans)] text-base leading-[1.5] font-semibold text-neutral-500"
           >Proceso</span
@@ -55,10 +55,10 @@ const features: Feature[] = [
       </div>
 
       <div class="flex flex-col">
-        <div class="flex flex-col gap-20 xg:gap-35">
+        <div class="flex flex-col gap-30 xg:gap-35">
           {
             features.map((feature) => (
-              <div class="icon-wrap flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-18">
+              <div class="icon-wrap flex flex-col xg:flex-row xg:items-start gap-12 xg:gap-18">
                 <div class="relative icon size-15 shrink-0 text-[#3068F9]">
                   {feature.icon === "eye" && <Eye class="size-full" />}
                   {feature.icon === "monitor" && <Monitor class="size-full" />}
@@ -84,13 +84,15 @@ const features: Feature[] = [
 </section>
 
 <style>
-  .icon-wrap:not(:last-child) .icon::before {
-    content: "";
-    position: absolute;
-    top: 6rem;
-    left: 1.5rem;
-    width: 2px;
-    height: 8rem;
-    background-color: #3068F9;
+  @media(min-width: 992px) {
+    .icon-wrap:not(:last-child) .icon::before {
+      content: "";
+      position: absolute;
+      top: 6rem;
+      left: 1.5rem;
+      width: 2px;
+      height: 8rem;
+      background-color: #3068F9;
+    }
   }
 </style>
