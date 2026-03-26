@@ -1,17 +1,22 @@
 ---
+import LogoSpotter from "../assets/images/logo.svg";
+
 interface Props {
-  variant?: "light" | "dark";
   class?: string;
 }
 
-const { variant = "light", class: className = "" } = Astro.props;
-const logoSrc = variant === "dark" 
-  ? "/images/logo-dark.svg" 
-  : "https://www.figma.com/api/mcp/asset/f37d3734-6712-427c-b5b1-9a73e36166dd";
+const { class: className = "" } = Astro.props;
+
 ---
 
-<a href="/" class:list={["logo inline-flex items-center", className]}>
-  <img src={logoSrc} class="w-60 2xl:w-70" alt="Spotter Logo" width="84" height="32" />
+<a href="/" class:list={["logo inline-flex items-center h-fit", className]}>
+  <LogoSpotter class="w-60 2xl:w-70 text-primary" />
 </a>
 
+<style>
+  :global(body[data-stack="on"]) .logo svg {
+    color: white !important;
+    transform: scale(0.7) translateY(0.5rem) !important;
+  }
+</style>
 

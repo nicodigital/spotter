@@ -100,24 +100,24 @@ const navLinks: NavLink[] = [
       width: 60%;
       background-color: color-mix(
         in srgb,
-        var(--color-primary-darker),
-        transparent 40%
+        var(--color-primary),
+        transparent 30%
       ) !important;
       backdrop-filter: blur(10px) !important;
       border-radius: 10rem;
       padding: 4px;
       box-shadow: 0 4px 2rem color-mix(in srgb, #132863, transparent 50%);
-    }
 
-    :global(body[data-stack="on"]) header :global(.logo),
-    :global(body:not([data-scroll="top"])) header :global(.logo) {
-      transform: scale(0.7) translateY(0.5rem) !important;
+      a:not([href="#contacto"]){
+        color: white !important;
+      }
     }
 
     :global(body[data-stack="on"]) header :global(a[href="#contacto"]),
     :global(body:not([data-scroll="top"])) header :global(a[href="#contacto"]) {
       transform: scale(0.75) !important;
     }
+
   }
 
   @media (max-width: 992px) {
@@ -129,7 +129,7 @@ const navLinks: NavLink[] = [
       z-index: -1;
       background: linear-gradient(
         to bottom,
-        var(--color-primary-darker) 0%,
+        var(--color-primary) 0%,
         rgba(29, 82, 218, 0) 100%
       );
       pointer-events: none;

@@ -25,24 +25,24 @@ const {
 
   <!-- Video background -->
   <div class="absolute inset-0 z-0">
-    <video class="w-full h-full object-cover grayscale" src={backgroundImage} autoplay muted loop></video>
-    <div class="absolute inset-0 bg-[color-mix(in_srgb,var(--color-primary),transparent_30%)]"></div>
+    <video class="w-full h-full grayscale opacity-30 contrast-300 brightness-200 object-cover" src={backgroundImage} autoplay muted loop></video>
+    <div class="absolute inset-0 bg-ivory-darker mix-blend-hue"></div>
   </div>
   
   <div class="relative container-short flex flex-col xg:mt-[-4rem] z-30">
     <div class="flex flex-col gap-4">
-      <h1 class="hero-title big-title text-white mb-6" set:html={title.replace(/\n/g, '<br />')} />
+      <h1 class="hero-title big-title mb-6" set:html={title.replace(/\n/g, '<br />')} />
 
-      <p class="mt-2 xg:mt-6 xg:text-lg text-white w-[75%] xg:w-[33%] anim" data-anim="bottom" data-mode="trigger" data-delay="0.8">
+      <p class="mt-2 xg:mt-6 xg:text-lg w-[75%] xg:w-[33%] anim" data-anim="bottom" data-mode="trigger" data-delay="0.8">
         {description}
       </p>
       
       <div class="mt-50 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row anim" data-anim="bottom" data-mode="trigger" data-delay="1.2" data-children="false">
-        <Button variant="white" size="lg" href={primaryCta.href}>
+        <Button variant="primary" size="lg" href={primaryCta.href}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>
           <span>{primaryCta.label}</span>
         </Button>
-        <Button variant="outline" size="lg" href={secondaryCta.href}>
+        <Button variant="outline_dark" size="lg" href={secondaryCta.href}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report-money"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
           <span>{secondaryCta.label}</span>
         </Button>
@@ -64,6 +64,6 @@ const {
     </figure>
    </div>
 
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary z-10 pointer-events-none z-10"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-ivory-dark z-10 pointer-events-none z-10"></div>
 
 </section>

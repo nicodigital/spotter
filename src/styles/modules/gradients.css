@@ -19,8 +19,8 @@
 } */
 
 .bg-tech-grid {
-   background-image: linear-gradient(to right, white 1px, transparent 1px),
-      linear-gradient(to bottom, white 1px, transparent 1px);
+   background-image: linear-gradient(to right, var(--color-primary-lighter) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-primary-lighter) 1px, transparent 1px);
 }
 
 .tech-grid-bg {

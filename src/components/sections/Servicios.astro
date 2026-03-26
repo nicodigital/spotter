@@ -1,45 +1,54 @@
 ---
 import { Image } from "astro:assets";
+import porteriaImage from "../../assets/images/porteria-blue.jpg";
+import centralImage from "../../assets/images/central.jpg";
 import Button from "../Button.astro";
 import Grid from "../Grid.astro";
-import porteriaImage from "../../assets/images/porteria.png";
-import centralImage from "../../assets/images/central.jpg";
 ---
 
-<section id="servicios" class="relative py-30 xg:pt-20 xg:pb-70 text-white z-0">
+<section id="servicios" class="relative py-30 xg:pt-20 xg:pb-70 z-0">
   <div class="container flex justify-center">
     <div
-      class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-white/20 to-transparent"
+      class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent"
     >
     </div>
   </div>
 
   <!-- title -->
+
   <div class="pt-50 text-center flex flex-col justify-center items-center">
-    <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom" >Servicios</h2>
-    <p class="text-lg w-[90%] xg:w-[33%] anim" data-anim="bottom" data-delay="0.2">
+    <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">Servicios</h2>
+
+    <p
+      class="text-lg w-[90%] xg:w-[33%] anim"
+      data-anim="bottom"
+      data-delay="0.2"
+    >
       Descubre nuestros servicios especializados diseñados para brindar
       seguridad, comodidad y eficiencia a nuestros clientes.
     </p>
   </div>
 
   <!-- cards -->
-  <div
-    class="relative container grid xg:grid-cols-2 gap-20 pt-50 z-20"
-  >
+
+  <div class="relative container grid xg:grid-cols-2 gap-20 pt-50 z-20">
+
     <!-- Portería Virtual -->
-    <a href="#"
-      class="card-service anim-float border-anim grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-20 border border-white/50 rounded-4xl"
+    <a
+      href="#"
+      class="card-service bg-white anim-float grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-20 rounded-4xl"
     >
       <div class="flex flex-col justify-between items-start">
         <div>
           <h2 class="text-4xl font-sora mb-20">Portería <br /> Virtual</h2>
+
           <p class="text-md mb-20">
-            Para ofrecerle un control total sobre los accesos, optimizando la seguridad y
-            reduciendo significativamente sus gastos operativos.
+            Para ofrecerle un control total sobre los accesos, optimizando la
+            seguridad y reduciendo significativamente sus gastos operativos.
           </p>
         </div>
-        <Button variant="white" size="lg" >
+
+        <Button variant="primary" size="lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -54,34 +63,37 @@ import centralImage from "../../assets/images/central.jpg";
               d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
               d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
           >
+
           <span>Info</span>
         </Button>
       </div>
 
-      <figure class="overflow-hidden">
+      <figure class="overflow-hidden bg-white">
         <Image
-          class="aspect-square"
+          class="spect-square mix-blend-darken"
           src={porteriaImage}
           alt="Portería Virtual"
-          widths={[480, 720, 960]}
-          sizes="(min-width: 1280px) 35vw, 90vw"
           format="webp"
         />
       </figure>
     </a>
 
     <!-- Video Vigilancia -->
-    <a href="#"
-      class="card-service anim-float-inv border-anim grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-20 border border-white/50 rounded-4xl"
+    <a
+      href="#"
+      class="card-service bg-primary text-white anim-float-inv grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-20 rounded-4xl"
     >
       <div class="flex flex-col justify-between items-start">
         <div>
           <h2 class="text-4xl font-sora mb-20">Video <br /> Vigilancia</h2>
+
           <p class="text-md mb-20">
-            Para ofrecerle un monitoreo en tiempo real de sus instalaciones y personal.
+            Para ofrecerle un monitoreo en tiempo real de sus instalaciones y
+            personal.
           </p>
         </div>
-        <Button variant="white" size="lg" >
+
+        <Button variant="white" size="lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -97,47 +109,45 @@ import centralImage from "../../assets/images/central.jpg";
               d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
               d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
           >
+
           <span>Info</span>
         </Button>
       </div>
 
-      <figure class="overflow-hidden">
+      <figure class="overflow-hidden bg-primary">
         <Image
-          class="aspect-square"
+          class="spect-square mix-blend-lighten"
           src={centralImage}
           alt="Video Vigilancia"
-          widths={[480, 720, 960]}
-          sizes="(min-width: 1280px) 35vw, 90vw"
           format="webp"
         />
       </figure>
     </a>
-
   </div>
+
   <Grid />
 </section>
 
 <style>
   .card-service {
     @apply relative overflow-hidden;
-    /* background-color: var(--color-primary); */
     transition: all 0.2s ease-in-out;
 
-    & > div{
+    & > div {
       @apply relative z-20;
     }
 
     figure {
-      @apply relative mix-blend-lighten h-fit aspect-square z-20 ;
+      @apply relative h-fit aspect-square z-20;
     }
-    
+
     img {
-      @apply transition-none !mix-blend-lighten;
+      @apply transition-none;
     }
 
     &:hover {
       @apply cursor-pointer;
-      box-shadow: 0 0 10rem rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 6rem color-mix(in srgb, var(--color-primary-lighter), transparent 70%);
     }
   }
 </style>

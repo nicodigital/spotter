@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  @apply text-base font-public-sans text-primary-darker leading-[1.5] antialiased;
+  @apply text-base bg-ivory-dark font-public-sans text-primary leading-[1.5] antialiased;
 }
 
 .container, .container-short {

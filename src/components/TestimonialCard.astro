@@ -22,16 +22,16 @@ const { quote, author, role, company, avatar, rating = 5, class: className = "" 
       </svg>
     ))}
   </div>
-  <blockquote class="text-xl text-white not-italic mb-10">"{quote}"</blockquote>
+  <blockquote class="text-xl not-italic mb-10">"{quote}"</blockquote>
   <div class="flex items-center gap-4">
     {avatar && (
       <img src={avatar} alt={author} class="size-25 rounded-full object-cover" width="56" height="56" />
     )}
     <div class="flex flex-col">
-      <p class="text-md font-semibold text-white">
+      <p class="text-md font-semibold">
         {author}
       </p>
-      <p class="text-base text-white">
+      <p class="text-base">
         {role}{company && `, ${company}`}
       </p>
     </div>

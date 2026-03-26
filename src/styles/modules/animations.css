@@ -25,48 +25,6 @@
   }
 }
 
-/* Border Animation */
-
-.border-anim {
-  &::before,
-  &::after {
-    @apply absolute inset-0 content-[""] rounded-4xl;
-  }
-}
-
-@media (min-width: 992px) {
-  .border-anim:hover::before {
-    background-image: conic-gradient(from 0, #fff, #fff, #fff, #fff);
-    z-index: -1;
-    animation: spin 6s linear infinite;
-  }
-}
-
-@media (max-width: 992px) {
-  .border-anim::before {
-    background-image: conic-gradient(from 0, #fff, #fff, #fff, #fff);
-    z-index: -1;
-    animation: spin 6s linear infinite;
-  }
-}
-
-.border-anim::after {
-  @apply bg-primary z-[1] inset-[1px];
-}
-
-/* Glow suave alrededor del borde */
-.border-anim::before {
-  filter: blur(25px);
-  opacity: 0.8;
-}
-
-/* Borde “nítido” pegado a la card */
-.border-anim::after {
-  filter: blur(0);
-}
-
-/* Redice Motion */
-
 @media (prefers-reduced-motion: reduce) {
   .anim-float {
     animation: none;

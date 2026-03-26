@@ -2,13 +2,13 @@
 import Button from "../Button.astro";
 ---
 
-<section class="relative bg-primary flex justify-center" id="contacto">
+<section class="relative flex justify-center" id="contacto">
   <div class="relative container">
     <div
       class="relative p-20 xg:py-40 xg:px-60 z-20 rounded-[4rem] [corner-shape:squircle] overflow-hidden"
     >
       <!-- Video background -->
-      <div class="absolute inset-0 z-0 bg-white">
+      <div class="absolute inset-0 z-0 bg-primary">
         <video
           class="w-full h-full object-cover grayscale opacity-20 contrast-300 brightness-200"
           src="/video/video.mp4"
@@ -23,11 +23,11 @@ import Button from "../Button.astro";
         <div
           class="flex flex-col gap-6 xg:w-[50%] xg:translate-y-[.5rem]"
         >
-          <h2 class="title text-primary-dark mb-10 xg:mb-0">
+          <h2 class="title text-white mb-10 xg:mb-0">
             Protege lo <br />
             que importa
           </h2>
-          <p class="text-lg xg:w-[80%] text-primary-dark mb-40 xg:mb-0 leading-[1.2]">
+          <p class="text-lg xg:w-[80%] text-white mb-40 xg:mb-0 leading-[1.2]">
             Contacta con nuestro equipo y descubre cómo <br class="hidden xg:block" />Spotter protege lo
             que más importa.
           </p>
@@ -37,7 +37,7 @@ import Button from "../Button.astro";
           class="flex items-center gap-8 xg:items-start xg:w-[40%] justify-end"
         >
           <div class="flex w-full flex-col gap-8 sm:w-auto sm:flex-row">
-            <Button variant="primary" size="lg" href="#presupuesto">
+            <Button variant="white" size="lg" href="#presupuesto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -59,7 +59,7 @@ import Button from "../Button.astro";
               >
               <span>Solicitar presupuesto</span>
             </Button>
-            <Button variant="outline_dark" size="lg" href="tel:+123456789">
+            <Button variant="outline_white" size="lg" href="tel:+123456789">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
