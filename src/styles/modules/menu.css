@@ -3,7 +3,7 @@
   a {
     @apply flex items-center gap-1 
   whitespace-nowrap leading-[1.5] 
-  text-primary text-md
+  text-primary text-md font-bold
   transition-opacity duration-200 hover:opacity-80;
   }
 }

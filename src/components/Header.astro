@@ -64,7 +64,7 @@ const navLinks: NavLink[] = [
     <nav class="relative flex flex-col gap-[3rem] z-30 pt-90">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="m-item text-xl font-semibold text-white">
+          <a href={link.href} class="m-item">
             {link.label}
           </a>
         ))
@@ -110,6 +110,7 @@ const navLinks: NavLink[] = [
 
       a:not([href="#contacto"]){
         color: white !important;
+        font-weight: normal !important;
         transition: all 0.3s ease;
       }
     }
