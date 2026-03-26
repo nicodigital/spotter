@@ -95,8 +95,8 @@ const navLinks: NavLink[] = [
     @apply translate-y-[-100%];
   }
   @media (min-width: 992px) {
-    :global(body[data-stack="on"]) header .container,
-    :global(body:not([data-scroll="top"])) header .container {
+    :global(body[data-stack="on"]:not([data-scroll="top"])) header .container,
+    :global(body[data-scroll]:not([data-scroll="top"])) header .container {
       width: 60%;
       background-color: color-mix(
         in srgb,
@@ -110,11 +110,12 @@ const navLinks: NavLink[] = [
 
       a:not([href="#contacto"]){
         color: white !important;
+        transition: all 0.3s ease;
       }
     }
 
-    :global(body[data-stack="on"]) header :global(a[href="#contacto"]),
-    :global(body:not([data-scroll="top"])) header :global(a[href="#contacto"]) {
+    :global(body[data-stack="on"][data-scroll]:not([data-scroll="top"])) header :global(a[href="#contacto"]),
+    :global(body[data-scroll]:not([data-scroll="top"])) header :global(a[href="#contacto"]) {
       transform: scale(0.75) !important;
     }
 

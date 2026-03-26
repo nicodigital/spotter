@@ -7,6 +7,9 @@ function scrollMarkers (device_data) {
   const isTablet = device_data.isTablet
   const platform = device_data.platform
 
+  body.setAttribute('data-scroll', window.scrollY < 100 ? 'top' : 'down')
+  body.dataset.stack = 'off'
+
   let lastScrollTop = window.scrollY
 
   // Opciones para el IntersectionObserver
@@ -60,7 +63,7 @@ function scrollMarkers (device_data) {
 
     if (st > lastScrollTop) {
       body.dataset.stack = 'off'
-    } else {
+    } else if (st < lastScrollTop) {
       body.dataset.stack = 'on'
     }
 
@@ -71,6 +74,8 @@ function scrollMarkers (device_data) {
     updateScrollPosition()
     smart_menu()
   }
+
+  updateScrollPosition()
 }
 
 export default scrollMarkers
