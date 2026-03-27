@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import InfoIcon from "../../assets/icons/info.svg";
+import MoneySheetsIcon from "../../assets/icons/money-sheets.svg";
 import Button from "../Button.astro";
 import appImage from "../../assets/images/app.png";
 
@@ -39,11 +41,11 @@ const {
       
       <div class="mt-50 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row anim" data-anim="bottom" data-mode="trigger" data-delay="1.2" data-children="false">
         <Button variant="primary" size="lg" href={primaryCta.href}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>
+          <InfoIcon/>
           <span>{primaryCta.label}</span>
         </Button>
         <Button variant="outline_dark" size="lg" href={secondaryCta.href}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report-money"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
+          <MoneySheetsIcon/>
           <span>{secondaryCta.label}</span>
         </Button>
       </div>
@@ -64,7 +66,8 @@ const {
     </figure>
    </div>
 
-  <div class="absolute inset-0 bg-gradient-to-t from-transparent to-primary-lighter z-10 pointer-events-none z-10 opacity-40"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-transparent to-primary-lighter z-10 pointer-events-none z-10 opacity-40 -rotate-45 -translate-x-1/2 "></div>
+
   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-ivory-dark z-10 pointer-events-none z-10"></div>
 
 </section>
