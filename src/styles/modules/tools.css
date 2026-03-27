@@ -7,3 +7,17 @@ img {
 .mask-round{
   @apply w-[90%] mx-auto rounded-[5rem] [corner-shape:squircle];
 }
+
+.link {
+  @apply w-fit inline-flex;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 0.2rem;
+  transition: background-size 0.3s;
+
+  &:hover {
+    background-size: 100% 0.2rem;
+  }
+}

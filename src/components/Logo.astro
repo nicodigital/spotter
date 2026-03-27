@@ -14,9 +14,11 @@ const { class: className = "" } = Astro.props;
 </a>
 
 <style>
+ @media (min-width: 992px) {
   :global(body[data-stack="on"][data-scroll]:not([data-scroll="top"])) .logo svg {
     color: white !important;
     transform: scale(0.7) translateY(0.5rem) !important;
   }
+ }
 </style>
 

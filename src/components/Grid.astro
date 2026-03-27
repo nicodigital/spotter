@@ -1,5 +1,17 @@
-<div class="absolute inset-0 overflow-hidden pointer-events-none">
+---
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+---
+
+<div class={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
   <div class="parallax absolute inset-0 h-[120%] -top-[10%]" data-speed="0.3">
     <div class="bg-tech-grid tech-grid-bg opacity-[0.1] w-full h-full"></div>
   </div>
+</div>
+
 </div>

@@ -8,7 +8,7 @@ interface Props {
 
 const { variant = "primary", size = "md", href, class: className = "" } = Astro.props;
 
-const baseClasses = "inline-flex items-center justify-center gap-[1rem] text-md xg:text-lg font-semibold leading-none transition-all duration-200 cursor-pointer rounded-[3rem] [corner-shape:squircle] [&_svg]:size-10";
+const baseClasses = "inline-flex items-center justify-center gap-[1rem] h-27 text-md xg:text-lg font-semibold leading-none transition-all duration-200 cursor-pointer rounded-[3rem] [corner-shape:squircle] [&_svg]:size-10";
 
 const variantClasses = {
   primary: "bg-primary text-white border border-primary hover:bg-transparent hover:border-primary-dark hover:text-primary hover:backdrop-blur-lg" ,

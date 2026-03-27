@@ -1,9 +1,13 @@
 .menu {
-  @apply items-center gap-8 xg:gap-25;
-  a {
-    @apply flex items-center gap-1 
-  whitespace-nowrap leading-[1.5] 
-  text-primary text-md font-bold
-  transition-opacity duration-200 hover:opacity-80;
+  .m-item {
+    @apply flex xg:items-center gap-1 
+  whitespace-nowrap leading-normal 
+  text-white xg:text-primary text-[2.5rem] xg:text-md font-sora xg:font-sans xg:font-bold
+  transition-all duration-200;
+  }
+
+  .logo svg {
+    @apply text-white;
   }
 }
+

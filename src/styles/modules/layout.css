@@ -16,14 +16,22 @@ html {
 }
 
 body {
-  @apply text-base bg-ivory-dark font-public-sans text-primary leading-[1.5] antialiased;
+  @apply text-base bg-ivory-dark font-sans text-primary leading-[1.5] antialiased;
 }
 
-.container, .container-short {
-  @apply w-[calc(100%-4rem)] xg:w-[90%] mx-auto;
+@utility container {
+  @apply w-[calc(100%-4rem)] mx-auto;
+
+  @variant xg {
+    @apply w-[90%];
+  }
 }
 
-.container-short {
-  @apply px-[2rem] xg:px-60;
+@utility container-short {
+  @apply w-[calc(100%-4rem)] mx-auto px-[2rem];
+
+  @variant xg {
+    @apply w-[90%] px-60;
+  }
 }
 

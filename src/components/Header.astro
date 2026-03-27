@@ -1,10 +1,11 @@
 ---
 import Logo from "./Logo.astro";
 import Send from "../assets/icons/send.svg";
-import ChevronDown from "../assets/icons/chevron-down.svg";
+// import ChevronDown from "../assets/icons/chevron-down.svg";
 import Button from "./Button.astro";
 import Burger from "./Burger.astro";
-import Grid from "./Grid.astro";
+import MenuMobile from "./MenuMobile.astro";
+import MenuDesktop from "./MenuDesktop.astro";
 
 interface NavLink {
   label: string;
@@ -32,19 +33,15 @@ const navLinks: NavLink[] = [
       </div>
 
       <!-- Desktop Menu -->
-      <nav class="menu hidden xg:flex">
-        {
-          navLinks.map((link) => (
-            <a href={link.href}>
-              {link.label}
-              {link.hasDropdown && <ChevronDown class="size-6" />}
-            </a>
-          ))
-        }
-      </nav>
+      <MenuDesktop {navLinks} />
 
       <div class="hidden min-w-0 flex-1 justify-end xg:flex">
-        <Button variant="yellow" size="lg" href="#contacto" class="shadow-[0_14px_36px_rgba(19,40,99,0.40)]"> 
+        <Button
+          variant="yellow"
+          size="lg"
+          href="#contacto"
+          class="shadow-[0_14px_36px_rgba(19,40,99,0.40)]"
+        >
           <span>Contacto</span>
           <Send />
         </Button>
@@ -55,35 +52,7 @@ const navLinks: NavLink[] = [
   </div>
 
   <!-- Mobile Menu -->
-  <div
-    class="mobile-menu fixed top-0 left-0 w-full h-[100svh] bg-primary flex flex-col justify-between items-start px-10 gap-8 xg:hidden transition-transform duration-[.4s] ease-in-out z-90"
-  >
-    <div class="absolute top-[3rem] left-[2rem] z-20">
-      <Logo />
-    </div>
-
-    <nav class="relative flex flex-col gap-[3rem] z-30 pt-90">
-      {
-        navLinks.map((link) => (
-          <a href={link.href} class="m-item">
-            {link.label}
-          </a>
-        ))
-      }
-    </nav>
-    <div class="pb-30 w-full">
-      <Button
-        variant="white"
-        size="lg"
-        href="#contacto"
-        class="m-item mt-30 w-full justify-center"
-      >
-        <span>Contacto</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4.698 4.034l16.302 7.966l-16.302 7.966a.503 .503 0 0 1 -.546 -.124a.555 .555 0 0 1 -.12 -.568l2.468 -7.274l-2.468 -7.274a.555 .555 0 0 1 .12 -.568a.503 .503 0 0 1 .546 -.124" /><path d="M6.5 12h14.5" /></svg>
-      </Button>
-    </div>
-    <Grid />
-  </div>
+  <MenuMobile {navLinks} />
 </header>
 
 <script>
@@ -95,6 +64,16 @@ const navLinks: NavLink[] = [
   :global(body:not([data-scroll="top"])[data-stack="off"]) header {
     @apply translate-y-[-100%];
   }
+  
+  @media (max-width: 992px) {
+    :global(body[data-stack="on"]:not([data-scroll="top"])) header {
+      backdrop-filter: blur(5px) !important;
+      background-color: color-mix(in srgb, var(--color-ivory-dark), transparent 30%) !important;
+      border-bottom: 1px solid color-mix(in srgb, var(--color-primary-darker), transparent 30%);
+      box-shadow: 0 4px 2rem color-mix(in srgb, #132863, transparent 50%);
+    }
+  }
+
   @media (min-width: 992px) {
     :global(body[data-stack="on"]:not([data-scroll="top"])) header .container,
     :global(body[data-scroll]:not([data-scroll="top"])) header .container {
@@ -109,44 +88,21 @@ const navLinks: NavLink[] = [
       padding: 4px;
       box-shadow: 0 4px 2rem color-mix(in srgb, #132863, transparent 50%);
 
-      a:not([href="#contacto"]){
+      a:not([href="#contacto"]) {
         color: white !important;
         font-weight: normal !important;
         transition: all 0.3s ease;
       }
     }
 
-    :global(body[data-stack="on"][data-scroll]:not([data-scroll="top"])) header :global(a[href="#contacto"]),
-    :global(body[data-scroll]:not([data-scroll="top"])) header :global(a[href="#contacto"]) {
+    :global(body[data-stack="on"][data-scroll]:not([data-scroll="top"]))
+      header
+      :global(a[href="#contacto"]),
+    :global(body[data-scroll]:not([data-scroll="top"]))
+      header
+      :global(a[href="#contacto"]) {
       transform: scale(0.75) !important;
     }
-
-  }
-
-  @media (max-width: 992px) {
-    header:before {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 150%;
-      z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        var(--color-primary) 0%,
-        rgba(29, 82, 218, 0) 100%
-      );
-      pointer-events: none;
-    }
-  }
-
-  /* Mobile Menu Animation */
-  :global(.mobile-menu) {
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
-  }
-
-  :global(body.menu-in) :global(.mobile-menu) {
-    transform: translateX(0);
   }
 
   :global(body.menu-in) :global(main),

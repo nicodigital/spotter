@@ -2,20 +2,23 @@
   class="burger m-item relative flex flex-col gap-[5px] bg-transparent p-2 xg:hidden z-110"
   aria-label="Abrir menú"
 >
-  <span class="burger-line block h-[4px] w-15 rounded-[2px] bg-white transition-all duration-400 ease-in-out origin-center"></span>
-  <span class="burger-line block h-[4px] w-15 rounded-[2px] bg-white transition-all duration-400 ease-in-out origin-center"></span>
-  <span class="burger-line block h-[4px] w-15 rounded-[2px] bg-white transition-all duration-400 ease-in-out origin-center"></span>
+  <span class="burger-line block h-[4px] w-15 rounded-[2px] bg-primary transition-all duration-400 ease-in-out origin-center"></span>
+  <span class="burger-line block h-[4px] w-15 rounded-[2px] bg-primary transition-all duration-400 ease-in-out origin-center"></span>
+  <span class="burger-line block h-[4px] w-15 rounded-[2px] bg-primary transition-all duration-400 ease-in-out origin-center"></span>
 </button>
 
 <style>
   :global(body.menu-in) .burger-line:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
+    background-color: white;
   }
   :global(body.menu-in) .burger-line:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
+    background-color: white;
   }
   :global(body.menu-in) .burger-line:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
+    background-color: white;
   }
 </style>
