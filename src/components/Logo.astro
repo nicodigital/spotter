@@ -14,6 +14,14 @@ const { class: className = "" } = Astro.props;
 </a>
 
 <style>
+ @media (max-width: 992px) {
+  :global(body[data-stack="on"]) .logo svg {
+    color: var(--color-primary) !important;
+  }
+  :global(body.menu-in .mobile-menu) .logo svg {
+    color: white !important;
+  }
+ }
  @media (min-width: 992px) {
   :global(body[data-stack="on"][data-scroll]:not([data-scroll="top"])) .logo svg {
     color: white !important;
