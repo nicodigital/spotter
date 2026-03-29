@@ -19,33 +19,53 @@ const {
   description = "Spotter es la solución de portería virtual y monitoreo de seguridad para tu propiedad. Nuestro equipo de profesionales te protege las 24 horas, los 365 días del año.",
   primaryCta = { label: "Más información", href: "#servicios" },
   secondaryCta = { label: "Solicitar presupuesto", href: "#presupuesto" },
-  backgroundImage = "/video/video.mp4"
+  backgroundImage = "/video/video.mp4",
 } = Astro.props;
 ---
 
-<section class="relative flex items-end xg:items-center h-[100svh] overflow-hidden py-16 sm:py-16 xg:py-20">
-
+<section
+  class="relative bg-primary text-white flex items-end xg:items-center h-[100svh] overflow-hidden py-16 sm:py-16 xg:py-20"
+>
   <!-- Video background -->
   <div class="absolute inset-0 z-0">
-    <video class="w-full h-full grayscale opacity-30 contrast-300 brightness-200 object-cover" src={backgroundImage} autoplay muted loop></video>
-    <div class="absolute inset-0 bg-ivory-darker mix-blend-hue"></div>
+    <video
+      class="w-full h-full grayscale opacity-30 contrast-300 brightness-200 object-cover"
+      src={backgroundImage}
+      autoplay
+      muted
+      loop></video>
+    <div class="absolute inset-0 bg-primary mix-blend-hue"></div>
   </div>
-  
+
   <div class="relative container-short flex flex-col z-30">
     <div class="flex flex-col gap-4">
-      <h1 class="hero-title big-title mb-6" set:html={title.replace(/\n/g, '<br />')} />
+      <h1
+        class="hero-title big-title mb-6 text-ivory"
+        set:html={title.replace(/\n/g, "<br />")}
+      />
 
-      <p class="mt-2 xg:mt-6 xg:text-lg w-[75%] xg:w-[33%] anim" data-anim="bottom" data-mode="trigger" data-delay="0.8">
+      <p
+        class="mt-2 xg:mt-6 xg:text-lg w-[75%] xg:w-[33%] anim"
+        data-anim="bottom"
+        data-mode="trigger"
+        data-delay="0.8"
+      >
         {description}
       </p>
-      
-      <div class="mt-50 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row anim" data-anim="bottom" data-mode="trigger" data-delay="1.2" data-children="false">
+
+      <div
+        class="mt-50 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row anim"
+        data-anim="bottom"
+        data-mode="trigger"
+        data-delay="1.2"
+        data-children="false"
+      >
         <Button variant="primary" size="lg" href={primaryCta.href}>
-          <InfoIcon/>
+          <InfoIcon />
           <span>{primaryCta.label}</span>
         </Button>
-        <Button variant="outline_dark" size="lg" href={secondaryCta.href}>
-          <MoneySheetsIcon/>
+        <Button variant="outline_white" size="lg" href={secondaryCta.href}>
+          <MoneySheetsIcon />
           <span>{secondaryCta.label}</span>
         </Button>
       </div>
@@ -53,8 +73,13 @@ const {
   </div>
 
   <!-- app -->
-   <div class="absolute hidden xg:block xg:top-15 right-4 xg:right-[21%] z-20 w-[40%] xg:w-[15%] anim" data-anim="bottom" data-mode="trigger" data-delay="0.5">
-    <figure class="parallax" data-speed-mobile="0" data-speed="-0.3" >
+  <div
+    class="absolute hidden xg:block xg:top-15 right-4 xg:right-[21%] z-20 w-[40%] xg:w-[15%] anim"
+    data-anim="bottom"
+    data-mode="trigger"
+    data-delay="0.5"
+  >
+    <figure class="parallax" data-speed-mobile="0" data-speed="-0.3">
       <Image
         class="w-full anim-float"
         src={appImage}
@@ -64,10 +89,17 @@ const {
         format="webp"
       />
     </figure>
-   </div>
+  </div>
 
-  <div class="absolute inset-0 bg-gradient-to-t from-transparent to-primary-lighter z-10 pointer-events-none z-10 opacity-50 scale-[3] xg:scale-[1] -rotate-45 -translate-x-1/2 blur-2xl "></div>
+  <div
+    class="absolute inset-0 bg-linear-to-t from-transparent via-primary to-transparent pointer-events-none z-10 opacity-50 scale-[3] blur-2xl"
+  >
+  </div>
 
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-ivory-dark z-10 pointer-events-none z-10"></div>
-
+  <div
+    class="absolute w-full left-0 bottom-0 h-[50vh] bg-gradient-to-b from-transparent to-ivory-dark z-10 pointer-events-none z-10"
+  >
+  </div>
 </section>
+
+

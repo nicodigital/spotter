@@ -2,7 +2,7 @@
   .m-item {
     @apply flex xg:items-center gap-1 
   whitespace-nowrap leading-normal 
-  text-white xg:text-primary text-[2.5rem] xg:text-md font-sora xg:font-sans xg:font-bold
+  text-white text-[2.5rem] xg:text-md font-sora xg:font-sans 
   transition-all duration-200;
   }
 
