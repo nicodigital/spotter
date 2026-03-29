@@ -64,10 +64,21 @@ const {
           <InfoIcon />
           <span>{primaryCta.label}</span>
         </Button>
-        <Button variant="outline_white" size="lg" href={secondaryCta.href}>
-          <MoneySheetsIcon />
-          <span>{secondaryCta.label}</span>
-        </Button>
+
+        <div class="hidden xg:flex">
+          <Button variant="outline_white" size="lg" href={secondaryCta.href}>
+            <MoneySheetsIcon />
+            <span>{secondaryCta.label}</span>
+          </Button>
+        </div>
+
+        <div class="xg:hidden">
+          <Button variant="outline_dark" size="lg" href={secondaryCta.href} class="w-full">
+            <MoneySheetsIcon />
+            <span>{secondaryCta.label}</span>
+          </Button>
+        </div>
+
       </div>
     </div>
   </div>
@@ -101,5 +112,3 @@ const {
   >
   </div>
 </section>
-
-
