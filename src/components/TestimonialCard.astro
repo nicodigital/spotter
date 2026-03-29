@@ -1,10 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Props {
   quote: string;
   author: string;
   role: string;
   company?: string;
-  avatar?: string;
+  avatar?: ImageMetadata;
   rating?: number;
   class?: string;
 }
@@ -25,7 +28,7 @@ const { quote, author, role, company, avatar, rating = 5, class: className = "" 
   <blockquote class="text-xl not-italic mb-10">"{quote}"</blockquote>
   <div class="flex items-center gap-4">
     {avatar && (
-      <img src={avatar} alt={author} class="size-25 rounded-full object-cover" width="56" height="56" />
+      <Image src={avatar} alt={author} class="size-25 rounded-full object-cover shadow-lg" width="56" height="56" format="webp" />
     )}
     <div class="flex flex-col">
       <p class="text-md font-semibold">
