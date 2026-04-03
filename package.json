@@ -8,15 +8,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "wrangler dev",
-    "kill:wrangler": "powershell -NoProfile -Command \"Get-CimInstance Win32_Process -Filter \\\"Name = 'node.exe'\\\" | Where-Object { $_.CommandLine -match 'wrangler' -and $_.CommandLine -match ' dev' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }\"",
-    "preview:clean": "pnpm run kill:wrangler && astro build && wrangler dev",
-    "deploy:clean": "pnpm run kill:wrangler && astro build && wrangler deploy",
+    "preview": "astro preview",
     "astro": "astro",
-    "generate-types": "wrangler types"
+    "generate-types": "astro sync"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.7",
+    "@astrojs/vercel": "^8.1.4",
     "@astrojs/netlify": "^6.6.0",
     "@justinribeiro/lite-youtube": "^1.9.0",
     "@netlify/blobs": "^10.7.4",
@@ -27,7 +24,5 @@
     "swiper": "^12.1.2",
     "tailwindcss": "^4.2.2"
   },
-  "devDependencies": {
-    "wrangler": "^4.80.0"
-  }
+  "devDependencies": {}
 }
