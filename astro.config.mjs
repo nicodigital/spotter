@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
-export default defineConfig({
-  output: 'hybrid',       
+export default defineConfig({    
   adapter: cloudflare({
     imageService: "compile",
   }),

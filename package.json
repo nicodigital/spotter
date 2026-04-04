@@ -13,7 +13,7 @@
     "generate-types": "astro sync"
   },
   "dependencies": {
-    "@astrojs/vercel": "^10.0.4",
+    "@astrojs/cloudflare": "^13.1.7",
     "@justinribeiro/lite-youtube": "^1.9.0",
     "@netlify/blobs": "^10.7.4",
     "@tailwindcss/vite": "^4.2.2",
@@ -22,6 +22,5 @@
     "lenis": "^1.3.20",
     "swiper": "^12.1.2",
     "tailwindcss": "^4.2.2"
-  },
-  "devDependencies": {}
+  }
 }
