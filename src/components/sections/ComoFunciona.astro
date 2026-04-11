@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import Eye from "../../assets/icons/eye.svg";
 import Monitor from "../../assets/icons/monitor.svg";
 import Bell from "../../assets/icons/bell.svg";
 import Chart from "../../assets/icons/chart.svg";
+import proceso from "../../assets/images/proceso.jpg";
 
 interface Feature {
   icon: string;
@@ -39,23 +41,23 @@ const features: Feature[] = [
 ---
 
 <section
-  class="relative bg-white py-30 sm:py-40 xg:py-55 mask-round z-0"
+  class="relative bg-white py-30 xg:py-40 mask-round shadow-2xl z-0 overflow-hidden"
   id="servicios"
 >
   <div class="container-short">
-    <div class="grid grid-cols-1 items-start gap-12 xg:grid-cols-2 xg:gap-20">
-      <div class="flex flex-col gap-4 xg:sticky xg:top-28 mb-20 xg:mb-0">
+    <div class="realtive flex xg:justify-end gap-12 xg:gap-20">
+
+      <Image src={proceso} alt="proceso" class="absolute top-0 left-0 w-[50%] h-full" />
+
+      <div class="flex flex-col xg:w-[calc(50%-15rem)]">
         <span
-          class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-neutral-500"
+           class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-neutral-500 mb-6"
           >Proceso</span
         >
-        <h2 class="title">
+        <h2 class="title mb-30">
           Cómo funciona <br />nuestro servicio
         </h2>
-      </div>
-
-      <div class="flex flex-col">
-        <div class="flex flex-col gap-30 xg:gap-35">
+        <div class="flex flex-col gap-30 xg:gap-20">
           {
             features.map((feature) => (
               <div class="icon-wrap flex flex-col xg:flex-row xg:items-start gap-12 xg:gap-18">
@@ -88,10 +90,10 @@ const features: Feature[] = [
     .icon-wrap:not(:last-child) .icon::before {
       content: "";
       position: absolute;
-      top: 6rem;
+      top: 5rem;
       left: 1.5rem;
       width: 2px;
-      height: 8rem;
+      height: 6.5rem;
       background-color: #3068F9;
     }
   }

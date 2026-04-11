@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import centralImage from "../../assets/images/central-color.jpg";
-import porteriaImage from "../../assets/images/porteria-color.jpg";
+import Faqs from "../../assets/images/faqs-5.png";
 
 interface FaqItem {
   question: string;
@@ -41,101 +40,80 @@ const { allowMultiple = false } = Astro.props;
 
 <section
   id="faq"
-  class="relative pt-30 xg:pt-20 xg:pb-70 mb-60 xg:mb-0 z-0 overflow-hidden"
+  class="relative bg-primary text-white overflow-hidden h-[150vh] mb-60"
 >
-  <div class="relative container flex justify-center z-20">
-    <div
-      class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent"
-    >
+  <div class="absolute inset-0 bg-linear-to-r from-transparent via-primary/75 to-primary z-10 ">
+  </div>
+
+  <Image
+    class="absolute top-0 left-0 w-full !h-full z-0 object-cover"
+    src={Faqs}
+    alt="Portería Virtual"
+    widths={[1920]}
+    sizes="(min-width: 1280px) 35vw, 90vw"
+    format="webp"
+  />
+
+  <div class="container flex justify-end relative py-60 z-20">
+    <div class="w-full xg:w-[50%] ">
+      <!-- title -->
+      <div class="flex flex-col">
+        <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">
+          Preguntas <br class="xg:hidden" /> frecuentes
+        </h2>
+        <p
+          class="text-lg w-[90%] xg:w-[66%] anim"
+          data-anim="bottom"
+          data-delay="0.2"
+        >
+          Aquí encontrarás las respuestas a las preguntas más comunes sobre
+          nuestros servicios y cómo podemos ayudarte.
+        </p>
+      </div>
+
+      <!-- faqs -->
+      <div
+        class="faq-container pt-20 xg:pt-40"
+        data-allow-multiple={allowMultiple.toString()}
+      >
+        {
+          faqs.map((faq, index) => (
+            <div
+              class="faq-item group border-b border-white/50 anim"
+              data-anim="bottom"
+              data-children="true"
+              data-delay={`${0.1 * (index + 1)}`}
+            >
+              <button
+                class="faq-trigger w-full flex items-center justify-between gap-20 py-25 xg:py-20 text-left cursor-pointer transition-colors duration-300 hover:text-white/80"
+                aria-expanded="false"
+              >
+                <span class="text-lg xg:text-xl font-sora font-medium w-[75%] xg:w-[66%]">
+                  {faq.question}
+                </span>
+                <span class="faq-icon relative size-12 xg:size-14 shrink-0 rounded-full border border-white/30 transition-all duration-300 ease-out group-hover:border-white/60">
+                  <span class="faq-icon-line faq-icon-horizontal absolute top-1/2 left-1/2 w-[45%] h-[2px] bg-white" />
+                  <span class="faq-icon-line faq-icon-vertical absolute top-1/2 left-1/2 w-[2px] h-[45%] bg-white" />
+                </span>
+              </button>
+              <div
+                class="faq-content overflow-hidden transition-all duration-500 ease-out"
+                style="height: 0;"
+              >
+                <div class="faq-answer pb-25 xg:pb-35 pr-20 xg:pr-80">
+                  <p class="text-base xg:text-md text-white leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
     </div>
   </div>
 
-  <!-- title -->
-  <div
-    class="relative pt-50 text-center flex flex-col justify-center items-center z-20"
-  >
-    <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">
-      Preguntas <br class="xg:hidden" /> frecuentes
-    </h2>
-    <p
-      class="text-lg w-[90%] xg:w-[33%] anim"
-      data-anim="bottom"
-      data-delay="0.2"
-    >
-      Aquí encontrarás las respuestas a las preguntas más comunes sobre nuestros
-      servicios y cómo podemos ayudarte.
-    </p>
-  </div>
-
-  <!-- faqs -->
-  <div
-    class="relative faq-container container xg:max-w-[50%] pt-40 xg:pt-60 z-20"
-    data-allow-multiple={allowMultiple.toString()}
-  >
-    {
-      faqs.map((faq, index) => (
-        <div
-          class="faq-item group border-b border-primary/20 anim"
-          data-anim="bottom"
-          data-children="true"
-          data-delay={`${0.1 * (index + 1)}`}
-        >
-          <button
-            class="faq-trigger w-full flex items-center justify-between gap-20 py-25 xg:py-20 text-left cursor-pointer transition-colors duration-300 hover:text-primary/80"
-            aria-expanded="false"
-          >
-            <span class="text-lg xg:text-xl font-sora font-medium w-[75%] xg:w-[66%]">
-              {faq.question}
-            </span>
-            <span class="faq-icon relative size-12 xg:size-14 shrink-0 rounded-full border border-primary/30 transition-all duration-300 ease-out group-hover:border-primary/60">
-              <span class="faq-icon-line faq-icon-horizontal absolute top-1/2 left-1/2 w-[45%] h-[2px] bg-primary" />
-              <span class="faq-icon-line faq-icon-vertical absolute top-1/2 left-1/2 w-[2px] h-[45%] bg-primary" />
-            </span>
-          </button>
-          <div
-            class="faq-content overflow-hidden transition-all duration-500 ease-out"
-            style="height: 0;"
-          >
-            <div class="faq-answer pb-25 xg:pb-35 pr-20 xg:pr-80">
-              <p class="text-base xg:text-md text-primary leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          </div>
-        </div>
-      ))
-    }
-  </div>
-
-  <div
-    class="absolute hidden xg:block top-[20rem] right-0 z-0 translate-x-[27%]"
-  >
-    <figure class="parallax" data-speed="-0.2">
-      <Image
-        class="aspect-square w-[40vw] opacity-10"
-        src={porteriaImage}
-        alt="Portería Virtual"
-        widths={[480, 720, 960]}
-        sizes="(min-width: 1280px) 35vw, 90vw"
-        format="webp"
-      />
-    </figure>
-  </div>
-
-  <div
-    class="absolute hidden xg:block top-[20rem] left-0 z-0 translate-x-[-27%]"
-  >
-    <figure class="parallax" data-speed="-0.2">
-      <Image
-        class="aspect-square w-[40vw] opacity-10"
-        src={centralImage}
-        alt="Video Vigilancia"
-        widths={[480, 720, 960]}
-        sizes="(min-width: 1280px) 35vw, 90vw"
-        format="webp"
-      />
-    </figure>
-  </div>
 </section>
 
 <style>
@@ -165,12 +143,12 @@ const { allowMultiple = false } = Astro.props;
 
   .faq-item.is-open .faq-icon {
     transform: rotate(180deg);
-    background-color: color-mix(in srgb, var(--color-primary), transparent 90%);
-    border-color: color-mix(in srgb, var(--color-primary), transparent 50%);
+    background-color: color-mix(in srgb, white, transparent 90%);
+    border-color: color-mix(in srgb, white, transparent 50%);
   }
 
   .faq-item.is-open .faq-trigger {
-    color: var(--color-primary);
+    color: white;
   }
 </style>
 

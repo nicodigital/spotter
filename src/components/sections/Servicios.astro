@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import porteriaImage from "../../assets/images/porteria-blue.jpg";
-import centralImage from "../../assets/images/central.jpg";
+import porteriaVirtual from "../../assets/images/porteria-virtual.jpg";
+import videoVigilancia from "../../assets/images/videovigilancia.jpg";
 import Button from "../Button.astro";
 import Grid from "../Grid.astro";
+import InfoIcon from "../../assets/icons/info.svg";
 ---
 
 <section id="servicios" class="relative py-30 xg:pt-20 xg:pb-70 z-0">
@@ -32,58 +33,53 @@ import Grid from "../Grid.astro";
   <!-- cards -->
 
   <div class="relative container grid xg:grid-cols-2 gap-20 pt-50 z-20">
-
     <!-- Portería Virtual -->
     <a
       href="#"
-      class="card-service bg-white anim-float grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 xg:p-30 gap-10 rounded-4xl"
+      class="card-service relative bg-white xg:h-[60rem] p-20 xg:p-30 xg:p-30 gap-10 rounded-4xl"
     >
-      <div class="flex flex-col justify-between items-start">
+    <Image
+        class="absolute top-0 left-0 z-0 size-full object-cover"
+        src={porteriaVirtual}
+        alt="Portería Virtual"
+        format="webp"
+      />
+      <div
+        class="relative flex flex-col justify-between items-start xg:w-[50%] h-full z-30 text-white"
+      >
         <div>
           <h2 class="text-4xl font-sora mb-20">Portería <br /> Virtual</h2>
-
           <p class="text-md mb-20">
             Para ofrecerle un control total sobre los accesos, optimizando la
             seguridad y reduciendo significativamente sus gastos operativos.
           </p>
         </div>
 
-        <Button variant="primary" size="lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-              d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
-              d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
-          >
-
+        <Button variant="white" size="lg">
+          <InfoIcon />
           <span>Info</span>
         </Button>
       </div>
 
-      <figure class="overflow-hidden bg-white">
-        <Image
-          class="spect-square mix-blend-darken"
-          src={porteriaImage}
-          alt="Portería Virtual"
-          format="webp"
-        />
-      </figure>
+      <div
+        class="!absolute inset-0 size-full bg-gradient-to-r from-primary to-transparent !z-10 pointer-events-none"
+      >
+      </div>
     </a>
 
     <!-- Video Vigilancia -->
     <a
       href="#"
-      class="card-service bg-primary text-white anim-float-inv grid xg:grid-cols-[1fr_1.5fr] xg:h-[60rem] p-20 xg:p-30 gap-10 2xl:gap-20 rounded-4xl"
+      class="card-service bg-primary text-white xg:h-[60rem] p-20 xg:p-30 gap-10 2xl:gap-20 rounded-4xl"
     >
-      <div class="flex flex-col justify-between items-start">
+      <Image
+        class="absolute top-0 left-0 z-0 size-full object-cover"
+        src={videoVigilancia}
+        alt="Video Vigilancia"
+        format="webp"
+      />
+
+      <div class="flex flex-col justify-between xg:w-[50%] h-full items-start">
         <div>
           <h2 class="text-4xl font-sora mb-20">Video <br /> Vigilancia</h2>
 
@@ -94,39 +90,19 @@ import Grid from "../Grid.astro";
         </div>
 
         <Button variant="white" size="lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-              d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
-              d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
-          >
-
+          <InfoIcon />
           <span>Info</span>
         </Button>
       </div>
 
-      <figure class="overflow-hidden bg-primary">
-        <Image
-          class="spect-square mix-blend-lighten"
-          src={centralImage}
-          alt="Video Vigilancia"
-          format="webp"
-        />
-      </figure>
+      <div
+        class="!absolute inset-0 size-full bg-gradient-to-r from-primary to-transparent !z-10 pointer-events-none"
+      >
+      </div>
     </a>
   </div>
 
   <Grid />
-
 </section>
 
 <style>
@@ -149,7 +125,8 @@ import Grid from "../Grid.astro";
 
     &:hover {
       @apply cursor-pointer;
-      box-shadow: 0 0 6rem color-mix(in srgb, var(--color-primary-lighter), transparent 70%);
+      box-shadow: 0 0 6rem
+        color-mix(in srgb, var(--color-primary-lighter), transparent 70%);
     }
   }
 </style>

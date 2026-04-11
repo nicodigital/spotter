@@ -1,6 +1,8 @@
 ---
+import FlagSwitcher from "./FlagSwitcher.astro";
 import Logo from "./Logo.astro";
 import SocialIcon from "./SocialIcon.astro";
+import WhatsApp from "./WhatsApp.astro";
 
 const navColumn1 = [
   { label: "Monitoreo de seguridad", href: "#monitoreo" },
@@ -28,14 +30,14 @@ const socialLinks = [
 ---
 
 <footer
-  class="px-4 pt-60 pb-20 xg:px-60 xg:pb-10 overflow-hidden"
+  class="bg-primary text-white px-4 pt-60 pb-20 xg:px-60 xg:pb-10 overflow-hidden mt-60"
 >
   <div class="mx-auto max-w-[90%] flex flex-col gap-20 xg:gap-60">
     <div
       class="grid grid-cols-1 xg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-16 xg:gap-30"
     >
       <figure class="flex justify-center xg:justify-start mb-20 xg:mb-0">
-        <Logo class="text-primary" />
+        <Logo class="text-white" />
       </figure>
 
       <div class="hidden xg:flex flex-col gap-10 xg:gap-15">
@@ -109,3 +111,8 @@ const socialLinks = [
     </div>
   </div>
 </footer>
+
+<WhatsApp number="+59899999999" />
+
+<FlagSwitcher/>
+

@@ -1,0 +1,38 @@
+---
+import Chile from "../assets/icons/chile-flag.svg";
+import Uruguay from "../assets/icons/uruguay-flag.svg";
+---
+
+<div
+  class="flag-switcher fixed bottom-12 left-12 flex items-center gap-8 [&_svg]:w-20 [&_svg]:h-auto z-20"
+>
+  <a href="#" class="flag-button active" aria-label="Cambiar idioma">
+    <Uruguay />
+  </a>
+  <a href="#" class="flag-button" aria-label="Cambiar idioma">
+    <Chile />
+  </a>
+</div>
+
+<style>
+  .flag-button {
+    display: flex;
+    border-radius: 7px;
+
+    svg {
+      border: 1px solid transparent;
+      backdrop-filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.35));
+    }
+  }
+  .flag-button.active {
+    background: var(--color-primary);
+    opacity: 0.8;
+    svg {
+      mix-blend-mode: luminosity;
+    }
+  }
+  .flag-button:hover svg,
+  .flag-button.active svg {
+    border-radius: 7px;
+  }
+</style>

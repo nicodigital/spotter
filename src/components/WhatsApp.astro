@@ -1,0 +1,57 @@
+---
+interface Props {
+  number: string;
+  class?: string;
+}
+
+const { number, class: className = "" } = Astro.props;
+---
+
+<a
+  href="#"
+  data-whatsapp-number={number}
+  class:list={[
+    "fixed block bottom-12 right-12 z-50 inline-flex items-center justify-center transition-opacity duration-200 hover:opacity-80",
+    className,
+  ]}
+  aria-label="WhatsApp"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-30">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+  </svg>
+</a>
+
+<script>
+  function initWhatsAppLinks() {
+    const links = document.querySelectorAll('[data-whatsapp-number]');
+
+    links.forEach((link) => {
+      const number = link.getAttribute('data-whatsapp-number');
+      if (!number) return;
+
+      // Detectar si es mobile/tablet o desktop
+      const device = document.querySelector('html')?.dataset.device;
+      const isMobile = device === 'mobile' || device === 'tablet';
+
+      // Construir URL según el dispositivo
+      // Mobile: wa.me abre la app nativa
+      // Desktop: web.whatsapp.com para WhatsApp Web
+      const url = isMobile
+        ? `https://wa.me/${number}`
+        : `https://web.whatsapp.com/send?phone=${number}`;
+
+      link.setAttribute('href', url);
+    });
+  }
+
+  // Inicializar inmediatamente y también después de que el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWhatsAppLinks);
+  } else {
+    initWhatsAppLinks();
+  }
+</script>

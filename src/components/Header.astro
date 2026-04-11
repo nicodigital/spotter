@@ -1,6 +1,6 @@
 ---
 import Logo from "./Logo.astro";
-import Send from "../assets/icons/send.svg";
+import Cotizar from "../assets/icons/cotizar.svg";
 // import ChevronDown from "../assets/icons/chevron-down.svg";
 import Button from "./Button.astro";
 import Burger from "./Burger.astro";
@@ -18,15 +18,18 @@ const navLinks: NavLink[] = [
   { label: "Portería virtual", href: "#porteria" },
   { label: "Tutoriales", href: "#tutoriales" },
   { label: "Preguntas frecuentes", href: "#faq" },
+  { label: "Contacto", href: "#contacto" },
 ];
 ---
 
 <header
-  class="fixed inset-x-0 top-0 flex h-[100px] items-center justify-center z-100 transition-all duration-400 ease-in-out"
+  class="fixed inset-x-0 top-0 flex h-[100px] items-center justify-center z-100 
+  bg-primary/50 border-b border-primary-light/75 backdrop-blur-sm
+  transition-all duration-400 ease-in-out"
   data-scroll="top"
   data-stack="off"
 >
-  <div class="container transition-all duration-400 ease-in-out">
+  <div class="container">
     <div class="flex w-full items-center justify-between gap-8">
       <div class="min-w-0 flex-1">
         <Logo class="text-white" />
@@ -35,15 +38,15 @@ const navLinks: NavLink[] = [
       <!-- Desktop Menu -->
       <MenuDesktop {navLinks} />
 
-      <div class="hidden min-w-0 flex-1 justify-end xg:flex">
+      <div class="hidden min-w-0 flex-1 justify-end xg:flex items-center gap-15">
         <Button
           variant="yellow"
-          size="lg"
+          size="sm"
           href="#contacto"
           class="shadow-[0_14px_36px_rgba(19,40,99,0.40)]"
         >
-          <span>Contacto</span>
-          <Send />
+          <span>Cotizar</span>
+          <Cotizar />
         </Button>
       </div>
 
@@ -65,46 +68,13 @@ const navLinks: NavLink[] = [
     @apply translate-y-[-100%];
   }
   
-  @media (max-width: 992px) {
+
     :global(body[data-stack="on"]:not([data-scroll="top"])) header {
-      backdrop-filter: blur(5px) !important;
-      background-color: color-mix(in srgb, var(--color-ivory-dark), transparent 30%) !important;
-      border-bottom: 1px solid color-mix(in srgb, var(--color-primary-darker), transparent 30%);
+      background-color: color-mix(in srgb, var(--color-primary), transparent 10%) !important;
       box-shadow: 0 4px 2rem color-mix(in srgb, #132863, transparent 50%);
+      border-color: transparent !important;
     }
-
-  }
-
-  @media (min-width: 992px) {
-    :global(body[data-stack="on"]:not([data-scroll="top"])) header .container,
-    :global(body[data-scroll]:not([data-scroll="top"])) header .container {
-      width: 60%;
-      background-color: color-mix(
-        in srgb,
-        var(--color-primary),
-        transparent 30%
-      ) !important;
-      backdrop-filter: blur(10px) !important;
-      border-radius: 10rem;
-      padding: 4px;
-      box-shadow: 0 4px 2rem color-mix(in srgb, #132863, transparent 50%);
-
-      a:not([href="#contacto"]) {
-        color: white !important;
-        font-weight: normal !important;
-        transition: all 0.3s ease;
-      }
-    }
-
-    :global(body[data-stack="on"][data-scroll]:not([data-scroll="top"]))
-      header
-      :global(a[href="#contacto"]),
-    :global(body[data-scroll]:not([data-scroll="top"]))
-      header
-      :global(a[href="#contacto"]) {
-      transform: scale(0.75) !important;
-    }
-  }
+  
 
   :global(body.menu-in) :global(main),
   :global(body.menu-in) :global(footer) {
