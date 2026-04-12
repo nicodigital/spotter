@@ -5,6 +5,7 @@ import Monitor from "../../assets/icons/monitor.svg";
 import Bell from "../../assets/icons/bell.svg";
 import Chart from "../../assets/icons/chart.svg";
 import proceso from "../../assets/images/proceso.jpg";
+import Grid from "../Grid.astro";
 
 interface Feature {
   icon: string;
@@ -40,53 +41,64 @@ const features: Feature[] = [
 ];
 ---
 
-<section
-  class="relative bg-white py-30 xg:py-40 mask-round shadow-2xl z-0 overflow-hidden"
-  id="servicios"
->
-  <div class="container-short">
-    <div class="realtive flex xg:justify-end gap-12 xg:gap-20">
+<div class="relative bg-primary-dark py-60" data-back="dark">
+  <section
+    class="relative bg-white py-30 xg:py-60 mask-round shadow-2xl z-0 overflow-hidden z-30"
+    id="servicios"
+  >
+    <div class="container-short">
+      <div class="realtive flex xg:justify-end gap-12 xg:gap-20">
+        <Image
+          src={proceso}
+          alt="proceso"
+          class="absolute top-0 left-0 w-[50%] h-full"
+        />
 
-      <Image src={proceso} alt="proceso" class="absolute top-0 left-0 w-[50%] h-full" />
-
-      <div class="flex flex-col xg:w-[calc(50%-15rem)]">
-        <span
-           class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-neutral-500 mb-6"
-          >Proceso</span
-        >
-        <h2 class="title mb-30">
-          Cómo funciona <br />nuestro servicio
-        </h2>
-        <div class="flex flex-col gap-30 xg:gap-20">
-          {
-            features.map((feature) => (
-              <div class="icon-wrap flex flex-col xg:flex-row xg:items-start gap-12 xg:gap-18">
-                <div class="relative icon size-15 shrink-0 text-[#3068F9]">
-                  {feature.icon === "eye" && <Eye class="size-full" />}
-                  {feature.icon === "monitor" && <Monitor class="size-full" />}
-                  {feature.icon === "bell" && <Bell class="size-full" />}
-                  {feature.icon === "chart" && <Chart class="size-full" />}
+        <div class="flex flex-col xg:w-[calc(50%-15rem)]">
+          <span
+            class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-neutral-500 mb-6"
+            >Proceso</span
+          >
+          <h2 class="title mb-30">
+            Cómo funciona <br />nuestro servicio
+          </h2>
+          <div class="flex flex-col gap-30 xg:gap-20">
+            {
+              features.map((feature) => (
+                <div class="icon-wrap flex flex-col xg:flex-row xg:items-start gap-12 xg:gap-18">
+                  <div class="relative icon size-15 shrink-0 text-[#3068F9]">
+                    {feature.icon === "eye" && <Eye class="size-full" />}
+                    {feature.icon === "monitor" && (
+                      <Monitor class="size-full" />
+                    )}
+                    {feature.icon === "bell" && <Bell class="size-full" />}
+                    {feature.icon === "chart" && <Chart class="size-full" />}
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3 class="m-0 font-[var(--font-sora)] text-[20px] leading-[1.4] font-semibold">
+                      {feature.title}
+                    </h3>
+                    <p class="m-0 font-[var(--font-sans)] text-base leading-[1.5] text-[#6B7280]">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                  <h3 class="m-0 font-[var(--font-sora)] text-[20px] leading-[1.4] font-semibold">
-                    {feature.title}
-                  </h3>
-                  <p class="m-0 font-[var(--font-sans)] text-base leading-[1.5] text-[#6B7280]">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))
-          }
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <div class="absolute bottom-0 left-0 size-full translate-y-[20%]">
+    <Grid class="invert grayscale" />
   </div>
-  
-</section>
+
+</div>
 
 <style>
-  @media(min-width: 992px) {
+  @media (min-width: 992px) {
     .icon-wrap:not(:last-child) .icon::before {
       content: "";
       position: absolute;
@@ -94,7 +106,7 @@ const features: Feature[] = [
       left: 1.5rem;
       width: 2px;
       height: 6.5rem;
-      background-color: #3068F9;
+      background-color: #3068f9;
     }
   }
 </style>

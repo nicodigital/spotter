@@ -8,15 +8,7 @@ import InfoIcon from "../../assets/icons/info.svg";
 ---
 
 <section id="servicios" class="relative py-30 xg:pt-20 xg:pb-70 z-0">
-  <div class="container flex justify-center">
-    <div
-      class="w-full h-px mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent"
-    >
-    </div>
-  </div>
-
   <!-- title -->
-
   <div class="pt-50 text-center flex flex-col justify-center items-center">
     <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">Servicios</h2>
 
@@ -38,14 +30,14 @@ import InfoIcon from "../../assets/icons/info.svg";
       href="#"
       class="card-service relative bg-white xg:h-[60rem] p-20 xg:p-30 xg:p-30 gap-10 rounded-4xl"
     >
-    <Image
-        class="absolute top-0 left-0 z-0 size-full object-cover"
+      <Image
+        class="absolute top-0 left-0 z-0 size-full object-cover transition-all duration-500 ease-in-out hover:scale-110"
         src={porteriaVirtual}
         alt="Portería Virtual"
         format="webp"
       />
       <div
-        class="relative flex flex-col justify-between items-start xg:w-[50%] h-full z-30 text-white"
+        class="relative flex flex-col justify-between items-start xg:w-[50%] h-full z-30 text-white pointer-events-none"
       >
         <div>
           <h2 class="text-4xl font-sora mb-20">Portería <br /> Virtual</h2>
@@ -55,7 +47,7 @@ import InfoIcon from "../../assets/icons/info.svg";
           </p>
         </div>
 
-        <Button variant="white" size="lg">
+        <Button variant="white" size="lg" class="pointer-events-auto">
           <InfoIcon />
           <span>Info</span>
         </Button>
@@ -73,13 +65,13 @@ import InfoIcon from "../../assets/icons/info.svg";
       class="card-service bg-primary text-white xg:h-[60rem] p-20 xg:p-30 gap-10 2xl:gap-20 rounded-4xl"
     >
       <Image
-        class="absolute top-0 left-0 z-0 size-full object-cover"
+        class="absolute top-0 left-0 z-0 size-full object-cover transition-all duration-500 ease-in-out hover:scale-110"
         src={videoVigilancia}
         alt="Video Vigilancia"
         format="webp"
       />
 
-      <div class="flex flex-col justify-between xg:w-[50%] h-full items-start">
+      <div class="flex flex-col justify-between xg:w-[50%] h-full items-start pointer-events-none">
         <div>
           <h2 class="text-4xl font-sora mb-20">Video <br /> Vigilancia</h2>
 
@@ -89,7 +81,7 @@ import InfoIcon from "../../assets/icons/info.svg";
           </p>
         </div>
 
-        <Button variant="white" size="lg">
+        <Button variant="white" size="lg" class="pointer-events-auto">
           <InfoIcon />
           <span>Info</span>
         </Button>
@@ -119,14 +111,8 @@ import InfoIcon from "../../assets/icons/info.svg";
       @apply relative h-fit aspect-square z-20;
     }
 
-    img {
-      @apply transition-none;
-    }
-
     &:hover {
       @apply cursor-pointer;
-      box-shadow: 0 0 6rem
-        color-mix(in srgb, var(--color-primary-lighter), transparent 70%);
     }
   }
 </style>

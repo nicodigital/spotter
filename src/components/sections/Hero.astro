@@ -19,18 +19,18 @@ const {
   description = "Spotter es la solución de portería virtual y monitoreo de seguridad para tu propiedad. Nuestro equipo de profesionales te protege las 24 horas, los 365 días del año.",
   primaryCta = { label: "Más información", href: "#servicios" },
   secondaryCta = { label: "Solicitar presupuesto", href: "#presupuesto" },
-  backgroundImage = "/video/video-2.mp4",
+  VideoBack = "/video/hero.mp4",
 } = Astro.props;
 ---
 
 <section
   class="relative bg-black text-white flex items-end xg:items-center h-[100svh] overflow-hidden py-16 sm:py-16 xg:py-20"
->
+  data-back="dark" >
   <!-- Video background -->
   <div class="absolute inset-0 z- blur-[1px]">
     <video
       class="w-full h-full opacity-50 object-cover"
-      src={backgroundImage}
+      src={VideoBack}
       autoplay
       muted
       loop></video>
@@ -60,7 +60,7 @@ const {
         data-delay="1.2"
         data-children="false"
       >
-        <Button variant="primary" size="lg" href={primaryCta.href}>
+        <Button variant="white" size="lg" href={primaryCta.href}>
           <InfoIcon />
           <span>{primaryCta.label}</span>
         </Button>
@@ -103,7 +103,7 @@ const {
   </div>
 
   <div
-    class="absolute w-full left-0 bottom-0 h-[50vh] bg-gradient-to-b from-transparent to-ivory-dark z-10 pointer-events-none z-10"
+    class="absolute w-full left-0 bottom-0 h-[50vh] bg-gradient-to-b from-transparent to-primary-dark z-10 pointer-events-none"
   >
   </div>
 </section>
