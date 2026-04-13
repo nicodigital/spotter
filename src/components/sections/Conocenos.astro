@@ -31,12 +31,12 @@ const benefits: Benefit[] = [
 ---
 
 <section
-  class="relative py-30 sm:py-50 xg:pt-70 xg:pb-30"
+  class="relative bg-primary-dark text-white py-30 sm:py-50 xg:pt-70 xg:pb-20"
 >
   <div class="container-short flex flex-col items-center gap-16">
-    <div class="xg:max-w-[80%] text-center mb-10 xg:mb-35 text-primary">
+    <div class="xg:max-w-[80%] text-center mb-10 xg:mb-35">
       <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom" >
-        Conócenos
+        Sobre Spotter
       </h2>
       <p
         class="w-[90%] xg:w-[66%] mx-auto anim" data-anim="bottom" data-delay="0.2"
@@ -45,7 +45,7 @@ const benefits: Benefit[] = [
       </p>
     </div>
 
-    <div class="grid w-full grid-cols-1 gap-30 xg:grid-cols-3 text-primary">
+    <div class="grid w-full grid-cols-1 gap-30 xg:grid-cols-3">
       {
         benefits.map((benefit) => (
           <div class="flex flex-col items-center gap-12 p-8 text-center anim" data-anim="bottom" data-delay="0.2" data-children="false">
@@ -65,6 +65,6 @@ const benefits: Benefit[] = [
 
   </div>
 
-  <Grid />
+  <Grid class="invert grayscale opacity-50" />
 
 </section>
