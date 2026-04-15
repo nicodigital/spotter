@@ -24,7 +24,6 @@ const navLinks: NavLink[] = [
 
 <header
   class="fixed inset-x-0 top-0 flex h-[100px] items-center justify-center z-100 
-  bg-primary/50 border-b border-primary-light/75 backdrop-blur-sm
   transition-all duration-400 ease-in-out"
   data-scroll="top"
   data-stack="off"
@@ -73,6 +72,7 @@ const navLinks: NavLink[] = [
       background-color: color-mix(in srgb, var(--color-primary), transparent 10%) !important;
       box-shadow: 0 4px 2rem color-mix(in srgb, #132863, transparent 50%);
       border-color: transparent !important;
+      backdrop-filter: blur(5px);
     }
   
 

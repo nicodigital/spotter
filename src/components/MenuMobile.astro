@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import Button from "./Button.astro";
-import Send from "../assets/icons/send.svg";
+import Cotizar from "../assets/icons/cotizar.svg";
 import Grid from "./Grid.astro";
 
 interface Props {
@@ -13,48 +13,46 @@ interface Props {
 }
 
 const { navLinks } = Astro.props;
-
 ---
 
 <div
-    class="menu mobile-menu fixed top-0 left-0 w-full h-[100svh] bg-primary flex flex-col justify-between items-start px-10 gap-8 xg:hidden transition-transform duration-[.4s] ease-in-out z-90"
-  >
-    <div class="absolute top-[3rem] left-[2rem] z-20">
-      <Logo />
-    </div>
-
-    <nav class="relative flex flex-col gap-[3rem] z-30 pt-90">
-      {
-        navLinks.map((link) => (
-          <a href={link.href} class="m-item" >
-            {link.label}
-          </a>
-        ))
-      }
-    </nav>
-
-    <div class="pb-30 w-full">
-      <Button
-        variant="yellow"
-        size="lg"
-        href="#contacto"
-        class="w-full mt-30 justify-center"
-      >
-        <span>Contacto</span>
-        <Send />
-      </Button>
-    </div>
-    <Grid class="tech-grid-light opacity-50" />
+  class="menu mobile-menu fixed top-0 left-0 w-full h-[100svh] bg-primary flex flex-col justify-between items-start px-10 gap-8 xg:hidden transition-transform duration-[.4s] ease-in-out z-90"
+>
+  <div class="absolute top-[3rem] left-[2rem] z-20">
+    <Logo />
   </div>
 
-  <style>
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.4s ease-in-out;
+  <nav class="relative flex flex-col gap-[3rem] z-30 pt-90">
+    {
+      navLinks.map((link) => (
+        <a href={link.href} class="m-item">
+          {link.label}
+        </a>
+      ))
     }
+  </nav>
 
-    body.menu-in .mobile-menu {
-      transform: translateX(0);
-    }
-  </style>
-  
+  <div class="pb-30 w-full">
+    <Button
+      variant="yellow"
+      size="sm"
+      href="#contacto"
+      class="w-full shadow-[0_14px_36px_rgba(19,40,99,0.40)]"
+    >
+      <span>Solicitar presupuesto</span>
+      <Cotizar />
+    </Button>
+  </div>
+  <Grid class="tech-grid-light opacity-50" />
+</div>
+
+<style>
+  .mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  body.menu-in .mobile-menu {
+    transform: translateX(0);
+  }
+</style>

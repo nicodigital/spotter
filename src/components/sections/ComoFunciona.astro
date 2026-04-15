@@ -41,20 +41,20 @@ const features: Feature[] = [
 ];
 ---
 
-<div class="relative bg-primary-dark py-60" data-back="dark">
+<div class="relative bg-primary-dark pt-20 pb-40 xg:py-60" data-back="dark">
   <section
-    class="relative bg-white py-30 xg:py-60 mask-round shadow-2xl z-0 overflow-hidden z-30"
+    class="relative bg-white pb-30 xg:py-60 mask-round shadow-2xl z-0 overflow-hidden z-30"
     id="servicios"
   >
-    <div class="container-short">
-      <div class="realtive flex xg:justify-end gap-12 xg:gap-20">
+    <div class="xg:container-short">
+      <div class="realtive flex flex-col xg:flex-row xg:justify-end gap-12 xg:gap-20">
         <Image
           src={proceso}
           alt="proceso"
-          class="absolute top-0 left-0 w-[50%] h-full"
+          class="xg:absolute top-0 left-0 w-full xg:w-[50%] !h-[40rem] xg:!h-full"
         />
 
-        <div class="flex flex-col xg:w-[calc(50%-15rem)]">
+        <div class="flex flex-col xg:w-[calc(50%-15rem)] px-20 xg:px-0 py-10 xg:py-0">
           <span
             class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-neutral-500 mb-6"
             >Proceso</span

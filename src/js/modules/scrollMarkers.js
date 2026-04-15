@@ -1,11 +1,11 @@
-function scrollMarkers (device_data) {
-  // console.log(device_data)
-  const body = device_data.body
-  const footer = device_data.footer
-  const isDesktop = device_data.isDesktop
-  const isMobile = device_data.isMobile
-  const isTablet = device_data.isTablet
-  const platform = device_data.platform
+function scrollMarkers (deviceData) {
+  // console.log(deviceData)
+  const body = deviceData.body
+  const footer = deviceData.footer
+  const isDesktop = deviceData.isDesktop
+  const isMobile = deviceData.isMobile
+  const isTablet = deviceData.isTablet
+  const platform = deviceData.platform
 
   body.setAttribute('data-scroll', window.scrollY < 100 ? 'top' : 'down')
   body.dataset.stack = 'off'

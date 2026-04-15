@@ -7,13 +7,19 @@ import Grid from "../Grid.astro";
 import InfoIcon from "../../assets/icons/info.svg";
 ---
 
-<section id="servicios" class="relative py-30 xg:pt-20 xg:pb-70 z-0">
+<section
+  id="servicios"
+  class="relative bg-primary-dark text-white py-30 xg:pt-20 xg:pb-70 z-0"
+  data-back="dark"
+>
   <!-- title -->
-  <div class="pt-50 text-center flex flex-col justify-center items-center">
+  <div
+    class="pt-30 xg:pt-50 text-center flex flex-col justify-center items-center"
+  >
     <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">Servicios</h2>
 
     <p
-      class="text-lg w-[90%] xg:w-[33%] anim"
+      class="xg:text-lg w-[90%] xg:w-[33%] anim"
       data-anim="bottom"
       data-delay="0.2"
     >
@@ -24,18 +30,21 @@ import InfoIcon from "../../assets/icons/info.svg";
 
   <!-- cards -->
 
-  <div class="relative container grid xg:grid-cols-2 gap-20 pt-50 z-20">
+  <div
+    class="relative container grid xg:grid-cols-2 gap-20 pt-30 xg:pt-50 z-20"
+  >
     <!-- Portería Virtual -->
     <a
       href="#"
-      class="card-service relative bg-white xg:h-[60rem] p-20 xg:p-30 xg:p-30 gap-10 rounded-4xl"
+      class="card-service xg:h-[60rem] p-15 xg:p-30 gap-10 border border-white/20 rounded-4xl"
     >
       <Image
-        class="absolute top-0 left-0 z-0 size-full object-cover transition-all duration-500 ease-in-out hover:scale-110"
+        class="absolute top-0 left-0 z-0 !w-full h-full! object-cover transition-all duration-500 ease-in-out hover:scale-110"
         src={porteriaVirtual}
         alt="Portería Virtual"
         format="webp"
       />
+
       <div
         class="relative flex flex-col justify-between items-start xg:w-[50%] h-full z-30 text-white pointer-events-none"
       >
@@ -54,7 +63,7 @@ import InfoIcon from "../../assets/icons/info.svg";
       </div>
 
       <div
-        class="!absolute inset-0 size-full bg-gradient-to-r from-primary to-transparent !z-10 pointer-events-none"
+        class="!absolute inset-0 size-full bg-gradient-to-r from-black/70 to-transparent !z-10 shadow-xxl pointer-events-none"
       >
       </div>
     </a>
@@ -62,16 +71,18 @@ import InfoIcon from "../../assets/icons/info.svg";
     <!-- Video Vigilancia -->
     <a
       href="#"
-      class="card-service bg-primary text-white xg:h-[60rem] p-20 xg:p-30 gap-10 2xl:gap-20 rounded-4xl"
+      class="card-service xg:h-[60rem] p-15 xg:p-30 gap-10 border border-white/20 rounded-4xl"
     >
       <Image
-        class="absolute top-0 left-0 z-0 size-full object-cover transition-all duration-500 ease-in-out hover:scale-110"
+        class="absolute top-0 left-0 z-0 w-full h-full! object-cover transition-all duration-500 ease-in-out hover:scale-110"
         src={videoVigilancia}
         alt="Video Vigilancia"
         format="webp"
       />
 
-      <div class="flex flex-col justify-between xg:w-[50%] h-full items-start pointer-events-none">
+      <div
+        class="flex flex-col justify-between xg:w-[50%] h-full items-start pointer-events-none"
+      >
         <div>
           <h2 class="text-4xl font-sora mb-20">Video <br /> Vigilancia</h2>
 
@@ -88,27 +99,21 @@ import InfoIcon from "../../assets/icons/info.svg";
       </div>
 
       <div
-        class="!absolute inset-0 size-full bg-gradient-to-r from-primary to-transparent !z-10 pointer-events-none"
+        class="!absolute inset-0 size-full bg-gradient-to-r from-black/70 to-transparent !z-10 shadow-xxl pointer-events-none"
       >
       </div>
     </a>
   </div>
 
-  <Grid />
+  <Grid class="invert grayscale opacity-70 xg:translate-y-[10%]" />
 </section>
 
 <style>
   .card-service {
     @apply relative overflow-hidden;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    transition: all 0.2s ease-in-out;
 
     & > div {
       @apply relative z-20;
-    }
-
-    figure {
-      @apply relative h-fit aspect-square z-20;
     }
 
     &:hover {

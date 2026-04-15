@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Faqs from "../../assets/images/faqs-2.jpg";
-import Grid from "../Grid.astro";
 
 interface FaqItem {
   question: string;
@@ -51,10 +50,10 @@ const { allowMultiple = false } = Astro.props;
     </div>
   </div>
 
-  <div class="container flex justify-end relative py-60 z-20">
-    <div class="w-[50%] h-full xg:pl-60 xg:pr-30">
+  <div class="container relative flex flex-col xg:flex-row justify-end py-30 xg:py-60 z-20">
+    <div class="xg:w-[50%] h-full xg:pl-60 xg:pr-30 mb-40 xg:mb-0">
       <Image
-        class="w-full !h-[90vh] object-cover rounded-[6rem] [corner-shape:squircle]"
+        class="w-full xg:!h-[90vh] object-cover rounded-[6rem] [corner-shape:squircle]"
         src={Faqs}
         alt="Portería Virtual"
         widths={[1920]}

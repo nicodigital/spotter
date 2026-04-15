@@ -41,7 +41,7 @@ function getDevice () {
   /* Set Device on HTML tag */
   html.dataset.device = device
 
-  const device_data = {
+  const deviceData = {
     html,
     body,
     winW,
@@ -59,7 +59,7 @@ function getDevice () {
     isIphone: isIphone()
   }
 
-  return device_data
+  return deviceData
 }
 
 export default getDevice

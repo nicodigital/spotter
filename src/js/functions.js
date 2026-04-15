@@ -8,12 +8,12 @@ import { initThemeDetect } from './themeDetect.js';
  * Inicializa todas las funcionalidades del sitio
  */
 function init() {
-  const device_data = getDevice();
-  window.spotterDeviceData = device_data;
+  const deviceData = getDevice();
+  window.spotterDeviceData = deviceData;
   initLenis();
-  initGSAP();
+  initGSAP(deviceData);
   initThemeDetect();
-  scrollMarkers(device_data);
+  scrollMarkers(deviceData);
   // Refresh ScrollTrigger después de que todo esté listo
   setTimeout(() => {
     refreshScrollTrigger();

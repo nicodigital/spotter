@@ -24,8 +24,9 @@ const {
 ---
 
 <section
-  class="relative bg-black text-white flex items-end xg:items-center h-[100svh] overflow-hidden py-16 sm:py-16 xg:py-20"
-  data-back="dark" >
+  class="relative bg-black text-white flex items-center h-[100svh] overflow-hidden py-16 sm:py-16 xg:py-20"
+  data-back="dark"
+>
   <!-- Video background -->
   <div class="absolute inset-0 z- blur-[1px]">
     <video
@@ -37,7 +38,7 @@ const {
     <div class="absolute inset-0"></div>
   </div>
 
-  <div class="relative container-short flex flex-col z-30">
+  <div class="relative container-short flex flex-col z-50">
     <div class="flex flex-col gap-4">
       <h1
         class="hero-title big-title mb-6 text-ivory"
@@ -54,7 +55,7 @@ const {
       </p>
 
       <div
-        class="mt-50 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row anim"
+        class="mt-30 xg:mt-25 flex w-full flex-col gap-6 xg:gap-10 sm:w-auto sm:flex-row anim"
         data-anim="bottom"
         data-mode="trigger"
         data-delay="1.2"
@@ -65,20 +66,10 @@ const {
           <span>{primaryCta.label}</span>
         </Button>
 
-        <div class="hidden xg:flex">
-          <Button variant="outline_white" size="lg" href={secondaryCta.href}>
-            <MoneySheetsIcon />
-            <span>{secondaryCta.label}</span>
-          </Button>
-        </div>
-
-        <div class="xg:hidden">
-          <Button variant="outline_dark" size="lg" href={secondaryCta.href} class="w-full">
-            <MoneySheetsIcon />
-            <span>{secondaryCta.label}</span>
-          </Button>
-        </div>
-
+        <Button variant="outline_white" size="lg" href={secondaryCta.href}>
+          <MoneySheetsIcon />
+          <span>{secondaryCta.label}</span>
+        </Button>
       </div>
     </div>
   </div>

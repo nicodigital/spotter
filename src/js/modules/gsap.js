@@ -62,7 +62,8 @@ export function initParallax() {
 
   elements.forEach((el) => {
     const speedDesktop = parseFloat(el.dataset.speed) || 0.5;
-    const speedMobile = parseFloat(el.dataset.speedMobile) || speedDesktop;
+    const speedMobileRaw = parseFloat(el.dataset.speedMobile);
+    const speedMobile = isNaN(speedMobileRaw) ? speedDesktop : speedMobileRaw;
     const speed = isMobile ? speedMobile : speedDesktop;
     const direction = el.dataset.direction || 'vertical';
 
@@ -220,7 +221,7 @@ export function refreshScrollTrigger() {
 /**
  * Inicializa todas las animaciones GSAP
  */
-export function initGSAP() {
+export function initGSAP( deviceData ) {
   initHeroAnimation();
   initParallax();
   initAnimations();

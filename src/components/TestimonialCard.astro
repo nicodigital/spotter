@@ -16,7 +16,7 @@ const { quote, author, role, company, avatar, rating = 5, class: className = "" 
 ---
 
 <div
-  class:list={["bg-white grid grid-rows-[auto_1fr_auto] gap-10 rounded-[3rem] [corner-shape: squircle] py-20 px-30 shadow-xxl", className]}
+  class:list={["bg-white grid grid-rows-[auto_1fr_auto] gap-10 rounded-[4rem] [corner-shape:squircle] py-20 px-15 xg:px-30 shadow-xxl", className]}
 >
   <div class="flex gap-1">
     {Array.from({ length: rating }).map(() => (
@@ -25,16 +25,18 @@ const { quote, author, role, company, avatar, rating = 5, class: className = "" 
       </svg>
     ))}
   </div>
-  <blockquote class="text-xl not-italic mb-10">"{quote}"</blockquote>
+  <blockquote class="text-md xg:text-xl not-italic mb-10">
+    "{quote}"
+  </blockquote>
   <div class="flex items-center gap-4">
     {avatar && (
       <Image src={avatar} alt={author} class="size-25 rounded-full object-cover shadow-lg" width="56" height="56" format="webp" />
     )}
     <div class="flex flex-col">
-      <p class="text-md font-semibold">
+      <p class="xg:text-md font-semibold">
         {author}
       </p>
-      <p class="text-base">
+      <p class="text-sm xg:text-base">
         {role}{company && `, ${company}`}
       </p>
     </div>
