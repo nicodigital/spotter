@@ -1,4 +1,7 @@
-function menuMobile() {
+function menuMobile(deviceData) {
+  
+  if (!deviceData.isMobile) return;
+  
   const body = document.body;
   const togglers = document.querySelectorAll('.m-item');
 

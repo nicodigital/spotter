@@ -2,6 +2,7 @@ import getDevice from './modules/getDevice.js';
 import { initLenis } from './modules/lenis.js';
 import { initGSAP, refreshScrollTrigger } from './modules/gsap.js';
 import scrollMarkers from './modules/scrollMarkers.js';
+import menuMobile from './modules/menuMobile.js';
 import { initThemeDetect } from './themeDetect.js';
 
 /**
@@ -11,6 +12,7 @@ function init() {
   const deviceData = getDevice();
   window.spotterDeviceData = deviceData;
   initLenis();
+  menuMobile(deviceData);
   initGSAP(deviceData);
   initThemeDetect();
   scrollMarkers(deviceData);
