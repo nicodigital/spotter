@@ -1,0 +1,193 @@
+---
+import { Image } from "astro:assets";
+import appImage from "../../assets/images/app.png";
+import Grid from "../Grid.astro";
+import SensorDoorIcon from "../../assets/icons/sensor_door.svg";
+import HowToRegIcon from "../../assets/icons/how_to_reg.svg";
+import SosIcon from "../../assets/icons/sos.svg";
+import CalendarMonthIcon from "../../assets/icons/calendar_month.svg";
+import ForumIcon from "../../assets/icons/forum.svg";
+
+const leftFeatures = [
+  {
+    title: "Gestión de accesos peatonales",
+    description: "Visualización, llamada y apertura de accesos peatonales cuando un visitante digite su unidad.",
+    icon: SensorDoorIcon,
+  },
+  {
+    title: "Lista de Autorizados",
+    description: "Autorización de personas temporales y permanentes para ingreso al predio por medio de un código QR y/o reconocimiento facial.",
+    icon: HowToRegIcon,
+  },
+];
+
+const rightFeatures = [
+  {
+    title: "Botón de Pánico",
+    description: "Botón de SOS que comunica directamente con nuestro centro de monitoreo.",
+    icon: SosIcon,
+  },
+  {
+    title: "Reserva de espacios comunes",
+    description: "Reserve los amenities, parrillero, y todo lo que corresponda de acuerdo a las prestaciones de su edificio.",
+    icon: CalendarMonthIcon,
+  },
+  {
+    title: "Mensajería",
+    description: "Se podrá comunicar por medio de un chat bidireccional en tiempo real con nuestros operadores.",
+    icon: ForumIcon,
+  },
+];
+---
+
+<section
+  class="relative bg-primary-dark text-white py-30 xg:py-60 overflow-hidden"
+  data-back="dark"
+>
+  <div class="container-short">
+
+    <!-- Header -->
+    <div class="text-center mb-20 xg:mb-50">
+      <span class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-yellow-400 mb-6 block">
+        Aplicación
+      </span>
+      <h2 class="title mb-10 xg:mb-16 anim" data-anim="bottom">
+        Aplicación SPOTTER
+      </h2>
+      <p class="text-lg text-white/60 xg:w-[40%] mx-auto anim" data-anim="bottom" data-delay="0.15">
+        Gestione todos nuestros servicios desde su smartphone con la app exclusiva para propietarios.
+      </p>
+    </div>
+
+    <!-- Desktop layout: 3 columns -->
+    <div class="app-layout hidden xg:grid grid-cols-[1fr_auto_1fr] gap-20 items-center">
+
+      <!-- Left features -->
+      <div class="flex flex-col gap-30 items-end">
+        {leftFeatures.map((feature) => {
+          const IconComponent = feature.icon;
+          return (
+            <div class="app-feature app-feature--left flex flex-row-reverse items-start gap-12 max-w-[36rem] text-right anim" data-anim="bottom">
+              <div class="app-feature__icon shrink-0 flex items-center justify-center size-24 rounded-full border border-white/20 bg-white/5">
+                <IconComponent class="size-11 text-yellow-400" />
+              </div>
+              <div class="flex flex-col gap-3">
+                <h3 class="font-[var(--font-sora)] text-xl font-semibold leading-[1.2]">
+                  {feature.title}
+                </h3>
+                <p class="text-base text-white/50 leading-[1.5]">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Center phone -->
+      <div class="app-phone relative flex justify-center shrink-0 w-[28rem]">
+        <div class="relative z-10">
+          <Image
+            src={appImage}
+            alt="Aplicación Spotter"
+            class="w-full h-auto drop-shadow-2xl"
+            format="webp"
+          />
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-yellow-400/10 blur-[80px] pointer-events-none"></div>
+      </div>
+
+      <!-- Right features -->
+      <div class="flex flex-col gap-30 items-start">
+        {rightFeatures.map((feature) => {
+          const IconComponent = feature.icon;
+          return (
+            <div class="app-feature app-feature--right flex items-start gap-12 max-w-[36rem] anim" data-anim="bottom">
+              <div class="app-feature__icon shrink-0 flex items-center justify-center size-24 rounded-full border border-white/20 bg-white/5">
+                <IconComponent class="size-11 text-yellow-400" />
+              </div>
+              <div class="flex flex-col gap-3">
+                <h3 class="font-[var(--font-sora)] text-xl font-semibold leading-[1.2]">
+                  {feature.title}
+                </h3>
+                <p class="text-base text-white/50 leading-[1.5]">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Mobile layout -->
+    <div class="flex xg:hidden flex-col items-center gap-20">
+
+      <!-- Phone -->
+      <div class="relative w-[22rem] mx-auto">
+        <Image
+          src={appImage}
+          alt="Aplicación Spotter"
+          class="w-full h-auto drop-shadow-2xl"
+          format="webp"
+        />
+      </div>
+
+      <!-- All features stacked -->
+      <div class="flex flex-col gap-20 px-10">
+        {[...leftFeatures, ...rightFeatures].map((feature) => {
+          const IconComponent = feature.icon;
+          return (
+            <div class="flex items-start gap-10 anim" data-anim="bottom">
+              <div class="shrink-0 flex items-center justify-center size-20 rounded-full border border-white/20 bg-white/5">
+                <IconComponent class="size-10 text-yellow-400" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="font-[var(--font-sora)] text-lg font-semibold leading-[1.2]">
+                  {feature.title}
+                </h3>
+                <p class="text-base text-white/50 leading-[1.5]">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+  </div>
+
+  <Grid class="invert grayscale opacity-50" />
+</section>
+
+<style>
+  /* Connecting lines from features to the phone */
+  @media (min-width: 992px) {
+    .app-feature--left {
+      position: relative;
+    }
+    .app-feature--left::after {
+      content: "";
+      position: absolute;
+      top: 3rem;
+      right: -2.8rem;
+      width: 3rem;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25));
+    }
+
+    .app-feature--right {
+      position: relative;
+    }
+    .app-feature--right::before {
+      content: "";
+      position: absolute;
+      top: 3rem;
+      left: -2.8rem;
+      width: 3rem;
+      height: 1px;
+      background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.25));
+    }
+  }
+</style>

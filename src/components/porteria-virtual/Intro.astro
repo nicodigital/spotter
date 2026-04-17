@@ -1,0 +1,96 @@
+---
+import Grid from "../../components/Grid.astro";
+import CardIcon from "../../components/CardIcon.astro";
+---
+
+<section
+  class="relative bg-primary-dark text-white pt-30 sm:pt-50 xg:pt-70 2xl:pt-90"
+  data-back="dark"
+>
+  <div class="container-short flex flex-col items-center gap-16">
+    <div class="xg:max-w-[80%] text-center mb-10 xg:mb-35">
+      <h2 class="title mb-10 xg:mb-20 anim" data-anim="bottom">
+        Portería virtual
+      </h2>
+      <p
+        class="text-lg w-[90%] xg:w-[66%] mx-auto anim"
+        data-anim="bottom"
+        data-delay="0.2"
+      >
+        Spotter ofrece un servicio de portería virtual, videovigilancia y
+        seguridad las 24 horas del día, los 365 días del año. No obstante, el
+        servicio puede ser contratado por la fracción horaria y por los días de
+        la semana que el cliente requiera de acuerdo a sus necesidades.
+      </p>
+    </div>
+  </div>
+
+  <Grid class="invert grayscale opacity-50 z-20" />
+
+  <!-- Video background -->
+  <div class="relative overflow-hidden z-10">
+    <div class="container relative z-30">
+      <div class="grid w-[85%] mx-auto grid-cols-1 gap-30 xg:grid-cols-4 my-30">
+        <CardIcon
+          icon="support"
+          title="Atención de Portería <br>en forma remota"
+          description="Acceso de personas al edificio previa autorización del propietario (OSE, UTE, otros)."
+        />
+
+        <CardIcon
+          icon="mobile_cast"
+          title="Aplicación móvil<br> para Smartphones"
+          description="Gestione nuestros servicios desde su dispositivo mobile."
+        />
+
+        <CardIcon
+          icon="detector_alarm"
+          title="Alerta <br>y cierre"
+          description="Para cuando se constatan puertas y portones vehiculares involuntariamente abiertos."
+        />
+
+        <CardIcon
+          icon="cheklist"
+          title="Generación de<br> Whitelist"
+          description="Ingreso sin confirmación para personas en la Whitelist; el resto debe ser autorizado por el propietario."
+        />
+      </div>
+
+      <div class="grid w-[60%] mx-auto grid-cols-1 gap-30 xg:grid-cols-3">
+        <CardIcon
+          icon="door_open"
+          title="Apertura y<br> cierre de puertas"
+          description="Gestión en forma remota de accesos peatonales y vehiculares."
+        />
+
+        <CardIcon
+          icon="notifications"
+          title="Envío de <br>notificaciones"
+          description="Comunicación bidireccional con los operadores de nuestro centro de monitoreo."
+        />
+
+        <CardIcon
+          icon="mailbox"
+          title="Seguimiento"
+          description="De la correspondencia y de los servicios de mantenimiento del edificio."
+        />
+      </div>
+    </div>
+
+    <!-- video background -->
+    <video
+      class="absolute top-0 left-0 w-full h-full opacity-50 object-cover"
+      src="/video/hero.mp4"
+      autoplay
+      muted
+      loop></video>
+    <div
+      class="absolute w-full left-0 top-0 h-full bg-gradient-to-t from-transparent to-primary-dark z-10 pointer-events-none"
+    >
+    </div>
+    <div
+      class="absolute w-full left-0 bottom-0 h-full bg-gradient-to-b from-transparent to-primary-dark z-10 pointer-events-none"
+    >
+    </div>
+  </div>
+</section>

@@ -20,6 +20,7 @@ const {
   primaryCta = { label: "Más información", href: "#servicios" },
   secondaryCta = { label: "Solicitar presupuesto", href: "#presupuesto" },
   VideoBack = "/video/hero.mp4",
+  VideoApp = "/video/Spotter-App-Hero.mp4",
 } = Astro.props;
 ---
 
@@ -81,15 +82,13 @@ const {
     data-mode="trigger"
     data-delay="0.5"
   >
-    <figure class="parallax" data-speed-mobile="0" data-speed="-0.3">
-      <Image
-        class="w-full anim-float"
-        src={appImage}
-        alt="App"
-        widths={[240, 320, 480]}
-        sizes="(min-width: 1280px) 15vw, 40vw"
-        format="webp"
-      />
+    <figure class="parallax mix-blend-darken" data-speed-mobile="0" data-speed="-0.3">
+      <video
+        class="w-full h-full object-cover rounded-[4rem] shadow-xxl"
+        src={VideoApp}
+        autoplay
+        muted
+        loop></video>
     </figure>
   </div>
 
