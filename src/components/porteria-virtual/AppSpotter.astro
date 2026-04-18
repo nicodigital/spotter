@@ -2,17 +2,18 @@
 import { Image } from "astro:assets";
 import appImage from "../../assets/images/app.png";
 import Grid from "../Grid.astro";
-import SensorDoorIcon from "../../assets/icons/sensor_door.svg";
 import HowToRegIcon from "../../assets/icons/how_to_reg.svg";
-import SosIcon from "../../assets/icons/sos.svg";
 import CalendarMonthIcon from "../../assets/icons/calendar_month.svg";
 import ForumIcon from "../../assets/icons/forum.svg";
+import PeatonIcon from "../../assets/icons/peaton.svg";
+import PanicIcon from "../../assets/icons/panic.svg";
+
 
 const leftFeatures = [
   {
     title: "Gestión de accesos peatonales",
     description: "Visualización, llamada y apertura de accesos peatonales cuando un visitante digite su unidad.",
-    icon: SensorDoorIcon,
+    icon: PeatonIcon,
   },
   {
     title: "Lista de Autorizados",
@@ -25,7 +26,7 @@ const rightFeatures = [
   {
     title: "Botón de Pánico",
     description: "Botón de SOS que comunica directamente con nuestro centro de monitoreo.",
-    icon: SosIcon,
+    icon: PanicIcon,
   },
   {
     title: "Reserva de espacios comunes",
@@ -41,7 +42,7 @@ const rightFeatures = [
 ---
 
 <section
-  class="relative bg-primary-dark text-white py-30 xg:py-60 overflow-hidden"
+  class="relative bg-primary-dark text-white py-30 xg:pb-90 overflow-hidden"
   data-back="dark"
 >
   <div class="container-short">
@@ -49,10 +50,10 @@ const rightFeatures = [
     <!-- Header -->
     <div class="text-center mb-20 xg:mb-50">
       <span class="font-[var(--font-sans)] text-base leading-[1.5] font-semibold text-yellow-400 mb-6 block">
-        Aplicación
+        App
       </span>
       <h2 class="title mb-10 xg:mb-16 anim" data-anim="bottom">
-        Aplicación SPOTTER
+        Aplicación Spotter
       </h2>
       <p class="text-lg text-white/60 xg:w-[40%] mx-auto anim" data-anim="bottom" data-delay="0.15">
         Gestione todos nuestros servicios desde su smartphone con la app exclusiva para propietarios.
@@ -85,7 +86,7 @@ const rightFeatures = [
       </div>
 
       <!-- Center phone -->
-      <div class="app-phone relative flex justify-center shrink-0 w-[28rem]">
+      <div class="app-phone relative flex justify-center shrink-0 w-[28rem] xg:-translate-y-10 z-50">
         <div class="relative z-10">
           <Image
             src={appImage}
@@ -171,10 +172,10 @@ const rightFeatures = [
       content: "";
       position: absolute;
       top: 3rem;
-      right: -2.8rem;
-      width: 3rem;
+      right: -13rem;
+      width: 13rem;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25));
+      background: rgba(255, 255, 255, 0.25);
     }
 
     .app-feature--right {
@@ -184,10 +185,10 @@ const rightFeatures = [
       content: "";
       position: absolute;
       top: 3rem;
-      left: -2.8rem;
-      width: 3rem;
+      left: -8rem;
+      width: 8rem;
       height: 1px;
-      background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.25));
+      background: rgba(255, 255, 255, 0.25);
     }
   }
 </style>

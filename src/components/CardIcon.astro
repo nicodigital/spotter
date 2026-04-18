@@ -17,11 +17,11 @@ const IconModule = await import(`../assets/icons/${icon}.svg`);
   data-delay="0.2"
   data-children="false"
 >
-  <div class="[&_svg]:size-25">
+  <div class="[&_svg]:size-22">
     <IconModule.default />
   </div>
-  <h3 class="mb-2 font-[var(--font-sora)] text-xl leading-[1.2] font-semibold min-h-[6rem]">
+  <h3 class="mb-2 font-[var(--font-sora)] text-lg leading-[1.2] font-semibold min-h-[4.5rem]">
     <span set:html={title} />
   </h3>
-  <p class="xg:w-[90%]">{description}</p>
+  <p class="xg:w-[90%] opacity-70">{description}</p>
 </div>

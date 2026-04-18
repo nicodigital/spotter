@@ -22,4 +22,10 @@ function init() {
   }, 100);
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('astro:page-load', init);
+
+if (document.readyState !== 'loading') {
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init, { once: true });
+}

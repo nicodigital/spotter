@@ -2,9 +2,15 @@
 import Button from "../Button.astro";
 import MoneySheetsIcon from "../../assets/icons/money-sheets.svg";
 import WhatsappIcon from "../../assets/icons/whatsapp.svg";
+
+interface Props {
+  bgColor: string;
+}
+
+const { bgColor = "ivory-dark" } = Astro.props;
 ---
 
-<section class="relative flex justify-center" id="contacto">
+<section class={`relative bg-${bgColor} flex justify-center pb-60`} id="contacto">
   <div class="relative container">
     <div
       class="relative p-20 xg:py-40 xg:px-60 z-20 rounded-[8rem] [corner-shape:squircle] overflow-hidden"

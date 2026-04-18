@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  @apply text-base bg-ivory-dark font-sans text-primary leading-[1.5] antialiased;
+  @apply text-base bg-primary-dark font-sans text-white leading-[1.5] antialiased;
 }
 
 @utility container {

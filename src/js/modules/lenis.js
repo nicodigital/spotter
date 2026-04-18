@@ -5,8 +5,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 let lenis;
+let tickerHandler;
 
 export function initLenis() {
+  if (lenis) {
+    lenis.destroy();
+  }
+
+  if (tickerHandler) {
+    gsap.ticker.remove(tickerHandler);
+  }
+
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -20,9 +29,11 @@ export function initLenis() {
 
   lenis.on('scroll', ScrollTrigger.update);
 
-  gsap.ticker.add((time) => {
+  tickerHandler = (time) => {
     lenis.raf(time * 1000);
-  });
+  };
+
+  gsap.ticker.add(tickerHandler);
 
   gsap.ticker.lagSmoothing(0);
 
