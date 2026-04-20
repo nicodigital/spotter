@@ -31,8 +31,11 @@ export function initHeroAnimation() {
   const heroTitle = document.querySelector('.hero-title');
   if (!heroTitle) return;
 
-  const chars = splitTextIntoChars(heroTitle);
+  const existingChars = heroTitle.querySelectorAll('.hero-char');
+  const chars = existingChars.length ? existingChars : splitTextIntoChars(heroTitle);
   heroTitle.classList.add('gsap-ready');
+
+  gsap.killTweensOf(chars);
 
   gsap.set(chars, {
     yPercent: 100,
@@ -222,6 +225,7 @@ export function refreshScrollTrigger() {
  * Inicializa todas las animaciones GSAP
  */
 export function initGSAP( deviceData ) {
+  ScrollTrigger.getAll().forEach(t => t.kill());
   initHeroAnimation();
   initParallax();
   initAnimations();
