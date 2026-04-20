@@ -3,6 +3,7 @@ import FlagSwitcher from "./FlagSwitcher.astro";
 import Logo from "./Logo.astro";
 import SocialIcon from "./SocialIcon.astro";
 import WhatsApp from "./WhatsApp.astro";
+import Modals from "./Modals.astro";
 
 const navColumn1 = [
   { label: "Monitoreo de seguridad", href: "#monitoreo" },
@@ -28,7 +29,7 @@ const socialLinks = [
   { platform: "instagram" as const, href: "#" },
 ];
 ---
-
+<Modals />
 <footer
   class="bg-primary text-white px-4 py-60 xg:px-60 xg:pb-10 overflow-hidden"
  data-back="dark">

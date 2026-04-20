@@ -1,0 +1,188 @@
+---
+import ContactForm from "./modals/ContactForm.astro";
+---
+
+<ContactForm />
+
+<style>
+  :global(body.modal-open) {
+    overflow: hidden;
+  }
+
+  :global(dialog[data-modal]) {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.97);
+    transition:
+      opacity 0.28s ease,
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :global(dialog[data-modal][open]) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  :global(dialog[data-modal]::backdrop) {
+    background-color: color-mix(in srgb, var(--color-primary), transparent 45%);
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    transition:
+      opacity 0.3s ease,
+      backdrop-filter 0.3s ease,
+      -webkit-backdrop-filter 0.3s ease;
+  }
+
+  :global(dialog[data-modal][open]::backdrop) {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  :global(.modal-panel) {
+    transform-origin: top center;
+  }
+
+  :global([data-modal-transition-source]) {
+    view-transition-name: modal-source;
+  }
+
+  :global(dialog[data-modal][open] .modal-panel) {
+    view-transition-name: modal-surface;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(dialog[data-modal]) {
+      transition: none;
+      transform: none;
+    }
+
+    :global(dialog[data-modal]::backdrop) {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  type TriggerElement = HTMLElement & { dataset: DOMStringMap };
+
+  function initModals() {
+    const dialogs = Array.from(
+      document.querySelectorAll("dialog[data-modal]"),
+    ) as HTMLDialogElement[];
+
+    if (!dialogs.length) return;
+
+    const supportsViewTransitions =
+      "startViewTransition" in document &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let activeDialog: HTMLDialogElement | null = null;
+
+    const setBodyState = () => {
+      const hasOpenDialog = dialogs.some((dialog) => dialog.open);
+      document.body.classList.toggle("modal-open", hasOpenDialog);
+    };
+
+    const closeDialog = (dialog: HTMLDialogElement) => {
+      if (!dialog.open) return;
+      dialog.dataset.show = "off";
+      dialog.close();
+      setBodyState();
+
+      if (activeDialog === dialog) {
+        activeDialog = null;
+      }
+    };
+
+    const openDialog = (dialog: HTMLDialogElement, trigger?: TriggerElement) => {
+      if (activeDialog && activeDialog !== dialog) {
+        closeDialog(activeDialog);
+      }
+
+      const run = () => {
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+
+        dialog.dataset.show = "on";
+        activeDialog = dialog;
+        setBodyState();
+      };
+
+      if (supportsViewTransitions && trigger) {
+        trigger.setAttribute("data-modal-transition-source", "true");
+        document
+          .startViewTransition(() => {
+            run();
+          })
+          .finished.finally(() => {
+            trigger.removeAttribute("data-modal-transition-source");
+          });
+        return;
+      }
+
+      run();
+    };
+
+    dialogs.forEach((dialog) => {
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+          closeDialog(dialog);
+        }
+      });
+
+      dialog.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeDialog(dialog);
+      });
+
+      dialog
+        .querySelectorAll("[data-close-modal]")
+        .forEach((closeBtn) => {
+          if (!(closeBtn instanceof HTMLElement)) return;
+          closeBtn.addEventListener("click", () => closeDialog(dialog));
+        });
+
+      dialog.addEventListener("close", () => {
+        dialog.dataset.show = "off";
+        setBodyState();
+      });
+    });
+
+    const bindTriggers = () => {
+      const triggers = Array.from(
+        document.querySelectorAll(".open-modal[data-modal]"),
+      ) as TriggerElement[];
+
+      triggers.forEach((trigger) => {
+        if (trigger.dataset.modalBinded === "true") return;
+
+        trigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          const modalName = trigger.dataset.modal;
+          if (!modalName) return;
+
+          const targetDialog = document.querySelector(
+            `dialog[data-modal="${modalName}"]`,
+          );
+
+          if (!(targetDialog instanceof HTMLDialogElement)) return;
+
+          openDialog(targetDialog, trigger);
+        });
+
+        trigger.dataset.modalBinded = "true";
+      });
+    };
+
+    bindTriggers();
+
+    document.addEventListener("astro:after-swap", bindTriggers, {
+      passive: true,
+    });
+  }
+
+  document.addEventListener("astro:page-load", initModals);
+  initModals();
+</script>

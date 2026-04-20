@@ -4,9 +4,16 @@ interface Props {
   size?: "sm" | "md" | "lg";
   href?: string;
   class?: string;
+  "data-modal"?: string;
 }
 
-const { variant = "primary", size = "md", href, class: className = "" } = Astro.props;
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  class: className = "",
+  "data-modal": dataModal,
+} = Astro.props;
 
 const baseClasses = "inline-flex items-center justify-center gap-[1rem] h-27 text-md xg:text-lg font-semibold leading-none transition-all duration-200 cursor-pointer rounded-[3rem] [corner-shape:squircle] [&_svg]:size-10";
 
@@ -30,11 +37,11 @@ const Tag = href ? "a" : "button";
 ---
 
 {href ? (
-  <a href={href} class={classes}>
+  <a href={href} class={classes} data-modal={dataModal}>
     <slot />
   </a>
 ) : (
-  <button class={classes}>
+  <button class={classes} data-modal={dataModal}>
     <slot />
   </button>
 )}

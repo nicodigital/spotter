@@ -1,0 +1,142 @@
+---
+
+---
+
+<dialog
+  data-modal="contact-form"
+  data-show="off"
+  aria-labelledby="contact-form-title"
+  class="modal-shell m-auto w-[92%] max-w-[50%] rounded-[3.2rem] bg-transparent p-0 text-primary backdrop:bg-primary/70"
+>
+  <div
+    class="modal-panel relative overflow-hidden rounded-[3rem] [corner-shape:squircle] border border-primary/10 bg-ivory-dark shadow-[0_3rem_8rem_rgba(5,14,40,0.35)]"
+  >
+    <button
+      type="button"
+      class="close-modal absolute right-10 top-10 z-20 inline-flex size-16 items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary transition-all hover:scale-105 hover:bg-white"
+      data-close-modal
+      aria-label="Cerrar formulario"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        class="size-9"
+      >
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+
+    <div class="grid grid-cols-1 xg:grid-cols-[1fr_1.15fr]">
+      <div
+        class="flex flex-col justify-between gap-18 bg-primary px-16 py-18 text-white xg:px-22 xg:py-24"
+      >
+        <div class="space-y-8">
+          <p class="text-md font-semibold text-yellow-300">Spotter</p>
+          <h2 id="contact-form-title" class="font-sora text-4xl xg:text-5xl leading-tight">
+            Contacto y cotización
+          </h2>
+          <p class="max-w-[42ch] text-md text-white/80">
+            Completá el formulario y nuestro equipo comercial te enviará una
+            propuesta inicial a la brevedad.
+          </p>
+        </div>
+
+        <ul class="space-y-4 text-sm text-white/85">
+          <li class="flex items-center gap-4">
+            <span class="size-2 rounded-full bg-yellow-300"></span>
+            Respuesta rápida en horario comercial
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="size-2 rounded-full bg-yellow-300"></span>
+            Evaluación según tipo de propiedad
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="size-2 rounded-full bg-yellow-300"></span>
+            Asesoramiento para edificios y empresas
+          </li>
+        </ul>
+      </div>
+
+      <form
+        class="grid grid-cols-1 gap-8 bg-white px-14 py-16 xg:grid-cols-2 xg:gap-10 xg:px-18 xg:py-20"
+      >
+        <label class="flex flex-col gap-3 xg:col-span-1">
+          <span class="text-sm font-semibold">Nombre y apellido</span>
+          <input
+            name="name"
+            type="text"
+            autocomplete="name"
+            placeholder="Ej: Juan Pérez"
+            class="h-17 rounded-[1.6rem] border border-primary/15 bg-ivory-dark/50 px-7 text-md outline-none transition-colors focus:border-primary/40"
+            required
+          />
+        </label>
+
+        <label class="flex flex-col gap-3 xg:col-span-1">
+          <span class="text-sm font-semibold">Email</span>
+          <input
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="Ej: nombre@email.com"
+            class="h-17 rounded-[1.6rem] border border-primary/15 bg-ivory-dark/50 px-7 text-md outline-none transition-colors focus:border-primary/40"
+            required
+          />
+        </label>
+
+        <label class="flex flex-col gap-3 xg:col-span-1">
+          <span class="text-sm font-semibold">Teléfono</span>
+          <input
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="Ej: 099 123 456"
+            class="h-17 rounded-[1.6rem] border border-primary/15 bg-ivory-dark/50 px-7 text-md outline-none transition-colors focus:border-primary/40"
+            required
+          />
+        </label>
+
+        <label class="flex flex-col gap-3 xg:col-span-1">
+          <span class="text-sm font-semibold">Tipo de consulta</span>
+          <select
+            name="requestType"
+            class="h-17 rounded-[1.6rem] border border-primary/15 bg-ivory-dark/50 px-7 text-md outline-none transition-colors focus:border-primary/40"
+            required
+          >
+            <option value="" selected disabled>Seleccioná una opción</option>
+            <option value="cotizacion">Solicitar cotización</option>
+            <option value="contacto">Quiero que me contacten</option>
+            <option value="otro">Otra consulta</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-3 xg:col-span-2">
+          <span class="text-sm font-semibold">Mensaje</span>
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Contanos sobre tu edificio, empresa o necesidad"
+            class="min-h-34 rounded-[1.8rem] border border-primary/15 bg-ivory-dark/50 px-7 py-5 text-md outline-none transition-colors focus:border-primary/40"
+            required
+          ></textarea>
+        </label>
+
+        <div class="xg:col-span-2 flex flex-col gap-6 xg:flex-row xg:items-center xg:justify-between">
+          <p class="text-sm text-primary/65">
+            Al enviar, aceptás ser contactado por el equipo de Spotter.
+          </p>
+          <button
+            type="submit"
+            class="inline-flex h-17 items-center justify-center rounded-[2.2rem] [corner-shape:squircle] bg-yellow-400 px-12 text-md font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            Enviar solicitud
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
