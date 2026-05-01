@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import InfoIcon from "../../assets/icons/info.svg";
 import MoneySheetsIcon from "../../assets/icons/money-sheets.svg";
 import Button from "../Button.astro";
-import appImage from "../../assets/images/app.png";
+// import appImage from "../../assets/images/app.png";
 
 interface Props {
   tagline?: string;
@@ -15,10 +15,8 @@ interface Props {
 }
 
 const {
-  title = "Portería Virtual <br> & Videovigilancia",
+  title = "Portería Virtual <br> & seguridad en tiempo real",
   description = "Spotter es la solución de portería virtual y monitoreo de seguridad para tu propiedad. Nuestro equipo de profesionales te protege las 24 horas, los 365 días del año.",
-  primaryCta = { label: "Más información", href: "#servicios" },
-  secondaryCta = { label: "Solicitar presupuesto", href: "#presupuesto" },
   VideoBack = "/video/hero.mp4",
   VideoApp = "/video/Spotter-App-Hero.mp4",
 } = Astro.props;
@@ -62,14 +60,14 @@ const {
         data-delay="1.2"
         data-children="false"
       >
-        <Button variant="white" size="lg" href={primaryCta.href}>
+        <Button variant="white" size="lg" href="#servicios">
           <InfoIcon />
-          <span>{primaryCta.label}</span>
+          <span>Más información</span>
         </Button>
 
-        <Button variant="outline_white" size="lg" href={secondaryCta.href}>
+        <Button variant="outline_white" size="lg" class="open-modal" data-modal="contact-form">
           <MoneySheetsIcon />
-          <span>{secondaryCta.label}</span>
+          <span>Solicitar presupuesto</span>
         </Button>
       </div>
     </div>

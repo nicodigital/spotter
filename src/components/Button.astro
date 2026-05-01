@@ -5,6 +5,7 @@ interface Props {
   href?: string;
   class?: string;
   "data-modal"?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   href,
   class: className = "",
   "data-modal": dataModal,
+  type,
 } = Astro.props;
 
 const baseClasses = "inline-flex items-center justify-center gap-[1rem] h-27 text-md xg:text-lg font-semibold leading-none transition-all duration-200 cursor-pointer rounded-[3rem] [corner-shape:squircle] [&_svg]:size-10";
@@ -28,7 +30,8 @@ const variantClasses = {
 };
 
 const sizeClasses = {
-  sm: "px-14 py-7 h-fit text-sm",
+  sm: "px-12 py-5 h-fit text-sm",
+  md: "px-14 py-7 h-fit",
   lg: "px-10 py-8 xg:px-14 xg:py-8 text-lg font-extrabold",
 };
 
@@ -41,7 +44,7 @@ const Tag = href ? "a" : "button";
     <slot />
   </a>
 ) : (
-  <button class={classes} data-modal={dataModal}>
+  <button type={type} class={classes} data-modal={dataModal}>
     <slot />
   </button>
 )}

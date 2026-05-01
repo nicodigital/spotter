@@ -1,6 +1,6 @@
 ---
 import Logo from "./Logo.astro";
-import Cotizar from "../assets/icons/cotizar.svg";
+import SendEmail from "../assets/icons/sendEmail.svg";
 // import ChevronDown from "../assets/icons/chevron-down.svg";
 import Button from "./Button.astro";
 import Burger from "./Burger.astro";
@@ -14,11 +14,11 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: "Monitoreo de seguridad", href: "#monitoreo" },
+  { label: "Monitoreo de seguridad", href: "/#monitoreo" },
   { label: "Portería virtual", href: "/porteria-virtual" },
-  { label: "Tutoriales", href: "#tutoriales" },
-  { label: "Preguntas frecuentes", href: "#faq" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Tutoriales", href: "/#tutoriales" },
+  { label: "Preguntas frecuentes", href: "/#faq" },
+  { label: "App Spotter", href: "/#app" },
 ];
 ---
 
@@ -40,13 +40,13 @@ const navLinks: NavLink[] = [
       <div class="hidden min-w-0 flex-1 justify-end xg:flex items-center gap-15">
         <Button
           variant="yellow"
-          size="sm"
+          size="md"
           href="#"
           data-modal="contact-form"
           class="open-modal shadow-[0_14px_36px_rgba(19,40,99,0.40)]"
         >
-          <span>Cotizar</span>
-          <Cotizar />
+          <span>Contacto</span>
+          <SendEmail />
         </Button>
       </div>
 

@@ -11,7 +11,7 @@ function splitTextIntoChars(element) {
   const lines = text.split(/<br\s*\/?>/gi);
   
   element.innerHTML = lines.map((line, lineIndex) => {
-    const chars = line.split('').map(char => {
+    const chars = (line.match(/&[a-zA-Z0-9#]+;|./gs) || []).map(char => {
       if (char === ' ') {
         return `<span class="hero-char">&nbsp;</span>`;
       }

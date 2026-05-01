@@ -20,19 +20,19 @@ const navColumn2 = [
   { label: "Trabaja con nosotros", href: "#trabajo" },
 ];
 
-const legalLinks = [
-  { label: "Política de privacidad", href: "#privacidad" },
-];
+const legalLinks = [{ label: "Política de privacidad", href: "#privacidad" }];
 
 const socialLinks = [
   { platform: "facebook" as const, href: "#" },
   { platform: "instagram" as const, href: "#" },
 ];
 ---
+
 <Modals />
 <footer
   class="bg-primary text-white px-4 py-60 xg:px-60 xg:pb-10 overflow-hidden"
- data-back="dark">
+  data-back="dark"
+>
   <div class="mx-auto max-w-[90%] flex flex-col gap-20 xg:gap-60">
     <div
       class="grid grid-cols-1 xg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-16 xg:gap-30"
@@ -54,18 +54,29 @@ const socialLinks = [
         </nav>
       </div>
 
-      <div class="flex flex-col items-center xg:items-start text-center xg:text-left gap-10 xg:gap-15">
-        <span class="hidden xg:block text-lg font-bold">Dirección</span>
-        <span>
+      <div
+        class="flex flex-col items-center xg:items-start text-center xg:text-left gap-10 xg:gap-15"
+      >
+        <h3 class="hidden xg:block text-lg font-bold">Direcciones</h3>
+        <p class="whitespace-nowrap">
+          Uruguay <br />
           Dr. Alfredo Arocena 1920, <br />
           Montevideo, Uruguay
-        </span>
+        </p>
+        <p class="whitespace-nowrap">
+          Chile<br />
+          Isidora Goyenechea 3520 of. 201, <br />
+          Las Condes, Santiago.
+        </p>
       </div>
 
-      <div class="flex flex-col items-center xg:items-start text-center xg:text-left gap-10 xg:gap-15 mt-10 xg:mt-0">
+      <div
+        class="flex flex-col items-center xg:items-start text-center xg:text-left gap-10 xg:gap-15 mt-10 xg:mt-0"
+      >
         <span class="text-lg font-semibold">Teléfono</span>
         <a href="tel:+59826028696" class="hover:opacity-60 transition-opacity">
-          <span class="text-4xl font-semibold whitespace-nowrap">2602 8696</span>
+          <span class="text-4xl font-semibold whitespace-nowrap">2602 8696</span
+          >
         </a>
       </div>
 
@@ -88,7 +99,7 @@ const socialLinks = [
       >
       </div>
 
-      <div class="flex flex-row justify-between gap-4 text-sm ">
+      <div class="flex flex-row justify-between gap-4 text-sm">
         <a
           href="#privacidad"
           class="opacity-60 hover:opacity-100 transition-opacity"
@@ -115,5 +126,4 @@ const socialLinks = [
 
 <WhatsApp number="+59899999999" />
 
-<FlagSwitcher/>
-
+<FlagSwitcher />

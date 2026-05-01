@@ -11,13 +11,14 @@ import PanicIcon from "../../assets/icons/panic.svg";
 
 const leftFeatures = [
   {
-    title: "Gestión de accesos peatonales",
-    description: "Visualización, llamada y apertura de accesos peatonales cuando un visitante digite su unidad.",
+    title: "Gestión de accesos peatonales y vehiculares",
+    description: "Apertura de accesos peatonales y portón vehicular",
+    // description: "Visualización, llamada y apertura de accesos peatonales y vehiculares cuando un visitante digite su unidad. Apertura de accesos peatonales y portón vehicular",
     icon: PeatonIcon,
   },
   {
     title: "Lista de Autorizados",
-    description: "Autorización de personas temporales y permanentes para ingreso al predio por medio de un código QR y/o reconocimiento facial.",
+    description: "Autorización de personas temporales y permanentes para ingreso al predio por medio de un PIN y/o reconocimiento facial.",
     icon: HowToRegIcon,
   },
 ];
@@ -41,7 +42,7 @@ const rightFeatures = [
 ];
 ---
 
-<section
+<section id="app" 
   class="relative bg-primary-dark text-white py-30 xg:pb-90 overflow-hidden"
   data-back="dark"
 >
