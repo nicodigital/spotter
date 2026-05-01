@@ -1,0 +1,157 @@
+<dialog
+  data-modal="tutorial-video"
+  data-show="off"
+  aria-labelledby="tutorial-video-title"
+  class="modal-shell m-auto w-[92%] xg:max-w-[70%] rounded-xxl bg-transparent p-0 text-primary backdrop:bg-primary-darker/90"
+>
+  <div class="modal-panel relative overflow-hidden rounded-[3rem] border border-ivory-dark bg-ivory-dark">
+    <button
+      type="button"
+      class="close-modal absolute right-10 top-10 z-20 inline-flex size-16 items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary transition-all hover:scale-105 hover:bg-white"
+      data-close-modal
+      aria-label="Cerrar tutorial"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        class="size-9"
+      >
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+
+    <div>
+      <div class="aspect-video overflow-hidden rounded-4xl border border-white/10 bg-black">
+        <video
+          class="tutorial-video-server h-full w-full hidden"
+          controls
+          playsinline
+          preload="metadata"
+        >
+          <source src="" type="video/mp4" />
+        </video>
+
+        <div class="tutorial-video-youtube-slot hidden h-full w-full"></div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import "@justinribeiro/lite-youtube";
+
+  function initTutorialVideoModal() {
+    const dialog = document.querySelector(
+      'dialog[data-modal="tutorial-video"]',
+    );
+
+    if (!(dialog instanceof HTMLDialogElement) || dialog.dataset.ready === "true") {
+      return;
+    }
+
+    const serverVideo = dialog.querySelector(".tutorial-video-server");
+    const serverSource = serverVideo?.querySelector("source");
+    const youtubeSlot = dialog.querySelector(".tutorial-video-youtube-slot");
+    const titleElement = dialog.querySelector(".tutorial-video-title");
+
+    if (
+      !(serverVideo instanceof HTMLVideoElement) ||
+      !(serverSource instanceof HTMLSourceElement) ||
+      !(youtubeSlot instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    const showServer = () => {
+      serverVideo.classList.remove("hidden");
+      youtubeSlot.classList.add("hidden");
+    };
+
+    const showYoutube = () => {
+      serverVideo.classList.add("hidden");
+      youtubeSlot.classList.remove("hidden");
+    };
+
+    const resetYoutube = () => {
+      youtubeSlot.innerHTML = "";
+    };
+
+    const resetServer = () => {
+      serverVideo.pause();
+      serverVideo.currentTime = 0;
+      serverSource.src = "";
+      serverVideo.load();
+    };
+
+    const updateTitle = (title: string) => {
+      if (!(titleElement instanceof HTMLElement)) return;
+      titleElement.textContent = title || "Tutorial";
+    };
+
+    const setYoutubeVideo = (videoId: string) => {
+      resetYoutube();
+      const youtubeElement = document.createElement("lite-youtube");
+      youtubeElement.setAttribute("videoid", videoId);
+      youtubeElement.className = "h-full w-full";
+      youtubeSlot.append(youtubeElement);
+    };
+
+    const bindTriggers = () => {
+      const triggers = Array.from(
+        document.querySelectorAll(
+          '.tutorial-card.open-modal[data-modal="tutorial-video"]',
+        ),
+      );
+
+      triggers.forEach((trigger) => {
+        if (!(trigger instanceof HTMLElement)) return;
+        if (trigger.dataset.videoBinded === "true") return;
+
+        trigger.addEventListener("click", () => {
+          const videoType = trigger.dataset.videoType;
+          const videoUrl = trigger.dataset.videoUrl;
+          const videoTitle = trigger.dataset.videoTitle;
+
+          if (!videoType || !videoUrl) return;
+
+          updateTitle(videoTitle || "Tutorial");
+
+          if (videoType === "youtube") {
+            resetServer();
+            setYoutubeVideo(videoUrl);
+            showYoutube();
+            return;
+          }
+
+          resetYoutube();
+          serverSource.src = videoUrl;
+          serverVideo.load();
+          showServer();
+        });
+
+        trigger.dataset.videoBinded = "true";
+      });
+    };
+
+    dialog.addEventListener("close", () => {
+      resetServer();
+      resetYoutube();
+      updateTitle("Tutorial");
+    });
+
+    bindTriggers();
+
+    document.addEventListener("astro:after-swap", bindTriggers, {
+      passive: true,
+    });
+
+    dialog.dataset.ready = "true";
+  }
+
+  document.addEventListener("astro:page-load", initTutorialVideoModal);
+  initTutorialVideoModal();
+</script>

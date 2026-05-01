@@ -9,21 +9,24 @@ const tutorials = [
     title: "Reconocimiento Facial desde la App",
     description:
       "Ingresar a tu propiedad ahora es más simple. El reconocimiento facial permite que ingreses de forma automática al acercarte. La configuración se realiza directamente desde la App Spotter, en simples pasos.",
-    video: "/video/tutorial-facial.mp4",
+    videoUrl: "PjkSW18a0is",
+    videoType: "youtube",
     poster: tuto4Poster,
   },
   {
     title: "Control de Accesos<br> con PIN",
     description:
       "¡Olvídate de bajar a abrir! Ahora el ingreso de tus visitas es más simple, gracias a nuestro acceso por PIN. Genera un PIN temporal válido por 24hs para compartirlo con tus visitas.",
-    video: "/video/tutorial-pin.mp4",
+    videoUrl: "PjkSW18a0is",
+    videoType: "youtube",
     poster: tuto2Poster,
   },
   {
     title: "Gestión de Alertas<br> en Tiempo Real",
     description:
       "Recibe notificaciones instantáneas ante cualquier evento. Nuestro sistema de detección avanzada te mantiene informado y te permite actuar de inmediato desde cualquier lugar.",
-    video: "/video/tutorial-alertas.mp4",
+    videoUrl: "PjkSW18a0is",
+    videoType: "youtube",
     poster: tuto1Poster,
   },
 ];
@@ -67,7 +70,14 @@ const tutorialSlides = [...tutorials, ...tutorials];
               class="swiper-slide h-auto!"
               aria-label={`Tutorial ${index + 1}`}
             >
-              <div class="tutorial-card group relative aspect-9/14 xg:aspect-9/12 overflow-hidden rounded-4xl">
+              <div
+                class="tutorial-card open-modal group relative aspect-9/14 xg:aspect-9/12 overflow-hidden rounded-4xl"
+                data-modal="tutorial-video"
+                data-video-url={tutorial.videoUrl}
+                data-video-type={tutorial.videoType}
+                data-video-title={tutorial.title.replace(/<br\s*\/?\s*>/gi, " ")}
+                aria-label={`Ver tutorial: ${tutorial.title.replace(/<br\s*\/?\s*>/gi, " ")}`}
+              >
                 <Image
                   class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   src={tutorial.poster}

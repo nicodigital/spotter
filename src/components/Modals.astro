@@ -1,8 +1,10 @@
 ---
 import ContactForm from "./modals/ContactForm.astro";
+import TutorialVideoModal from "./modals/TutorialVideoModal.astro";
 ---
 
 <ContactForm />
+<TutorialVideoModal />
 
 <style>
   :global(body.modal-open) {
@@ -23,7 +25,7 @@ import ContactForm from "./modals/ContactForm.astro";
   }
 
   :global(dialog[data-modal]::backdrop) {
-    background-color: color-mix(in srgb, var(--color-primary), transparent 45%);
+    background-color: rgb(0 0 0 / 0.78);
     opacity: 0;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
