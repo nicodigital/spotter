@@ -6,6 +6,9 @@
 @import "./modules/gradients.css";
 @import "./modules/tools.css";
 @import "./modules/animations.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 
 

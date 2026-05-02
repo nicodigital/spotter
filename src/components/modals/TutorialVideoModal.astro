@@ -152,6 +152,6 @@
     dialog.dataset.ready = "true";
   }
 
-  document.addEventListener("astro:page-load", initTutorialVideoModal);
-  initTutorialVideoModal();
+  document.addEventListener("DOMContentLoaded", () => initTutorialVideoModal());
+  document.addEventListener("astro:after-swap", () => initTutorialVideoModal());
 </script>

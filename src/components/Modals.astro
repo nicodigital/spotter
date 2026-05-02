@@ -97,7 +97,10 @@ import TutorialVideoModal from "./modals/TutorialVideoModal.astro";
       }
     };
 
-    const openDialog = (dialog: HTMLDialogElement, trigger?: TriggerElement) => {
+    const openDialog = (
+      dialog: HTMLDialogElement,
+      trigger?: TriggerElement,
+    ) => {
       if (activeDialog && activeDialog !== dialog) {
         closeDialog(activeDialog);
       }
@@ -139,12 +142,10 @@ import TutorialVideoModal from "./modals/TutorialVideoModal.astro";
         closeDialog(dialog);
       });
 
-      dialog
-        .querySelectorAll("[data-close-modal]")
-        .forEach((closeBtn) => {
-          if (!(closeBtn instanceof HTMLElement)) return;
-          closeBtn.addEventListener("click", () => closeDialog(dialog));
-        });
+      dialog.querySelectorAll("[data-close-modal]").forEach((closeBtn) => {
+        if (!(closeBtn instanceof HTMLElement)) return;
+        closeBtn.addEventListener("click", () => closeDialog(dialog));
+      });
 
       dialog.addEventListener("close", () => {
         dialog.dataset.show = "off";
@@ -185,6 +186,8 @@ import TutorialVideoModal from "./modals/TutorialVideoModal.astro";
     });
   }
 
-  document.addEventListener("astro:page-load", initModals);
-  initModals();
+  // document.addEventListener("astro:page-load", initModals);
+  // initModals();
+  document.addEventListener("DOMContentLoaded", () => initModals());
+  document.addEventListener("astro:after-swap", () => initModals());
 </script>
